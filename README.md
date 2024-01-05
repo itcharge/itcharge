@@ -10,7 +10,6 @@
 - 💬 Ask me about anything [here](https://github.com/itcharge/itcharge/issues)
 - 📫 How to reach me: [i@itcharge.cn](mailto:i@itcharge.cn)
 
-
 ## 🏆 Github Profile Trophy
 
 <a href="https://github.com/ryo-ma/github-profile-trophy">
@@ -19,7 +18,7 @@
 
 ---
 
-<!-- <div>
+<div>
   <img height="170" align="left" src="https://github-readme-stats.vercel.app/api?username=itcharge&count_private=true&include_all_commits=true" />
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=itcharge&hide_langs_below=1&theme=default&line_height=27&layout=compact" />
-</div> -->
+</div>
