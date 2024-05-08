@@ -1,21 +1,10 @@
----
-title: OC 知识：Foundation 框架详尽总结之『数组类』
-date: 2016-08-06 23:00:37
-tags:
-    - 技术
-    - iOS 开发
-categories:
-    - 00 - 技术 - iOS 开发
----
-
-
 > 本文对 Foundation 框架中的数组类（NSArray、MutableNSArray）的使用做一个详细的总结。
 
 <!--more-->
 
-# 1. NSArray
+## 1. NSArray
 
-## 1. NSArray介绍
+### 1.1 NSArray 介绍
 
 - NSArray是OC中的数组类，开发中建议尽量使用NSArray替代C语言中的数组
 - C语言中虽然也有数组，但在开发的过程中存在一些弊端
@@ -25,7 +14,7 @@ categories:
 - Foundation数组是有序的对象集合
 - 一般情况下，一个数组中的元素都是一种特定类型，但不是必需的
 
-## 2. NSArray的创建方式
+### 1.2 NSArray 的创建方式
 - `+ (instancetype)array;`
 - `+ (instancetype)arrayWithObject:(id)anObject;`
 - `+ (instancetype)arrayWithObjects:(id)firstObj, ...;`
@@ -33,7 +22,7 @@ categories:
 - `+ (id)arrayWithContentsOfFile:(NSString *)path;`
 - `+ (id)arrayWithContentsOfURL:(NSURL *)url;`
 
-## 3.NSArray 的使用注意事项
+### 1.3 NSArray 的使用注意事项
 
 - NSArray直接使用NSLog()作为字符串输出时是小括号括起来的形式。
 - 只能存放任意OC对象, 并且是有顺序的
@@ -51,7 +40,7 @@ NSLog(@"%@", arr);
 )
 ```
 
-## 4. NSArray的常用方法
+### 1.4 NSArray 的常用方法
 
 ```objc
 // 先定义一个数组，用于举例说明下面各个常用方法如何使用
@@ -120,7 +109,7 @@ NSLog(@"index = %lu",[arr indexOfObject:@"edf" inRange:range]);
 输出结果：index = 1
 ```
 
-## 5. NSArray的简写形式
+### 1.5 NSArray 的简写形式
 
 - 自从2012年开始，Xcode的编译器多了很多自动生成代码的功能，使得OC代码更加精简
 - 之前数组的创建方式
@@ -147,9 +136,9 @@ NSLog(@"index = %lu",[arr indexOfObject:@"edf" inRange:range]);
 array[index];
 ```
 
-## 6. NSArray 遍历
+### 1.6 NSArray 遍历
 
-### 1.NSArray的下标遍历
+#### 1.6.1 NSArray 的下标遍历
 
 ```objc
 NSArray *arr = @[@"abc", @"edf", @"hij"];
@@ -165,7 +154,7 @@ arr[2] = hij
 
 
 
-### 2. NSArray的快速遍历
+#### 1.6.2 NSArray 的快速遍历
 
 ```objc
 NSArray *arr = @[@"abc", @"edf", @"hij"];    
@@ -183,7 +172,7 @@ obj = hij
 
 ```
 
-### 3. NSArray 使用block进行遍历
+#### 1.6.3 NSArray 使用 block 进行遍历
 
 ```objc
 NSArray *arr = @[@"abc", @"edf", @"hij"];      
@@ -203,7 +192,7 @@ obj = abc, idx = 0
 obj = edf, idx = 1
 ```
 
-### 4. NSArray给所有元素发消息
+#### 1.6.4 NSArray 给所有元素发消息
 
 - 让集合里面的所有元素都执行aSelector这个方法
     - `- (void)makeObjectsPerformSelector:(SEL)aSelector;`
@@ -216,11 +205,11 @@ obj = edf, idx = 1
 [arr makeObjectsPerformSelector:@selector(eat:) withObject:@"bread"];
 ```
 
-## 7. NSArray排序
+### 1.7 NSArray 排序
 
-### 1.NSArray排序
+#### 1.7.1 NSArray 排序
 
-- Foundation自带类排序
+- Foundation 自带类排序
     - 使用compare方法对数组中的元素进行排序, 那么数组中的元素必须是Foundation框架中的对象, 也就是说不能是自定义对象
 
 ```objc
@@ -294,9 +283,9 @@ NSLog(@"排序后: %@", newArr);
 )
 ```
 
-## 8. NSArray文件读写
+### 1.8 NSArray 文件读写
 
-### 1. NSArray数据写入到文件中
+#### 1.8.1 NSArray 数据写入到文件中
 
 ```objc
 NSArray *arr = @[@"abc", @"def", @"hij", @"klm"];
@@ -307,7 +296,7 @@ NSLog(@"flag = %i", flag);
 输出结果：flag = 1
 ```
 
-### 2.从文件中读取数据到NSArray中
+#### 1.8.2 从文件中读取数据到 NSArray 中
 
 ```objc
 NSArray *newArr = [NSArray arrayWithContentsOfFile:@"/Users/Walkers/Desktop/test.plist"];
@@ -322,9 +311,9 @@ newArr = (
 )
 ```
 
-## 9. NSArray与字符串之间的转换
+### 1.9 NSArray 与字符串之间的转换
 
-### 1. 把数组元素链接成字符串
+#### 1.9.1 把数组元素链接成字符串
 - 用separator作拼接符将数组元素拼接成一个字符串`- (NSString *)componentsJoinedByString:(NSString *)separator;`
 
 ```objc
@@ -336,7 +325,7 @@ NSLog(@"res = %@", res);
 输出结果：res = abc*edf*hij*klm
 ```
 
-### 2. 字符串分割方法
+#### 1.9.2 字符串分割方法
 
 - 将字符串用separator作为分隔符切割成数组元素`- (NSArray *)componentsSeparatedByString:(NSString *)separator;`
 
@@ -357,15 +346,15 @@ arr = (
 
 ***
 
-# 2. NSMutableArray
+## 2. NSMutableArray
 
-## 1. NSMutableArray介绍
+### 2.1 NSMutableArray 介绍
 
 - NSMutableArray是NSArray的子类
 - NSArray是不可变的，一旦初始化完毕后，它里面的内容就永远是固定的，不能删除里面的元素，也不能再往里面添加元素
 - NSMutableArray是可变的，数组元素的个数未指定并且可以根据需要增长，随时可以往里面添加\更改\删除元素
 
-## 2. NSMutableArray基本用法
+### 2.2 NSMutableArray 基本用法
 
 - 创建空数组
 
@@ -546,7 +535,7 @@ NSLog(@"%@",arr);
 )
 ```
 
-## 3. NSMutableArray 错误用法
+### 2.3 NSMutableArray 错误用法
 
 - 不可以使用@[]创建可变数组
 

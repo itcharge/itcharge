@@ -1,34 +1,6 @@
----
-title: iOS 网络：『文件下载、断点下载』的实现（一）：NSURLConnection
-date: 2017-01-20 16:29:37
-tags:
-    - 技术
-    - iOS 开发
-categories:
-    - 00 - 技术 - iOS 开发
----
-
-> 目录
-> 1. 文件下载简介
-> 1.1 文件下载分类
-> 1.1.1 按文件大小划分
-> 1.1.2 按实现方法划分
-> 2. 文件下载实现讲解
-> 2.1 NSData（适用于小文件下载）
-> 2.2 NSURLConnection
-> 2.2.1 NSURLConnection（小文件下载）
-> 2.2.2 NSURLConnection（大文件下载）
-> 2.2.3 NSURLConnection（断点下载 | 支持离线）
-
 <!--more-->
 
-
-关于『文件下载、断点下载』所有实现的Demo地址：[Demo地址](https://github.com/bujige/YSC-DownloadDemo)
-
-iOS网络--『文件下载、断点下载』的实现相关文章：
-- [iOS网络--『文件下载、断点下载』的实现（一）：NSURLConnection](https://www.bujige.net/blog/iOS-Resume-Download-NSURLConnection.html)
-- [iOS网络--『文件下载、断点下载』的实现（二）：NSURLSession](https://www.bujige.net/blog/iOS-Resume-Download-NSURLSession.html)
-- [iOS网络--『文件下载、断点下载』的实现（三）：AFNetworking](https://www.bujige.net/blog/iOS-Resume-Download-AFNetworking.html)
+> 关于「文件下载、断点下载」所有实现的Demo地址：[Demo地址](https://github.com/itcharge/YSC-DownloadDemo)
 
 # 1. 文件下载简介
 
@@ -37,7 +9,9 @@ iOS网络--『文件下载、断点下载』的实现相关文章：
 下面我们就把文件下载相关方法和知识点总结一下。
 
 ## 1.1 文件下载分类
+
 ### 1.1.1 按文件大小划分
+
 按照开发中实际需求，如果按下载的文件大小来分类的话，可以分为：小文件下载、大文件下载。
 
 因为小文件下载基本不需要等待，可以使用返回整个文件的下载方式来进行文件下载，比如说图片。但是大文件下载需要考虑很多情况来改善用户体验，比如说：下载进度的显示、暂停下载以及断点续传、离线断点续传，还有下载时占用手机内存情况等等。
@@ -46,14 +20,14 @@ iOS网络--『文件下载、断点下载』的实现相关文章：
 
 如果按照开发中使用到的下载方法的话，我们可以使用NSData、NSURLConnection（iOS9.0之后舍弃）、NSURLSession（推荐），以及使用第三方框架AFNetworking等方式下载文件。
 
-下面我们就根据文件大小，以及对应的实现方法来讲解下『文件下载、断点下载』的具体实现。本文主要讲解NSData和NSURLConnection。
+下面我们就根据文件大小，以及对应的实现方法来讲解下「文件下载、断点下载」的具体实现。本文主要讲解NSData和NSURLConnection。
 
 # 2. 文件下载实现讲解
 
 ## 2.1 NSData（适用于小文件下载）
 
 
-![NSData小文件下载效果.gif](http://qncdn.bujige.net/images/iOS-Resume-Download-NSURLConnection-001.gif)
+![NSData小文件下载效果.gif](http://qcdn.itcharge.cn/images/iOS-Resume-Download-NSURLConnection-001.gif)
 
 - 我们可以使用NSData的 `+ (id)dataWithContentsOfURL:(NSURL *)url;`进行小文件的下载
 - 这个方法实际上是发送一次GET请求，然后返回整个文件。
@@ -76,7 +50,7 @@ NSData *data = [NSData dataWithContentsOfURL:url];
 ### 2.2.1 NSURLConnection（小文件下载）
 
 
-![NSURLConnection小文件下载效果.gif](http://qncdn.bujige.net/images/iOS-Resume-Download-NSURLConnection-002.gif)
+![NSURLConnection小文件下载效果.gif](http://qcdn.itcharge.cn/images/iOS-Resume-Download-NSURLConnection-002.gif)
 
 我们可以通过NSURLConnection发送异步GET请求来下载文件。
 
@@ -95,7 +69,7 @@ NSURL *url = [NSURL URLWithString:@"https://pics.sc.chinaz.com/files/pic/pic9/20
 ### 2.2.2 NSURLConnection（大文件下载）
 
 
-![NSURLConnection大文件下载效果.gif](http://qncdn.bujige.net/images/iOS-Resume-Download-NSURLConnection-003.gif)
+![NSURLConnection大文件下载效果.gif](http://qcdn.itcharge.cn/images/iOS-Resume-Download-NSURLConnection-003.gif)
 
 对于大文件的下载，我们就不能使用上边的方法来下载了。因为你如果是几百兆以上的大文件，那么上边的方法返回的data就会一直在内存里，这样内存必然会爆掉，所以用上边的方法不合适。那么我们可以使用NSURLConnection的另一个方法`+ (NSURLConnection*)connectionWithRequest:(NSURLRequest *)request delegate:(id)delegate`通过发送异步请求，并实现相关代理方法来实现大文件的下载。
 
@@ -244,7 +218,7 @@ NSURL *url = [NSURL URLWithString:@"https://bmob-cdn-8782.b0.upaiyun.com/2017/01
 
 ### 2.2.3 NSURLConnection（断点下载 | 支持离线）
 
-![NSURLConnection离线断点下载效果.gif](http://qncdn.bujige.net/images/iOS-Resume-Download-NSURLConnection-004.gif)
+![NSURLConnection离线断点下载效果.gif](http://qcdn.itcharge.cn/images/iOS-Resume-Download-NSURLConnection-004.gif)
 
 NSURLConnection并没有提供暂停下载的方法，只提供了取消下载任务的`cancel`方法。
 
@@ -411,4 +385,4 @@ Range请求头的格式为： `Range: bytes=start-end`
 }
 ```
 
-这样就使用NSURLConnection实现了『断点下载』的需求，并且支持程序被杀死，重新启动之后也能接着下载的需求。
+这样就使用NSURLConnection实现了「断点下载」的需求，并且支持程序被杀死，重新启动之后也能接着下载的需求。

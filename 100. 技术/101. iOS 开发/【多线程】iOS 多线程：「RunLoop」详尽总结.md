@@ -1,13 +1,3 @@
----
-title: iOS 多线程：『RunLoop』详尽总结
-date: 2016-11-10 17:34:37
-tags:
-    - 技术
-    - iOS 开发
-categories:
-    - 00 - 技术 - iOS 开发
----
-
 > 本文用来介绍 iOS 多线程中，RunLoop 的相关知识。主要包括如下内容：
 >
 > 1. RunLoop 简介
@@ -18,31 +8,28 @@ categories:
 >
 > 4. RunLoop 实战应用
 >
-> 文中 Demo 地址：[YSC-RunLoopDemo](https://github.com/bujige/YSC-RunLoopDemo)
-
-
+> 文中 Demo 地址：[YSC-RunLoopDemo](https://github.com/itcharge/YSC-RunLoopDemo)
 
 <!--more-->
 
 
-
 ## 1. RunLoop 简介
 
-### 1.1 什么是RunLoop？
+### 1.1 什么是 RunLoop？
 
-可以理解为字面意思：Run表示运行，Loop表示循环。结合在一起就是运行的循环的意思。哈哈，我更愿意翻译为『跑圈』。直观理解就像是不停的跑圈。
+可以理解为字面意思：Run 表示运行，Loop 表示循环。结合在一起就是运行的循环的意思。哈哈，我更愿意翻译为「跑圈」。直观理解就像是不停的跑圈。
 
-RunLoop实际上是一个对象，这个对象在循环中用来处理程序运行过程中出现的各种事件（比如说触摸事件、UI刷新事件、定时器事件、Selector事件），从而保持程序的持续运行；而且在没有事件处理的时候，会进入睡眠模式，从而节省CPU资源，提高程序性能。
+RunLoop 实际上是一个对象，这个对象在循环中用来处理程序运行过程中出现的各种事件（比如说触摸事件、UI 刷新事件、定时器事件、Selector 事件），从而保持程序的持续运行；而且在没有事件处理的时候，会进入睡眠模式，从而节省 CPU 资源，提高程序性能。
 
-### 1.2 RunLoop和线程
-RunLoop和线程是息息相关的，我们知道线程的作用是用来执行特定的一个或多个任务，但是在默认情况下，线程执行完之后就会退出，就不能再执行任务了。这时我们就需要采用一种方式来让线程能够处理任务，并不退出。所以，我们就有了RunLoop。
+### 1.2 RunLoop 和线程
+RunLoop 和线程是息息相关的，我们知道线程的作用是用来执行特定的一个或多个任务，但是在默认情况下，线程执行完之后就会退出，就不能再执行任务了。这时我们就需要采用一种方式来让线程能够处理任务，并不退出。所以，我们就有了 RunLoop。
 
-1. 一条线程对应一个RunLoop对象，每条线程都有唯一一个与之对应的RunLoop对象。
-2. 我们只能在当前线程中操作当前线程的RunLoop，而不能去操作其他线程的RunLoop。
-3. RunLoop对象在第一次获取RunLoop时创建，销毁则是在线程结束的时候。
-4. 主线程的RunLoop对象系统自动帮助我们创建好了(原理如下)，而子线程的RunLoop对象需要我们主动创建。
+1. 一条线程对应一个 RunLoop 对象，每条线程都有唯一一个与之对应的 RunLoop 对象。
+2. 我们只能在当前线程中操作当前线程的 RunLoop，而不能去操作其他线程的 RunLoop。
+3. RunLoop 对象在第一次获取 RunLoop 时创建，销毁则是在线程结束的时候。
+4. 主线程的 RunLoop 对象系统自动帮助我们创建好了（原理如下），而子线程的 RunLoop 对象需要我们主动创建。
 
-### 1.3 默认情况下主线程的RunLoop原理
+### 1.3 默认情况下主线程的 RunLoop 原理
 我们在启动一个iOS程序的时候，系统会调用创建项目时自动生成的main.m的文件。main.m文件如下所示：
 
 ```objc
@@ -71,11 +58,11 @@ int main(int argc, char * argv[]) {
 
 下图是苹果官方给出的RunLoop模型图。
 
-![官方RunLoop模型图](http://qncdn.bujige.net/images/iOS-Complete-learning-RunLoop-001.jpg)
+![官方RunLoop模型图](http://qcdn.itcharge.cn/images/iOS-Complete-learning-RunLoop-001.jpg)
 
 从上图中可以看出，RunLoop就是线程中的一个循环，RunLoop在循环中会不断检测，通过Input sources（输入源）和Timer sources（定时源）两种来源等待接受事件；然后对接受到的事件通知线程进行处理，并在没有事件的时候进行休息。
 
-## 2. RunLoop相关类
+## 2. RunLoop 相关类
 
 下面我们来了解一下Core Foundation框架下关于RunLoop的5个类，只有弄懂这几个类的含义，我们才能深入了解RunLoop运行机制。
 
@@ -89,11 +76,11 @@ int main(int argc, char * argv[]) {
 
 先来看一张表示这5个类的关系图（来源：[https://blog.ibireme.com/2015/05/18/runloop/](https://blog.ibireme.com/2015/05/18/runloop/)）。
 
-![RunLoop相关类关系图.png](http://qncdn.bujige.net/images/iOS-Complete-learning-RunLoop-002.png)
+![](http://qcdn.itcharge.cn/images/iOS-Complete-learning-RunLoop-002.png)
 
-接着来讲解这5个类的相互关系（来源：[https://blog.ibireme.com/2015/05/18/runloop/](https://blog.ibireme.com/2015/05/18/runloop/)），这篇文章总结的特别好，就拿来参考一下，有兴趣的朋友可以去看看，写的很好。
+接着来讲解这 5 个类的相互关系（来源：[https://blog.ibireme.com/2015/05/18/runloop/](https://blog.ibireme.com/2015/05/18/runloop/)），这篇文章总结的特别好，就拿来参考一下，有兴趣的朋友可以去看看，写的很好。
 
-一个RunLoop对象（CFRunLoopRef）中包含若干个运行模式（CFRunLoopModeRef）。而每一个运行模式下又包含若干个输入源（CFRunLoopSourceRef）、定时源（CFRunLoopTimerRef）、观察者（CFRunLoopObserverRef）。
+一个 RunLoop 对象（CFRunLoopRef）中包含若干个运行模式（CFRunLoopModeRef）。而每一个运行模式下又包含若干个输入源（CFRunLoopSourceRef）、定时源（CFRunLoopTimerRef）、观察者（CFRunLoopObserverRef）。
 
 - 每次RunLoop启动时，只能指定其中一个运行模式（CFRunLoopModeRef），这个运行模式（CFRunLoopModeRef）被称作CurrentMode。
 - 如果需要切换运行模式（CFRunLoopModeRef），只能退出Loop，再重新指定一个运行模式（CFRunLoopModeRef）进入。
@@ -207,16 +194,16 @@ CFRunLoopSourceRef是事件源（RunLoop模型图中提到过），CFRunLoopSour
 1. 在我们的项目中的Main.storyboard中添加一个Button按钮，并添加点击动作。
 2. 然后在点击动作的代码中加入一句输出语句，并打上断点，如下图所示：
 
-  ![添加Button.png](http://qncdn.bujige.net/images/iOS-Complete-learning-RunLoop-003.png)
+  ![添加Button.png](http://qcdn.itcharge.cn/images/iOS-Complete-learning-RunLoop-003.png)
 
 3. 然后运行程序，并点击按钮。
 4. 然后在项目中单击下下图红色部分。
 
-  ![函数调用栈展示图](http://qncdn.bujige.net/images/iOS-Complete-learning-RunLoop-004.png)
+  ![函数调用栈展示图](http://qcdn.itcharge.cn/images/iOS-Complete-learning-RunLoop-004.png)
 
 5. 可以看到如下图所示就是点击事件产生的函数调用栈。
 
-  ![函数调用栈](http://qncdn.bujige.net/images/iOS-Complete-learning-RunLoop-005.png)
+  ![函数调用栈](http://qcdn.itcharge.cn/images/iOS-Complete-learning-RunLoop-005.png)
 
 所以点击事件是这样来的：
 
@@ -266,7 +253,7 @@ typedef CF_OPTIONS(CFOptionFlags, CFRunLoopActivity) {
 
 2. 然后运行，看下打印结果，如下图。
 
-![打印结果](http://qncdn.bujige.net/images/iOS-Complete-learning-RunLoop-006.png)
+![打印结果](http://qcdn.itcharge.cn/images/iOS-Complete-learning-RunLoop-006.png)
 
 可以看到RunLoop的状态在不断的改变，最终变成了状态 32，也就是即将进入睡眠状态，说明RunLoop之后就会进入睡眠状态。
 
@@ -276,7 +263,7 @@ typedef CF_OPTIONS(CFOptionFlags, CFRunLoopActivity) {
 
 下边上一张之前提到的文章中博主提供的运行逻辑图（来源：https://blog.ibireme.com/2015/05/18/runloop/）
 
-![RunLoop运行逻辑图](http://qncdn.bujige.net/images/iOS-Complete-learning-RunLoop-007.png)
+![RunLoop运行逻辑图](http://qcdn.itcharge.cn/images/iOS-Complete-learning-RunLoop-007.png)
 
 这张图对于我们理解RunLoop来说太有帮助了，下边我们可以来说下官方文档给我们的RunLoop逻辑。
 
@@ -332,11 +319,11 @@ NSTimer的使用方法在讲解`CFRunLoopTimerRef`类的时候详细讲解过，
 下边利用Demo演示一下该方法。
 1. 在项目中的Main.storyboard中添加一个UIImageView，并添加属性，并简单添加一下约束（不然无法显示）如下图所示。
 
-  ![添加UIImageView](http://qncdn.bujige.net/images/iOS-Complete-learning-RunLoop-008.png)
+  ![添加UIImageView](http://qcdn.itcharge.cn/images/iOS-Complete-learning-RunLoop-008.png)
 
 2. 在项目中拖入一张图片，比如下图。
 
-  ![tupian.jpg](http://qncdn.bujige.net/images/iOS-Complete-learning-RunLoop-009.jpg)
+  ![tupian.jpg](http://qcdn.itcharge.cn/images/iOS-Complete-learning-RunLoop-009.jpg)
 
 3. 然后我们在`touchesBegan`方法中添加下面的代码，在[Demo](https://github.com/lianai911/YSC-RunLoopDemo)中请在`touchesBegan`中调用`[self showDemo3];`方法。
   ```objc
@@ -347,7 +334,7 @@ NSTimer的使用方法在讲解`CFRunLoopTimerRef`类的时候详细讲解过，
   ```
 4. 运行程序，点击一下屏幕，然后拖动UIText View，拖动4秒以上，发现过了4秒之后，UIImageView还没有显示图片，当我们松开的时候，则显示图片，效果如下：
 
-![UIImageView延迟显示效果.gif](http://qncdn.bujige.net/images/iOS-Complete-learning-RunLoop-010.gif)
+![UIImageView延迟显示效果.gif](http://qcdn.itcharge.cn/images/iOS-Complete-learning-RunLoop-010.gif)
 
 这样我们就实现了在拖动完之后，在延迟显示UIImageView。
 
@@ -363,7 +350,7 @@ NSTimer的使用方法在讲解`CFRunLoopTimerRef`类的时候详细讲解过，
 
 1. 在项目的ViewController.m中添加一条强引用的thread线程属性，如下图：
 
-  ![添加thread属性](http://qncdn.bujige.net/images/iOS-Complete-learning-RunLoop-011.png)
+  ![添加thread属性](http://qcdn.itcharge.cn/images/iOS-Complete-learning-RunLoop-011.png)
 
 2. 在viewDidLoad中创建线程self.thread，使线程启动并执行run1方法，代码如下。在[Demo](https://github.com/lianai911/YSC-RunLoopDemo)中，请在viewDidLoad调用`[self showDemo4];`方法。
 
@@ -412,11 +399,3 @@ NSTimer的使用方法在讲解`CFRunLoopTimerRef`类的时候详细讲解过，
 
 经过运行测试，除了之前打印的**----run1-----**，每当我们点击屏幕，都能调用**----run2------**。
 这样我们就实现了常驻线程的需求。
-
-***
-彻底学会多线程系列其他文章：
-- [iOS多线程--彻底学会多线程之『pthread、NSThread』
-](https://bujige.net/blog/iOS-Complete-learning-pthread-and-NSThread.html)
-- [iOS多线程--彻底学会多线程之『GCD』](https://bujige.net/blog/iOS-Complete-learning-GCD.html)
-- [iOS多线程--彻底学会多线程之『NSOperation』
-](https://bujige.net/blog/iOS-Complete-learning-NSOperation.html)

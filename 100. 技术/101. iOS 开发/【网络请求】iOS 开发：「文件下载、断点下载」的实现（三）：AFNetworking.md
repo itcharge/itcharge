@@ -1,39 +1,19 @@
----
-title: iOS 网络：『文件下载、断点下载』的实现（三）：AFNetworking
-date: 2017-01-20 16:53:37
-tags:
-    - 技术
-    - iOS 开发
-categories:
-    - 00 - 技术 - iOS 开发
----
-
-> 目录
-> 1. AFNetworking下载简介
-> 2. AFNetworking下载相关
-> 2.1 AFNetworking（文件下载）
-> 2.2 AFNetworking（断点下载 | 支持离线）
-
 <!--more-->
 
-关于『文件下载、断点下载』所有实现的Demo地址：[Demo地址](https://github.com/bujige/YSC-DownloadDemo)
+> 关于「文件下载、断点下载」所有实现的Demo地址：[Demo地址](https://github.com/itcharge/YSC-DownloadDemo)
 
+## 1. AFNetworking下载简介
 
-
-iOS网络--『文件下载、断点下载』的实现相关文章：
-- [iOS网络--『文件下载、断点下载』的实现（一）：NSURLConnection](https://www.bujige.net/blog/iOS-Resume-Download-NSURLConnection.html)
-- [iOS网络--『文件下载、断点下载』的实现（二）：NSURLSession](https://www.bujige.net/blog/iOS-Resume-Download-NSURLSession.html)
-- [iOS网络--『文件下载、断点下载』的实现（三）：AFNetworking](https://www.bujige.net/blog/iOS-Resume-Download-AFNetworking.html)
-
-# 1. AFNetworking下载简介
 这里只讲解AFNetworking下载文件相关知识。对于第三方框架的导入在这里不做讲解，如果有问题可以上AFNetworking的GitHub上了解。—> [AFNetworking官方地址](https://github.com/AFNetworking/AFNetworking)
 
-# 2. AFNetworking下载相关
-## 2.1 AFNetworking（文件下载）
+## 2. AFNetworking下载相关
 
-![AAFNetworking（文件下载）效果.gif](http://qncdn.bujige.net/images/iOS-Resume-Download-AFNetworking-001.gif)
+### 2.1 AFNetworking（文件下载）
+
+![](http://qcdn.itcharge.cn/images/iOS-Resume-Download-AFNetworking-001.gif)
 
 AFNetworking实现文件下载总共四步：
+
 1. 创建会话管理者
 2. 创建下载路径和请求对象
 3. 创建下载任务
@@ -82,18 +62,18 @@ NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:reques
 // 4. 开启下载任务
 [downloadTask resume];
 ```
-## 2.2 AFNetworking（断点下载 | 支持离线）
 
+### 2.2 AFNetworking（断点下载 | 支持离线）
 
-![AFNetworking（断点下载 | 支持离线）下载效果.gif](https://upload-images.jianshu.io/upload_images/1877784-6b4af856e6fdb008.gif?imageMogr2/auto-orient/strip)
-
+![](http://qcdn.itcharge.cn/images/20210729145510.gif)
 
 - AFNetworking3.0是基于NSURLSession的。所以实现原理和NSURLSession差不多。可参考NSURLConnection实现断点下载的方法。
-  - 相关文章链接：[iOS网络--『文件下载、断点下载』的实现（二）：NSURLSession](https://www.jianshu.com/p/5a07352e9473)。
+  - 相关文章链接：[iOS网络--「文件下载、断点下载」的实现（二）：NSURLSession](https://www.jianshu.com/p/5a07352e9473)。
 
-这里使用了NSURLSessionDataTask，以便实现『离线断点下载』。
+这里使用了NSURLSessionDataTask，以便实现「离线断点下载」。
 
 具体实现步骤如下：
+
 1. 定义下载文件需要用到的类，这里不需要实现代理
 
 ```objc
@@ -120,7 +100,7 @@ NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:reques
 @end
 ```
 
-- 添加全局NSURLSessionDataTask、AFURLSessionManager懒加载代码。这里我把实现『离线断点下载』的代码都放这里了。
+- 添加全局NSURLSessionDataTask、AFURLSessionManager懒加载代码。这里我把实现「离线断点下载」的代码都放这里了。
 
 ```objc
 /**
@@ -266,4 +246,4 @@ NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:reques
 
 ```
 
-这样我们用AFNetworking也实现了『离线断点下载』的需求。
+这样我们用 AFNetworking 也实现了「离线断点下载」的需求。

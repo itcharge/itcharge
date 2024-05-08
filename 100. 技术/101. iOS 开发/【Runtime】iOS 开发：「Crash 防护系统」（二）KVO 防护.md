@@ -1,20 +1,10 @@
----
-title: iOS 开发：『Crash 防护系统』（二）KVO 防护
-date: 2019-08-25 17:07:31
-tags:
-    - 技术
-    - iOS 开发
-categories:
-    - 00 - 技术 - iOS 开发
----
-
-> 本文是 **『Crash 防护系统』系列** 第二篇。通过本文，您将了解到：
+> 本文是 **「Crash 防护系统」系列** 第二篇。通过本文，您将了解到：
 > 1. KVO Crash 的主要原因
 > 2. KVO 防止 Crash 的常见方案
 > 3. 我的 KVO 防护实现
 > 4. 测试 KVO 防护效果
-> 
-> 文中示例代码在： [bujige](https://github.com/bujige) / **[YSC-Avoid-Crash](https://github.com/bujige/YSC-Avoid-Crash)**
+>
+> 文中示例代码在： [itcharge](https://github.com/itcharge) / **[YSC-Avoid-Crash](https://github.com/itcharge/YSC-Avoid-Crash)**
 
 <!--more-->
 
@@ -22,7 +12,7 @@ categories:
 
 
 
-![](http://qncdn.bujige.net/images/iOS-YSCDefender-02-001.jpg)
+![](http://qcdn.itcharge.cn/images/iOS-YSCDefender-02-001.jpg)
 
 ---
 
@@ -551,3 +541,4 @@ static void *KVODefenderKey = &KVODefenderKey;
 - [iOS-APP-运行时防 Crash 工具 XXShield 练就 - 茶茶的小屋](https://www.valiantcat.cn/index.php/2017/11/04/57.html#menu_index_6)
 - [iOS 中的 crash 防护（三）KVO 造成的crash](https://blog.csdn.net/hanhailong18/article/details/73034017)
 - [iOS KVO crash 自修复技术实现与原理解析](https://yq.aliyun.com/articles/432669?spm=5176.10695662.1996646101.searchclickresult.76b3110eHrDn8B)
+

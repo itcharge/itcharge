@@ -1,25 +1,14 @@
----
-title: iOS 多线程：『NSOperation、NSOperationQueue』详尽总结
-date: 2018-03-06 15:38:52
-tags:
-    - 技术
-    - iOS 开发
-categories:
-    - 00 - 技术 - iOS 开发
----
-
-
 > 本文用来介绍 iOS 多线程中 NSOperation、NSOperationQueue 的相关知识以及使用方法。
 > 通过本文，您将了解到：
 > **NSOperation、NSOperationQueue 简介**、**操作和操作队列**、**使用步骤和基本使用方法**、**控制串行/并发执行**、**NSOperation 操作依赖和优先级**、**线程间的通信**、**线程同步和线程安全**，以及 **NSOperation、NSOperationQueue 常用属性和方法归纳**。
 
 <!--more-->
 
-![](http://qncdn.bujige.net/images/iOS-Complete-learning-NSOperation-001.png)
+![](http://qcdn.itcharge.cn/images/iOS-Complete-learning-NSOperation-001.png)
 
-> 文中 Demo 我已放在了 Github 上，Demo 链接：[传送门](https://github.com/bujige/YSC-NSOperation-demo)
+> 文中 Demo 我已放在了 Github 上，Demo 链接：[传送门](https://github.com/itcharge/YSC-NSOperation-demo)
 
-# 1. NSOperation、NSOperationQueue 简介
+## 1. NSOperation、NSOperationQueue 简介
 
 NSOperation、NSOperationQueue 是苹果提供给我们的一套多线程解决方案。实际上 NSOperation、NSOperationQueue 是基于 GCD 更高一层的封装，完全面向对象。但是比 GCD 更简单易用、代码可读性也更高。
 
@@ -30,7 +19,7 @@ NSOperation、NSOperationQueue 是苹果提供给我们的一套多线程解决�
 4. 可以很方便的取消一个操作的执行。
 5. 使用 KVO 观察对操作执行状态的更改：isExecuteing、isFinished、isCancelled。
 
-# 2. NSOperation、NSOperationQueue 操作和操作队列
+## 2. NSOperation、NSOperationQueue 操作和操作队列
 
 既然是基于 GCD 的更高一层的封装。那么，GCD 中的一些概念同样适用于 NSOperation、NSOperationQueue。在 NSOperation、NSOperationQueue 中也有类似的**任务（操作）**和**队列（操作队列）**的概念。
 
@@ -42,7 +31,7 @@ NSOperation、NSOperationQueue 是苹果提供给我们的一套多线程解决�
     - 操作队列通过设置**最大并发操作数（maxConcurrentOperationCount）**来控制并发、串行。
     - NSOperationQueue 为我们提供了两种不同类型的队列：主队列和自定义队列。主队列运行在主线程之上，而自定义队列在后台执行。
 
-# 3. NSOperation、NSOperationQueue 使用步骤
+## 3. NSOperation、NSOperationQueue 使用步骤
 
 NSOperation 需要配合 NSOperationQueue 来实现多线程。因为默认情况下，NSOperation 单独使用时系统同步执行操作，配合 NSOperationQueue 我们能更好的实现异步执行。
 
@@ -56,9 +45,9 @@ NSOperation 实现多线程的使用步骤分为三步：
 
 下面我们来学习下 NSOperation 和 NSOperationQueue 的基本使用。
 
-# 4. NSOperation 和 NSOperationQueue 基本使用
+## 4. NSOperation 和 NSOperationQueue 基本使用
 
-## 4.1 创建操作
+### 4.1 创建操作
 
 NSOperation 是个抽象类，不能用来封装操作。我们只有使用它的子类来封装操作。我们有三种方式来封装操作。
 
@@ -68,7 +57,7 @@ NSOperation 是个抽象类，不能用来封装操作。我们只有使用它�
 
 在不使用 NSOperationQueue，单独使用 NSOperation 的情况下系统同步执行操作，下面我们学习以下操作的三种创建方式。
 
-### 4.1.1 使用子类 `NSInvocationOperation`
+#### 4.1.1 使用子类 `NSInvocationOperation`
 
 ```objc
 /**
@@ -95,7 +84,7 @@ NSOperation 是个抽象类，不能用来封装操作。我们只有使用它�
 ```
 
 > 输出结果：
-> ![](http://qncdn.bujige.net/images/iOS-Complete-learning-NSOperation-002.png)
+> ![](http://qcdn.itcharge.cn/images/iOS-Complete-learning-NSOperation-002.png)
 
 - 可以看到：在没有使用 NSOperationQueue、在主线程中单独使用使用子类 NSInvocationOperation 执行一个操作的情况下，操作是在当前线程执行的，并没有开启新线程。
 
@@ -106,13 +95,13 @@ NSOperation 是个抽象类，不能用来封装操作。我们只有使用它�
 ```
 
 > 输出结果：
-> ![](http://qncdn.bujige.net/images/iOS-Complete-learning-NSOperation-003.png)
+> ![](http://qcdn.itcharge.cn/images/iOS-Complete-learning-NSOperation-003.png)
 
 - 可以看到：在其他线程中单独使用子类 NSInvocationOperation，操作是在当前调用的其他线程执行的，并没有开启新线程。
 
 下边再来看看 NSBlockOperation。
 
-### 4.1.2 使用子类 `NSBlockOperation`
+#### 4.1.2 使用子类 `NSBlockOperation`
 
 ```objc
 /**
@@ -134,7 +123,7 @@ NSOperation 是个抽象类，不能用来封装操作。我们只有使用它�
 ```
 
 > 输出结果：
-> ![](http://qncdn.bujige.net/images/iOS-Complete-learning-NSOperation-004.png)
+> ![](http://qcdn.itcharge.cn/images/iOS-Complete-learning-NSOperation-004.png)
 
 - 可以看到：在没有使用 NSOperationQueue、在主线程中单独使用 NSBlockOperation 执行一个操作的情况下，操作是在当前线程执行的，并没有开启新线程。
 
@@ -210,13 +199,13 @@ NSOperation 是个抽象类，不能用来封装操作。我们只有使用它�
 ```
 
 > 输出结果：
-> ![](http://qncdn.bujige.net/images/iOS-Complete-learning-NSOperation-005.png)
+> ![](http://qcdn.itcharge.cn/images/iOS-Complete-learning-NSOperation-005.png)
 
 - 可以看出：使用子类 `NSBlockOperation`，并调用方法 `AddExecutionBlock:` 的情况下，`blockOperationWithBlock:`方法中的操作 和 `addExecutionBlock:` 中的操作是在不同的线程中异步执行的。而且，这次执行结果中 `blockOperationWithBlock:`方法中的操作也不是在当前线程（主线程）中执行的。从而印证了` blockOperationWithBlock:` 中的操作也可能会在其他线程（非当前线程）中执行。
 
 一般情况下，如果一个 NSBlockOperation 对象封装了多个操作。NSBlockOperation 是否开启新线程，取决于操作的个数。如果添加的操作的个数多，就会自动开启新线程。当然开启的线程数是由系统来决定的。
 
-### 4.1.3 使用自定义继承自 NSOperation 的子类
+#### 4.1.3 使用自定义继承自 NSOperation 的子类
 
 如果使用子类 NSInvocationOperation、NSBlockOperation 不能满足日常需求，我们可以使用自定义继承自 NSOperation 的子类。可以通过重写 `main` 或者 `start` 方法 来定义自己的 NSOperation 对象。重写`main`方法比较简单，我们不需要管理操作的状态属性 `isExecuting` 和 `isFinished`。当 `main` 执行完返回的时候，这个操作就结束了。
 
@@ -262,14 +251,14 @@ NSOperation 是个抽象类，不能用来封装操作。我们只有使用它�
 ```
 
 > 输出结果：
-> ![](http://qncdn.bujige.net/images/iOS-Complete-learning-NSOperation-006.png)
+> ![](http://qcdn.itcharge.cn/images/iOS-Complete-learning-NSOperation-006.png)
 
 - 可以看出：在没有使用 NSOperationQueue、在主线程单独使用自定义继承自 NSOperation 的子类的情况下，是在主线程执行操作，并没有开启新线程。
 
 
 下边我们来讲讲 NSOperationQueue 的创建。
 
-## 4.2 创建队列
+### 4.2 创建队列
 
 NSOperationQueue 一共有两种队列：主队列、自定义队列。其中自定义队列同时包含了串行、并发功能。下边是主队列、自定义队列的基本创建方法和特点。
 - 主队列
@@ -289,7 +278,7 @@ NSOperationQueue *queue = [NSOperationQueue mainQueue];
 NSOperationQueue *queue = [[NSOperationQueue alloc] init];
 ```
 
-## 4.3 将操作加入到队列中
+### 4.3 将操作加入到队列中
 
 上边我们说到 NSOperation 需要配合 NSOperationQueue 来实现多线程。
 
@@ -336,7 +325,7 @@ NSOperationQueue *queue = [[NSOperationQueue alloc] init];
 ```
 
 > 输出结果：
-> ![](http://qncdn.bujige.net/images/iOS-Complete-learning-NSOperation-007.png)
+> ![](http://qcdn.itcharge.cn/images/iOS-Complete-learning-NSOperation-007.png)
 
 - 可以看出：使用 NSOperation 子类创建操作，并使用 `addOperation:` 将操作加入到操作队列后能够开启新线程，进行并发执行。 
 
@@ -375,11 +364,11 @@ NSOperationQueue *queue = [[NSOperationQueue alloc] init];
 ```
 
 > 输出结果：
-> ![](http://qncdn.bujige.net/images/iOS-Complete-learning-NSOperation-008.png)
+> ![](http://qcdn.itcharge.cn/images/iOS-Complete-learning-NSOperation-008.png)
 
 - 可以看出：使用 addOperationWithBlock: 将操作加入到操作队列后能够开启新线程，进行并发执行。 
 
-# 5. NSOperationQueue 控制串行执行、并发执行
+## 5. NSOperationQueue 控制串行执行、并发执行
 
 之前我们说过，NSOperationQueue 创建的自定义队列同时具有串行、并发功能，上边我们演示了并发功能，那么他的串行功能是如何实现的？
 
@@ -436,15 +425,15 @@ NSOperationQueue *queue = [[NSOperationQueue alloc] init];
 
 
 > 最大并发操作数为1 输出结果：
-> ![](http://qncdn.bujige.net/images/iOS-Complete-learning-NSOperation-009.png)
+> ![](http://qcdn.itcharge.cn/images/iOS-Complete-learning-NSOperation-009.png)
 > 最大并发操作数为2 输出结果：
-> ![](http://qncdn.bujige.net/images/iOS-Complete-learning-NSOperation-010.png)
+> ![](http://qcdn.itcharge.cn/images/iOS-Complete-learning-NSOperation-010.png)
 
 - 可以看出：当最大并发操作数为1时，操作是按顺序串行执行的，并且一个操作完成之后，下一个操作才开始执行。当最大操作并发数为2时，操作是并发执行的，可以同时执行两个操作。而开启线程数量是由系统决定的，不需要我们来管理。
 
 这样看来，是不是比 GCD 还要简单了许多？
 
-# 6. NSOperation 操作依赖
+## 6. NSOperation 操作依赖
 
 NSOperation、NSOperationQueue 最吸引人的地方是它能添加操作之间的依赖关系。通过操作依赖，我们可以很方便的控制操作之间的执行先后顺序。NSOperation 提供了3个接口供我们管理和查看依赖。
 
@@ -490,12 +479,12 @@ NSOperation、NSOperationQueue 最吸引人的地方是它能添加操作之间�
 ```
 
 > 输出结果：
-> ![](http://qncdn.bujige.net/images/iOS-Complete-learning-NSOperation-011.png)
+> ![](http://qcdn.itcharge.cn/images/iOS-Complete-learning-NSOperation-011.png)
 
 
 - 可以看到：通过添加操作依赖，无论运行几次，其结果都是 op1 先执行，op2 后执行。
 
-# 7. NSOperation 优先级
+## 7. NSOperation 优先级
 
 NSOperation 提供了`queuePriority`（优先级）属性，`queuePriority`属性适用于同一操作队列中的操作，不适用于不同操作队列中的操作。默认情况下，所有新创建的操作对象优先级都是`NSOperationQueuePriorityNormal`。但是我们可以通过`setQueuePriority:`方法来改变当前操作在同一队列中的执行优先级。
 
@@ -527,7 +516,7 @@ typedef NS_ENUM(NSInteger, NSOperationQueuePriority) {
 - 如果一个队列中既包含高优先级操作，又包含低优先级操作，并且两个操作都已经准备就绪，那么队列先执行高优先级操作。比如上例中，如果 op1 和 op4 是不同优先级的操作，那么就会先执行优先级高的操作。
 - 如果，一个队列中既包含了准备就绪状态的操作，又包含了未准备就绪的操作，未准备就绪的操作优先级比准备就绪的操作优先级高。那么，虽然准备就绪的操作优先级低，也会优先执行。优先级不能取代依赖关系。如果要控制操作间的启动顺序，则必须使用依赖关系。
 
-# 8. NSOperation、NSOperationQueue 线程间的通信
+## 8. NSOperation、NSOperationQueue 线程间的通信
 
 在 iOS 开发过程中，我们一般在主线程里边进行 UI 刷新，例如：点击、滚动、拖拽等事件。我们通常把一些耗时的操作放在其他线程，比如说图片下载、文件上传等耗时操作。而当我们有时候在其他线程完成了耗时操作时，需要回到主线程，那么就用到了线程之间的通讯。
 
@@ -562,11 +551,11 @@ typedef NS_ENUM(NSInteger, NSOperationQueuePriority) {
 ```
 
 > 输出结果：
-> ![](http://qncdn.bujige.net/images/iOS-Complete-learning-NSOperation-012.png)
+> ![](http://qcdn.itcharge.cn/images/iOS-Complete-learning-NSOperation-012.png)
 
 - 可以看到：通过线程间的通信，先在其他线程中执行操作，等操作执行完了之后再回到主线程执行主线程的相应操作。
 
-# 9. NSOperation、NSOperationQueue 线程同步和线程安全 
+## 9. NSOperation、NSOperationQueue 线程同步和线程安全 
 
 - **线程安全**：如果你的代码所在的进程中有多个线程在同时运行，而这些线程可能会同时运行这段代码。如果每次运行结果和单线程运行的结果是一样的，而且其他的变量的值也和预期的是一样的，就是线程安全的。
 若每个线程中对全局变量、静态变量只有读操作，而无写操作，一般来说，这个全局变量是线程安全的；若有多个线程同时执行写操作（更改变量），一般都需要考虑线程同步，否则的话就可能影响线程安全。
@@ -577,7 +566,7 @@ typedef NS_ENUM(NSInteger, NSOperationQueuePriority) {
 下面，我们模拟火车票售卖的方式，实现 NSOperation 线程安全和解决线程同步问题。
 场景：总共有50张火车票，有两个售卖火车票的窗口，一个是北京火车票售卖窗口，另一个是上海火车票售卖窗口。两个窗口同时售卖火车票，卖完为止。
 
-## 9.1 NSOperation、NSOperationQueue 非线程安全
+### 9.1 NSOperation、NSOperationQueue 非线程安全
 
 先来看看不考虑线程安全的代码：
 
@@ -635,13 +624,13 @@ typedef NS_ENUM(NSInteger, NSOperationQueuePriority) {
 ```
 
 > 输出结果：
-> ![](http://qncdn.bujige.net/images/iOS-Complete-learning-NSOperation-013.png)
+> ![](http://qcdn.itcharge.cn/images/iOS-Complete-learning-NSOperation-013.png)
 > ......
-> ![](http://qncdn.bujige.net/images/iOS-Complete-learning-NSOperation-014.png)
+> ![](http://qcdn.itcharge.cn/images/iOS-Complete-learning-NSOperation-014.png)
 
 - 可以看到：在不考虑线程安全，不使用 NSLock 情况下，得到票数是错乱的，这样显然不符合我们的需求，所以我们需要考虑线程安全问题。
 
-## 9.2 NSOperation、NSOperationQueue 线程安全
+### 9.2 NSOperation、NSOperationQueue 线程安全
 
 线程安全解决方案：可以给线程加锁，在一个线程执行该操作的时候，不允许其他线程进行操作。iOS 实现线程加锁有很多种方式。@synchronized、 NSLock、NSRecursiveLock、NSCondition、NSConditionLock、pthread_mutex、dispatch_semaphore、OSSpinLock、atomic(property) set/ge等等各种方式。这里我们使用 NSLock 对象来解决线程同步问题。NSLock 对象可以通过进入锁时调用 lock 方法，解锁时调用 unlock 方法来保证线程安全。
 
@@ -713,15 +702,15 @@ typedef NS_ENUM(NSInteger, NSOperationQueuePriority) {
 ```
 
 > 输出结果：
-> ![](http://qncdn.bujige.net/images/iOS-Complete-learning-NSOperation-015.png)
+> ![](http://qcdn.itcharge.cn/images/iOS-Complete-learning-NSOperation-015.png)
 > ......
-> ![](http://qncdn.bujige.net/images/iOS-Complete-learning-NSOperation-016.png)
+> ![](http://qcdn.itcharge.cn/images/iOS-Complete-learning-NSOperation-016.png)
 
 - 可以看出：在考虑了线程安全，使用 NSLock 加锁、解锁机制的情况下，得到的票数是正确的，没有出现混乱的情况。我们也就解决了多个线程同步的问题。
 
-# 10. NSOperation、NSOperationQueue 常用属性和方法归纳
+## 10. NSOperation、NSOperationQueue 常用属性和方法归纳
 
-## 10.1 NSOperation 常用属性和方法
+### 10.1 NSOperation 常用属性和方法
 
 1. 取消操作方法
     - `- (void)cancel;` 可取消操作，实质是标记 isCancelled 状态。
@@ -737,7 +726,7 @@ typedef NS_ENUM(NSInteger, NSOperationQueuePriority) {
     - `- (void)removeDependency:(NSOperation *)op;` 移除依赖，取消当前操作对操作 op 的依赖。
     - `@property (readonly, copy) NSArray<NSOperation *> *dependencies;` 在当前操作开始执行之前完成执行的所有操作对象数组。
 
-## 10.2 NSOperationQueue 常用属性和方法
+### 10.2 NSOperationQueue 常用属性和方法
 
 1. 取消/暂停/恢复操作
     - `- (void)cancelAllOperations;` 可以取消队列的所有操作。
@@ -757,16 +746,3 @@ typedef NS_ENUM(NSInteger, NSOperationQueuePriority) {
 > 注意：
 > 1. 这里的暂停和取消（包括操作的取消和队列的取消）并不代表可以将当前的操作立即取消，而是当当前的操作执行完毕之后不再执行新的操作。
 > 2. 暂停和取消的区别就在于：暂停操作之后还可以恢复操作，继续向下执行；而取消操作之后，所有的操作就清空了，无法再接着执行剩下的操作。
-
-***
-参考资料：
-- [苹果官方——并发编程指南：Operation Queues](https://developer.apple.com/library/content/documentation/General/Conceptual/ConcurrencyProgrammingGuide/OperationObjects/OperationObjects.html) **推荐看看**
-- [苹果官方文档：NSOperation](https://developer.apple.com/documentation/foundation/nsoperation?language=occ)
-- [Objc 中国：并发编程：API 及挑战](https://objccn.io/issue-2-1/)
-
-***
-iOS多线程详尽总结系列文章：
-- [iOS多线程：『pthread、NSThread』详尽总结](https://bujige.net/blog/iOS-Complete-learning-pthread-and-NSThread.html)
-- [iOS多线程：『GCD』详解总结](https://bujige.net/blog/iOS-Complete-learning-GCD.html)
-- [iOS多线程：『NSOperation』详解总结](https://bujige.net/blog/iOS-Complete-learning-NSOperation.html)
-- [iOS多线程：『RunLoop』详解总结](https://bujige.net/blog/iOS-Complete-learning-RunLoop.html)

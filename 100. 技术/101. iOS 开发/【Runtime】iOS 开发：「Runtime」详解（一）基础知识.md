@@ -1,15 +1,4 @@
----
-
-title: iOS 开发：『Runtime』详解（一）基础知识
-date: 2019-06-17 16:44:46
-tags:
-    - 技术
-    - iOS 开发
-categories:
-    - 00 - 技术 - iOS 开发
----
-
-> 本文用来介绍  iOS 开发中『Runtime』相关的基础知识。通过本文，您将了解到：
+> 本文用来介绍  iOS 开发中「Runtime」相关的基础知识。通过本文，您将了解到：
 > 1. 什么是 Runtime？
 > 2. 消息机制的基本原理
 > 3. Runtime 中的概念解析（objc_msgSend 、Class、Object、Meta Class、Method）
@@ -22,7 +11,7 @@ categories:
 
 
 
-![](http://qncdn.bujige.net/images/iOS-Runtime-01-001.png)
+![](http://qcdn.itcharge.cn/images/iOS-Runtime-01-001.png)
 
 # 1. 什么是 Runtime？
 
@@ -32,7 +21,7 @@ categories:
 
 而 `Objective-C 语言` 是一门动态语言。在编译阶段并不知道变量的具体数据类型，也不知道所真正调用的哪个函数。只有在运行时间才检查变量的数据类型，同时在运行时才会根据函数名查找要调用的具体函数。这样在程序没运行的时候，我们并不知道调用一个方法具体会发生什么。
 
-`Objective-C 语言` 把一些决定性的工作从编译阶段、链接阶段推迟到 **运行时阶段** 的机制，使得 `Objective-C` 变得更加灵活。我们甚至可以在程序运行的时候，动态的去修改一个方法的实现，这也为大为流行的『热更新』提供了可能性。
+`Objective-C 语言` 把一些决定性的工作从编译阶段、链接阶段推迟到 **运行时阶段** 的机制，使得 `Objective-C` 变得更加灵活。我们甚至可以在程序运行的时候，动态的去修改一个方法的实现，这也为大为流行的「热更新」提供了可能性。
 
 而实现 `Objective-C 语言` **运行时机制** 的一切基础就是 `Runtime`。
 
@@ -44,7 +33,7 @@ categories:
 
 `Objective-C 语言` 中，对象方法调用都是类似 `[receiver selector];` 的形式，其本质就是让对象在运行时发送消息的过程。
 
-我们来看看方法调用 `[receiver selector];` 在『编译阶段』和『运行阶段』分别做了什么？
+我们来看看方法调用 `[receiver selector];` 在「编译阶段」和「运行阶段」分别做了什么？
 
 1. 编译阶段：`[receiver selector];` 方法被编译器转换为: 
     1. `objc_msgSend(receiver，selector)` （不带参数）
@@ -147,7 +136,7 @@ NSString *testString = [NSString stringWithFormat:@"%d,%s",3, "test"];
 
 上面，我们讲解了 **实例对象（Object）**、**类（Class）**、**Meta Class（元类）** 的基本概念，以及简单的指向关系。下面我们通过一张图来清晰地表示出这种关系。
 
-![](http://qncdn.bujige.net/images/iOS-Runtime-01-002.png)
+![](http://qcdn.itcharge.cn/images/iOS-Runtime-01-002.png)
 
 
 我们先来看 `isa 指针`：
@@ -223,7 +212,7 @@ typedef id _Nullable (*IMP)(id _Nonnull, SEL _Nonnull, ...);
 
 > 当一个方法找不到的时候，Runtime 提供了 **消息动态解析**、**消息接受者重定向**、**消息重定向** 等三步处理消息，具体流程如下图所示：
 
-![](http://qncdn.bujige.net/images/iOS-Runtime-01-003.png)
+![](http://qcdn.itcharge.cn/images/iOS-Runtime-01-003.png)
 
 
 ## 4.1 消息动态解析
@@ -495,10 +484,7 @@ void funMethod(id obj, SEL _cmd) {
 
 ---
 
-以上就是 **iOS 开发：『Runtime』详解（一）：基础知识** 的所有内容了。
+以上就是 **iOS 开发：「Runtime」详解（一）：基础知识** 的所有内容了。
 整篇文章主要就讲了一件事：消息发送以及转发机制的原理和流程。这也是 Runtime 系统的工作原理。
 
-下一篇笔者准备讲一下『Runtime』的实战应用。
-
-
-
+下一篇笔者准备讲一下「Runtime」的实战应用。
