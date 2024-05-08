@@ -1,46 +1,22 @@
----
-title: iOS 网络：『文件下载、断点下载』的实现（二）：NSURLSession
-date: 2017-01-20 16:42:37
-tags:
-    - 技术
-    - iOS 开发
-categories:
-    - 00 - 技术 - iOS 开发
----
-
-> 目录
-> 1. NSURLSession下载简介
-> 2. NSURLSession下载相关
-> 2.1 NSURLSession（block方法）
-> 2.2 NSURLSession（代理方法）
-> 2.3 NSURLSession（断点下载 | 不支持离线）
-> 2.4 NSURLSession（断点下载 | 支持离线）
-
 <!--more-->
 
+> 关于「文件下载、断点下载」所有实现的Demo地址：[Demo地址](https://github.com/itcharge/YSC-DownloadDemo)
 
+## 1. NSURLSession 下载简介
 
-关于『文件下载、断点下载』所有实现的Demo地址：[Demo地址](https://github.com/bujige/YSC-DownloadDemo)
+iOS 7 之后，苹果对 Foundation URL 加载系统的彻底重构。在 2013 的 WWDC 上，苹果推出了 NSURLConnection 的继任者：NSURLSession。相比于 NSURLConnection 来说，使用 NSURLSession 下载就要简单多了，我们不需要分别考虑大小文件，只需要考虑使用不同的方法实现相应的功能即可。
 
-iOS网络--『文件下载、断点下载』的实现相关文章：
-- [iOS网络--『文件下载、断点下载』的实现（一）：NSURLConnection](https://www.bujige.net/blog/iOS-Resume-Download-NSURLConnection.html)
-- [iOS网络--『文件下载、断点下载』的实现（二）：NSURLSession](https://www.bujige.net/blog/iOS-Resume-Download-NSURLSession.html)
-- [iOS网络--『文件下载、断点下载』的实现（三）：AFNetworking](https://www.bujige.net/blog/iOS-Resume-Download-AFNetworking.html)
+NSURLSession提供了两种下载方式，一种是 block 方法，一种是通过 NSURLSessionDownloadDelegate 的代理方法实现下载。
 
-# 1. NSURLSession下载简介
+## 2. NSURLSession下载相关
 
-iOS 7之后，苹果对Foundation URL 加载系统的彻底重构。在 2013 的 WWDC 上，苹果推出了 NSURLConnection 的继任者：NSURLSession。相比于NSURLConnection来说，使用NSURLSession下载就要简单多了，我们不需要分别考虑大小文件，只需要考虑使用不同的方法实现相应的功能即可。
+### 2.1 NSURLSession（block方法）
 
-NSURLSession提供了两种下载方式，一种是block方法，一种是通过NSURLSessionDownloadDelegate的代理方法实现下载。
-
-# 2. NSURLSession下载相关
-
-## 2.1 NSURLSession（block方法）
-
-![NSURLSession（block方法）下载效果.gif](http://qncdn.bujige.net/images/iOS-Resume-Download-NSURLSession-001.gif)
+![NSURLSession（block方法）下载效果.gif](http://qcdn.itcharge.cn/images/iOS-Resume-Download-NSURLSession-001.gif)
 
 
 NSURLSession的block使用方法如下：
+
 1. 先创建一个NSURLSession类。
 2. 再创建一个下载任务类NSURLSessionDownloadTask类，将session加入到下载任务中。
 3. 开启下载任务。
@@ -77,12 +53,13 @@ NSURLSessionDownloadTask *downloadTask = [session downloadTaskWithURL:url comple
 // 开始下载任务
 [downloadTask resume];
 ```
+
 这样虽然实现了文件下载，但是却无法监听下载进度。
 
 
-## 2.2 NSURLSession（代理方法）
+### 2.2 NSURLSession（代理方法）
 
-![NSURLSession（代理方法）下载效果.gif](http://qncdn.bujige.net/images/iOS-Resume-Download-NSURLSession-002.gif)
+![NSURLSession（代理方法）下载效果.gif](http://qcdn.itcharge.cn/images/iOS-Resume-Download-NSURLSession-002.gif)
 
 如果想要监听下载进度，我们就需要用到NSURLSessionDownloadDelegate。
 
@@ -156,7 +133,7 @@ expectedTotalBytes:(int64_t)expectedTotalBytes
 }
 ```
 
-## 2.3 NSURLSession（断点下载 | 不支持离线）
+### 2.3 NSURLSession（断点下载 | 不支持离线）
 
 
 ![NSURLSession（断点下载 | 不支持离线）下载效果.gif](https://upload-images.jianshu.io/upload_images/1877784-d89e736333f69439.gif?imageMogr2/auto-orient/strip)
@@ -177,10 +154,10 @@ NSURLSession拥有终止下载的方法：`- (void)cancelByProducingResumeData:(
 NSURLSession断点下载（不支持离线）实现断点下载的步骤如下：
 
 - 在实现断点下载的[开始/暂停]按钮中添加以下步骤：
-    1. 设置一个downloadTask、session以及resumeData的全局变量
-    2. 如果开始下载，就创建一个新的downloadTask，并启动下载
-    3. 如果暂停下载，调用取消下载的函数，并在block中保存本次的resumeData到全局resumeData中。
-    4. 如果恢复下载，将上次保存的resumeData加入到任务中，并启动下载。
+  1. 设置一个downloadTask、session以及resumeData的全局变量
+  2. 如果开始下载，就创建一个新的downloadTask，并启动下载
+  3. 如果暂停下载，调用取消下载的函数，并在block中保存本次的resumeData到全局resumeData中。
+  4. 如果恢复下载，将上次保存的resumeData加入到任务中，并启动下载。
 
 具体实现过程如下：
 
@@ -252,15 +229,16 @@ NSURLSession断点下载（不支持离线）实现断点下载的步骤如下�
 
 不过没关系，我们可以用NSURLSessionDataTask来实现NSURLSession的离线断点下载。
 
-## 2.4 NSURLSession（断点下载 | 支持离线）
+### 2.4 NSURLSession（断点下载 | 支持离线）
 
 
-![NSURLSession（断点下载 | 支持离线）下载效果.gif](https://upload-images.jianshu.io/upload_images/1877784-8550bccfa3ba4129.gif?imageMogr2/auto-orient/strip)
+![](http://qcdn.itcharge.cn/images/20210729145908.gif)
 
 
 NSURLSessionDataTask在发送请求之后，能够将返回的数据，作为data一部分一部分的接受过来。这样，我们就可以像NSURLConnection上边那样，创建一个NSFilehandle（文件句柄）类，在接受数据的时候，一点点写入永久沙盒文件中。并且在下次开始的时候，设置好HTTP请求头的Rang。我们就可以实现离线断点下载了。
 
 具体实现过程如下：
+
 - 定义下载文件需要用到的类和要实现的代理
 
 ```objc
@@ -364,7 +342,7 @@ NSURLSessionDataTask在发送请求之后，能够将返回的数据，作为dat
 ```
 
 - 最后实现相关的NSURLSessionDataDelegate方法，可参考NSURLConnection实现断点下载的方法。
-  - 相关文章链接：[iOS网络--『文件下载、断点下载』（一）：NSURLConnection](https://www.jianshu.com/p/ce3eaee74bde)。
+  - 相关文章链接：[iOS网络--「文件下载、断点下载」（一）：NSURLConnection](https://www.jianshu.com/p/ce3eaee74bde)。
 
 ```objc
 #pragma mark - <NSURLSessionDataDelegate> 实现方法
@@ -437,4 +415,4 @@ NSURLSessionDataTask在发送请求之后，能够将返回的数据，作为dat
 }
 ```
 
-这样就使用NSURLSession、NSURLSessionDataTask实现了『离线断点下载』的需求。
+这样就使用NSURLSession、NSURLSessionDataTask实现了「离线断点下载」的需求。

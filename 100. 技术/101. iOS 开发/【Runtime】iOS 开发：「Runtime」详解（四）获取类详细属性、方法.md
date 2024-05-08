@@ -1,15 +1,4 @@
----
-title: iOS 开发：『Runtime』详解（四）获取类详细属性、方法
-date: 2019-07-31 20:29:30
-tags:
-    - 技术
-    - iOS 开发
-categories:
-    - 00 - 技术 - iOS 开发
----
-
-
-> 本文用来介绍  iOS 开发中，**如何通过『Runtime』获取类详细属性、方法**。通过本文，您将了解到：
+> 本文用来介绍  iOS 开发中，**如何通过「Runtime」获取类详细属性、方法**。通过本文，您将了解到：
 > 1. 获取类详细属性、方法简述
 > 2. 获取类详细属性、方法（成员变量列表、属性列表、方法列表、所遵循的协议列表）
 > 3. 应用场景
@@ -17,15 +6,15 @@ categories:
 >   3.2 万能控制器跳转
 >   3.3 实现字典转模型
 >   3.4 改进 iOS 归档和解档
-> 
-> 文中示例代码在： [bujige](https://github.com/bujige) / **[YSC-Class-DetailList-Demo](https://github.com/bujige/YSC-Class-DetailList-Demo)**
+>
+> 文中示例代码在： [itcharge](https://github.com/itcharge) / **[YSC-Class-DetailList-Demo](https://github.com/itcharge/YSC-Class-DetailList-Demo)**
 
 
 <!--more-->
 
 ---
 
-![](http://qncdn.bujige.net/images/iOS-Runtime-04-001.png)
+![](http://qcdn.itcharge.cn/images/iOS-Runtime-04-001.png)
 
 
 
@@ -630,7 +619,7 @@ NSDictionary *params = @{
 
 效果如下：
 
-![](http://qncdn.bujige.net/images/iOS-Runtime-04-002.png)
+![](http://qcdn.itcharge.cn/images/iOS-Runtime-04-002.png)
 
 
 
@@ -640,9 +629,9 @@ NSDictionary *params = @{
 
 ## 3.4 改进 iOS 归档和解档
 
-『归档』是一种常用的轻量型文件存储方式，在项目中，如果需要将数据模型本地化存储，一般就会用到归档和解档。但是如果数据模型中有多个属性的话，我们不得不对每个属性进行处理，这个过程非常繁琐。
+「归档」是一种常用的轻量型文件存储方式，在项目中，如果需要将数据模型本地化存储，一般就会用到归档和解档。但是如果数据模型中有多个属性的话，我们不得不对每个属性进行处理，这个过程非常繁琐。
 
-这里我们可以参考之前『字典转模型』 的代码。通过 Runtime 获取类的属性列表，实现自动归档和解档。归档操作和解档操作主要会用到了两个方法： `encodeObject: forKey:` 和 `decodeObjectForKey:`。
+这里我们可以参考之前「字典转模型」 的代码。通过 Runtime 获取类的属性列表，实现自动归档和解档。归档操作和解档操作主要会用到了两个方法： `encodeObject: forKey:` 和 `decodeObjectForKey:`。
 
 首先在 NSObject 的分类 `NSObject+XXModel.h`、`NSObject+XXModel.m` 中添加以下代码：
 
@@ -739,6 +728,4 @@ NSLog(@"personObject.name = %@", personObject.name);
 - [梧雨北辰 : Runtime-iOS运行时应用篇](https://www.jianshu.com/p/fe131f8757ba)
 - [雷曼同学 : https://www.jianshu.com/p/361c9136cf3a](https://www.jianshu.com/p/361c9136cf3a)
 - [ibireme : iOS JSON 模型转换库评测](https://blog.ibireme.com/2015/10/23/ios_model_framework_benchmark/)
-
-
 

@@ -1,22 +1,10 @@
----
-title: OC 知识：Foundation 框架详尽总结之『字典类』
-date: 2016-08-07 08:22:37
-tags:
-    - 技术
-    - iOS 开发
-categories:
-    - 00 - 技术 - iOS 开发
----
-
 > 本文对 Foundation 框架中的字典类（NSDictionary 和 NSMutableDictionary）的使用做一个详细的总结。
 
 <!--more-->
 
+## 1. NSDictionary
 
-
-# 1. NSDictionary
-
-## 1.NSDictionar介绍
+### 1.1 NSDictionar 介绍
 
 - Dictionary翻译过来叫做"字典"
 - 日常生活中，“字典”的作用：通过一个拼音或者汉字，就能找到对应的详细解释
@@ -25,7 +13,7 @@ categories:
 - NSDictionary中和键（key）关联的值（value）可以是任何对象类型，但不能是nil
 - NSDictionary是不可变的，一旦初始化完毕，里面的内容就无法修改
 
-## 2.NSDictionary的创建
+### 1.2 NSDictionary 的创建
 
 ```objc
 + (instancetype)dictionary;
@@ -35,9 +23,9 @@ categories:
 + (id)dictionaryWithContentsOfURL:(NSURL *)url;
 ```
 
-## 3. NSDictionary创建和获取简写
+### 1.3 NSDictionary 创建和获取简写
 
-- 以前NSDictionary创建方式
+- 以前 NSDictionary 创建方式
 
 ```objc
 NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"Walkers", @"name", @"12345678", @"phone", @"ZhongGuo", @"address", nil];
@@ -45,7 +33,7 @@ NSDictionary *dict = [NSDictionary dictionaryWithObjects:@[@"Walkers",@"30",@"1.
 
 ```
 
-- 现在NSDictionary创建简写方式
+- 现在 NSDictionary 创建简写方式
 
 ```objc
 NSDictionary *dict = @{@"name":@"Walkers", @"phone":@"12345678", @"address":@"ZhongGuo"};
@@ -63,13 +51,13 @@ NSDictionary *dict = @{@"name":@"Walkers", @"phone":@"12345678", @"address":@"Zh
 dict[@"name”];
 ```
 
-## 4. 键值对集合的特点
+### 1.4 键值对集合的特点
 
 - 字典存储的时候，必须是"键值对"的方式来存储(同时键不要重复)
 - 键值对中存储的数据是"无序的"
 - 键值对集合可以根据键，快速获取数据
 
-## 5. NSDictionary的遍历
+### 1.5 NSDictionary 的遍历
 
 - 返回字典的键值对数目`- (NSUInteger)count;`
 
@@ -114,7 +102,7 @@ key = address, value = ZhongGuo
 }];
 ```
 
-## 6. NSDictionary文件操作
+### 1.6 NSDictionary 文件操作
 
 - 将字典写入文件中
     - `- (BOOL)writeToFile:(NSString *)path atomically:(BOOL)useAuxiliaryFile;`
@@ -134,7 +122,7 @@ NSLog(@"flag = %i", flag);
 
 文件里的内容显示结果如下图
 
-![1.png](http://qncdn.bujige.net/images/iOS-Foundation-Dictionary-001.png)
+![1.png](http://qcdn.itcharge.cn/images/iOS-Foundation-Dictionary-001.png)
 
 - 从文件中读取字典
 
@@ -145,14 +133,14 @@ NSLog(@"newDict = %@", newDict);
 
 ```
 
-## 7. NSDictionary和NSArray对比
+### 1.7 NSDictionary 和 NSArray 对比
 
-### 1. NSDictionary和NSArray的区别
+#### 1.7.1 NSDictionary 和 NSArray 的区别
 
 - NSArray是有序的，NSDictionary是无序的
 - NSArray是通过下标访问元素，NSDictionary是通过key访问元素
 
-### 2. NSDictionary和NSArray的用法
+#### 1.7.2 NSDictionary 和 NSArray 的用法
 
 - 创建
 
@@ -186,15 +174,15 @@ dict[@"name"] = @"Walkers";
 
 ***
 
-# 2. NSMutableDictionary
+## 2. NSMutableDictionary
 
-## 1.NSMutableDictionary介绍
+### 2.1 NSMutableDictionary 介绍
 
 - NSMutableDictionary是NSDictionary的子类
 - NSDictionary是不可变的，一旦初始化完毕后，它里面的内容就永远是固定的，不能删除里面的元素，也不能再往里面添加元素
 - NSMutableDictionary是可变的，随时可以往里面添加\更改\删除元素
 
-## 2. NSMutableDictionary的常见操作
+### 2.2 NSMutableDictionary 的常见操作
 
 - 添加/修改一个键值对(如果aKey之前有值，则会把aKey之前对应的值给替换掉)`- (void)setObject:(id)anObject forKey:(id <NSCopying>)aKey;`
 
@@ -261,7 +249,7 @@ NSLog(@"%@",dict);
 
 
 
-## 3. NSMutableDictionary的简写
+### 2.3 NSMutableDictionary 的简写
 
 - 以前设置键值对方式
 

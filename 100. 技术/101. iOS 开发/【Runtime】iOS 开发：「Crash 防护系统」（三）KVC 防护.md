@@ -1,24 +1,13 @@
----
-title: iOS 开发：『Crash 防护系统』（三）KVC 防护
-date: 2019-08-29 14:13:21
-tags:
-    - 技术
-    - iOS 开发
-categories:
-    - 00 - 技术 - iOS 开发
-
----
-
-> 本文是 **『Crash 防护系统』系列** 第三篇。通过本文，您将了解到：
+> 本文是 **「Crash 防护系统」系列** 第三篇。通过本文，您将了解到：
 > 1. KVC Crash 的主要原因
 > 2. KVC 搜索模式
 > 3. KVC Crash 防护方案
-> 
-> 文中示例代码在： [bujige](https://github.com/bujige) / **[YSC-Avoid-Crash](https://github.com/bujige/YSC-Avoid-Crash)**
+>
+> 文中示例代码在： [itcharge](https://github.com/itcharge) / **[YSC-Avoid-Crash](https://github.com/itcharge/YSC-Avoid-Crash)**
 
 <!--more-->
 
-![](http://qncdn.bujige.net/images/iOS-YSCDefender-03-001.jpg)
+![](http://qcdn.itcharge.cn/images/iOS-YSCDefender-03-001.jpg)
 
 ---
 
@@ -157,7 +146,7 @@ KVCCrashObject *objc = [[KVCCrashObject alloc] init];
 
 - KVC `setValue:forKey:` 搜索模式流程图：
 
-![](http://qncdn.bujige.net/images/iOS-YSCDefender-03-002.png)
+![](http://qcdn.itcharge.cn/images/iOS-YSCDefender-03-002.png)
 
 ---
 
@@ -274,4 +263,3 @@ KVCCrashObject *objc = [[KVCCrashObject alloc] init];
 - [苹果官方：键值编码编程指南](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/KeyValueCoding/index.html)
 - [dandelionYD：KVC(二)](https://www.jianshu.com/p/84dd0c49c7b5)
 - [iOS 中的 crash 防护（二）KVC 造成的 crash](https://blog.csdn.net/hanhailong18/article/details/71182878)
-

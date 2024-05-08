@@ -1,29 +1,18 @@
----
-title: OC 知识：Foundation 框架详尽总结之『数字、结构体、日期、文件类』
-date: 2016-08-07 10:07:37
-tags:
-    - 技术
-    - iOS 开发
-categories:
-    - 00 - 技术 - iOS 开发
----
-
 > 本文对 Foundation 框架中一些数字类（NSNumber）、常用结构体类（CGPoint、CGSize、CGRect、CGRange 和 NSValue）、日期类（NSDate、NSCalendar）和文件类（NSFileManager）的使用做一个详细的总结。
-
-
 
 <!--more-->
 
+## 1.数字类（NSNumber）
 
+### 1.1 NSNumber 介绍
 
-# 1.数字类（NSNumber）
-## 1. NSNumber介绍
 - NSArray\NSDictionary中只能存放OC对象，不能存放int\float\double等基本数据类
 - 如果需要使用将基本数据的值作为对象使用，比如说放进数组或字典中，需要先将基本数据类型包装成OC对象，可使用NSNumber类
 - NSNumber可以根据基本数据的类型创建对象，这样就可以间接将基本数据类型存进NSArray\NSDictionary中
 
-## 2. NSNumber的创建
-- 以前NSNumber的创建方式
+### 1.2 NSNumber 的创建
+
+- 以前 NSNumber 的创建方式
 
 ```objc
 - (NSNumber *)numberWithInt:(int)value;
@@ -43,7 +32,7 @@ NSNumber *ageN = [NSNumber numberWithInt:age];
 NSNumber *numberN = [NSNumber numberWithDouble:number];
 NSNumber *valueN = [NSNumber numberWithInt:value];
 ```
-- 现在NSNumber的创建方式
+- 现在 NSNumber 的创建方式
 
 ```objc
 @10;
@@ -61,7 +50,7 @@ NSNumber *valueN = @6;
 NSNumber *flag = @YES;
 ```
 
-## 3. 从NSNumber对象中的到基本类型数据
+### 1.3 从 NSNumber 对象中的到基本类型数据
 
 ```objc
 - (char)charValue;
@@ -86,7 +75,7 @@ NSLog(@"age = %d", age);
 输出结果：age = 10
 ```
 
-## 4. NSNumber判断大小
+### 1.4 NSNumber 判断大小
 
 - 判断两个数相等`- (BOOL)isEqualToNumber:(NSNumber *)number;`
 
@@ -119,13 +108,13 @@ if ([num1 compare:num2] == NSOrderedSame) {     // 相等
 输出结果：num1 > num2
 ```
 
-# 2. 结构体类（CGPoint、CGSize、CGRect、CGRange和NSValue）
+## 2. 结构体类（CGPoint、CGSize、CGRect、CGRange和NSValue）
 
-## 1. 结构体介绍
+### 2.1 结构体介绍
 
 - 在iOS开发中，我们经常会用到一些结构体，比如定义矩形原点坐标的结构体CGPoint、定义矩形尺寸的结构体CGSize、同时定义矩形原点和尺寸的结构体CGRect、描述位置和大小范围的结构体NSRange等。
 
-## 2. NSPoint和CGPoint
+### 2.2 NSPoint 和 CGPoint
 
 - CGPoint和NSPoint是同义的
 - CGPoint代表的是二维平面中的一个点
@@ -150,11 +139,11 @@ typedef double CGFloat;
 CGPoint point = CGPointMake(10.0, 10.0);
 ```
 
-## 3. NSSize和CGSize
+### 2.3 NSSize 和 CGSize
 
-- CGSize和NSSize是同义的
-- CGSize代表的是二维平面中的某个物体的尺寸(宽度和高度)
-- CGSize有2个成员
+- CGSize 和 NSSize 是同义的
+- CGSize 代表的是二维平面中的某个物体的尺寸(宽度和高度)
+- CGSize 有 2 个成员
     - CGFloat width：表示该矩形尺寸的宽
     -  CGFloat height：表示该矩形尺寸的高
 
@@ -174,7 +163,7 @@ typedef struct CGSize CGSize;
 CGSize size =  CGSizeMake(20.0, 20.0);
 ```
 
-## 4. NSRect和CGRect
+### 2.4 NSRect 和 CGRect
 
 - CGRect和NSRect是同义的
 - CGRect代表的是二维平面中的某个物体的位置和尺寸
@@ -198,7 +187,7 @@ typedef struct CGRect CGRect;
 CGRect rect = CGRectMake(10.0, 10.0, 20.0, 20.0);
 ```
 
-## 5. NSRange
+### 2.5 NSRange
 
 - 没有CGRange
 - NSRange表示事物的一个范围，通常是字符串里的字符范围或者数组里的元素范围
@@ -232,7 +221,7 @@ NSRange range = {.location = 7,.length = 3};
 NSRange range = NSMakeRange(7, 3);
 ```
 
-## 6. NSValue
+### 2.6 NSValue
 
 - 我们有时候需要将结构体存储在集合中，但不能直接坐到。
 - Foundation提供了NSValue类将结构体转换为对象，并把它存储在集合中。
@@ -316,9 +305,9 @@ NSLog(@"age = %i, name = %s, height = %f", res.age, res.name, res.height);
 输出结果：age = 20, name = abc, height = 1.750000
 ```
 
-# 3. 日期类（NSDate、NSCalendar）
+## 3. 日期类（NSDate、NSCalendar）
 
-## 1. NSDate
+### 3.1 NSDate
 
 - NSDate可以用来表示时间，可以进行一些常见的日期\时间处理
 - 一个NSDate对象就代表一个时间
@@ -376,7 +365,7 @@ NSLog(@"%@", date);
 输出结果：2015-06-28 11:53:24 +0000
 ```
 
-## 2. NSCalendar
+### 3.2 NSCalendar
 
 - 结合NSCalendar和NSDate能做更多的日期\时间处理
 - 获得NSCalendar对象`NSCalendar *calendar = [NSCalendar currentCalendar];`
@@ -430,14 +419,14 @@ NSLog(@"两个时间相差%ld年%ld月%ld日%ld小时%ld分钟%ld秒", cmps.year
 输出结果：两个时间相差0年0月4日21小时51分钟55秒
 ```
 
-# 4. 文件类（NSFileManager）
+## 4. 文件类（NSFileManager）
 
-## 1. NSFileManager介绍
+### 4.1 NSFileManager 介绍
 
 - NSFileManager是用来管理文件系统的
 - 它可以用来进行常见的文件\文件夹操作
 
-## 2. NSFileManager用法
+### 4.2 NSFileManager 用法
 
 - 判断path这个文件\文件夹是否存在`- (BOOL)fileExistsAtPath:(NSString *)path;`
 
@@ -470,7 +459,7 @@ NSLog(@"flag = %i, directory = %i", flag, directory);
 - path这个文件\文件夹是否可删除`- (BOOL)isDeletableFileAtPath:(NSString *)path;`
     - 系统目录不允许删除
 
-## 3. NSFileManager的文件访问
+### 4.3 NSFileManager 的文件访问
 
 - 获得path这个文件\文件夹的属性`- (NSDictionary *)attributesOfItemAtPath:(NSString *)path error:(NSError **)error;`
 
@@ -500,7 +489,7 @@ NSLog(@"paths = %@", paths);
     NSLog(@"paths = %@", paths);
     ```
 
-## 4. NSFileManager的文件操作
+### 4.4 NSFileManager 的文件操作
 
 - 拷贝`- (BOOL)copyItemAtPath:(NSString *)srcPath toPath:(NSString *)dstPath error:(NSError **)error;`
 
