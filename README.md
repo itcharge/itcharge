@@ -5,7 +5,7 @@
 
 ## 👨🏻‍💻 About me
 
-- ⭐ I'm an iOS / macOS developer.
+- ⭐ I'm an iOS / macOS / LLM Applications developer.
 - 🌱 I’m currently working in Beijing, China.
 - 💬 Ask me about anything [here](https://github.com/itcharge/itcharge/issues)
 - 📫 How to reach me: [i@itcharge.cn](mailto:i@itcharge.cn)
