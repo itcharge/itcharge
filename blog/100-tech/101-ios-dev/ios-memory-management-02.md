@@ -1,9 +1,9 @@
-> 本文是 iOS 开发：彻底理解内存管理系列的 MRC 篇。
-> 用来对 Objective-C 语法中，内存管理 MRC 相关知识进行讲解。
+# 【OC 语法】iOS 开发：彻底理解 iOS 内存管理（ARC 篇）
 
+> 本文是 iOS 开发：彻底理解内存管理系列的 ARC 篇。
+> 用来对 Objective-C 语法中，内存管理 ARC 相关知识进行讲解。
 
 <!--more-->
-
 
 > Automatic Reference Counting，自动引用计数，即 ARC，WWDC 2011 和 iOS 5 所引入的最大的变革和最激动人心的变化。ARC 是新的 LLVM 3.0 编译器的一项特性，使用 ARC，可以说一 举解决了广大 iOS 开发者所憎恨的手动内存管理的麻烦。
 

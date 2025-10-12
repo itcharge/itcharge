@@ -1,3 +1,5 @@
+# 【多线程】iOS 多线程：「NSOperation、NSOperationQueue」详尽总结
+
 > 本文用来介绍 iOS 多线程中 NSOperation、NSOperationQueue 的相关知识以及使用方法。
 > 通过本文，您将了解到：
 > **NSOperation、NSOperationQueue 简介**、**操作和操作队列**、**使用步骤和基本使用方法**、**控制串行/并发执行**、**NSOperation 操作依赖和优先级**、**线程间的通信**、**线程同步和线程安全**，以及 **NSOperation、NSOperationQueue 常用属性和方法归纳**。

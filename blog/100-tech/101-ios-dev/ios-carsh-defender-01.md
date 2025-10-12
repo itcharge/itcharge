@@ -1,3 +1,5 @@
+# 【Runtime】iOS 开发：「Crash 防护系统」（一）Unrecognized Selector
+
 > 本文是 **「Crash 防护系统」系列** 第一篇。
 > 这个系列将会介绍如何设计一套 APP Crash 防护系统。这套系统采用 AOP（面向切面编程）的设计思想，利用 Objective-C 语言的运行时机制，在不侵入原有项目代码的基础之上，通过在 APP 运行时阶段对崩溃因素的的拦截和处理，使得 APP 能够持续稳定正常的运行。
 
