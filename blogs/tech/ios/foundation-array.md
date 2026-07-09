@@ -1,0 +1,562 @@
+---
+title: iOS 开发：Foundation 框架详尽总结之「数组类」
+categories:
+  - iOS 开发
+tags:
+  - 技术
+  - iOS
+createTime: '2016/08/06 00:00:00'
+permalink: /blogs/tech/ios/foundation-array/
+---
+
+Foundation 框架数组类总结，涵盖 `NSArray`/`NSMutableArray` 的创建、访问、遍历、排序、文件读写及 `@[]` 字面量等用法。
+
+<!-- more -->
+
+# 【OC 语法】iOS 开发：Foundation 框架详尽总结之「数组类」
+
+> 本文对 Foundation 框架中的数组类（NSArray、MutableNSArray）的使用做一个详细的总结。
+
+## 1. NSArray
+
+### 1.1 NSArray 介绍
+
+- NSArray 是 OC 中的数组类，开发中建议尽量使用 NSArray 替代 C 语言中的数组
+- C 语言中虽然也有数组，但在开发的过程中存在一些弊端
+ - int array[4] = {10, 89, 27, 76};
+ - 只能存放一种类型的数据（类型必须一致）
+ - 不能很方便地动态添加数组元素、不能很方便地动态删除数组元素（长度固定）
+- Foundation 数组是有序的对象集合
+- 一般情况下，一个数组中的元素都是一种特定类型，但不是必需的
+
+### 1.2 NSArray 的创建方式
+- `+ (instancetype)array;`
+- `+ (instancetype)arrayWithObject:(id)anObject;`
+- `+ (instancetype)arrayWithObjects:(id)firstObj, ...;`
+- `+ (instancetype)arrayWithArray:(NSArray *)array;`
+- `+ (id)arrayWithContentsOfFile:(NSString *)path;`
+- `+ (id)arrayWithContentsOfURL:(NSURL *)url;`
+
+### 1.3 NSArray 的使用注意事项
+
+- NSArray 直接使用 NSLog()作为字符串输出时是小括号括起来的形式。
+- 只能存放任意 OC 对象, 并且是有顺序的
+- 不能存储非 OC 对象, 比如 int\float\double\char\enum\struct 等
+- NSArray 中不能存储 nil，因为 NSArray 认为 nil 是数组的结束（nil 是数组元素结束的标记）。nil 就是 0。0 也是基本数据类型，不能存放到 NSArray 中。
+- 它是不可变的，一旦初始化完毕后，它里面的内容就永远是固定的，不能删除里面的元素，也不能再往里面添加元素
+
+```objc
+NSArray *arr = [NSArray arrayWithObjects:@"abc", nil ,@"edf",@"hij", nil];
+NSLog(@"%@", arr);
+
+输出结果：
+(
+    abc
+)
+```
+
+### 1.4 NSArray 的常用方法
+
+```objc
+// 先定义一个数组，用于举例说明下面各个常用方法如何使用
+NSArray *arr = [NSArray arrayWithObjects:@"abc",@"edf",@"hij", nil];
+```
+
+- 获取集合元素个数`- (NSUInteger)count;`
+
+```objc
+NSLog(@"count = %lu",[arr count]);
+
+输出结果：count = 3
+```
+
+- 获得 index 位置的元素`- (id)objectAtIndex:(NSUInteger)index;`
+
+```objc
+NSLog(@"arr[1] = %@",[arr objectAtIndex:1]);
+
+输出结果：arr[1] = edf
+```
+
+- 是否包含某一个元素`- (BOOL)containsObject:(id)anObject;`
+
+```objc
+if ([arr containsObject:@"klm"]) {
+    NSLog(@"arr中包含klm");
+} else {
+    NSLog(@"arr中不包含klm");
+}
+
+输出结果：arr 中不包含 klm
+
+```
+
+- 返回第一个元素`- (id)firstObject;`
+
+```objc
+NSLog(@"first = %@",[arr firstObject]);
+
+输出结果：first = abc
+```
+
+- 返回最后一个元素`- (id)lastObject;` 
+
+```objc
+NSLog(@"last = %@",[arr lastObject]);
+
+输出结果：last = hij
+```
+
+- 查找 anObject 元素在数组中的位置(如果找不到，返回-1)`- (NSUInteger)indexOfObject:(id)anObject;`
+
+```objc
+NSLog(@"index = %lu",[arr indexOfObject:@"hij"]);
+
+输出结果：index = 2
+```
+
+- 在 range 范围内查找 anObject 元素在数组中的位置`- (NSUInteger)indexOfObject:(id)anObject inRange:(NSRange)range;`
+
+```objc
+NSRange range = {1,2};
+NSLog(@"index = %lu",[arr indexOfObject:@"edf" inRange:range]);
+
+输出结果：index = 1
+```
+
+### 1.5 NSArray 的简写形式
+
+- 自从 2012 年开始，Xcode 的编译器多了很多自动生成代码的功能，使得 OC 代码更加精简
+- 之前数组的创建方式
+
+```objc
+[NSArray arrayWithObjects:@"Jack", @"Rose", @"Jim", nil];
+
+```
+- 现在数组的创建方式
+
+```objc
+@[@"Jack", @"Rose", @"Jim"];
+```
+
+- 之前数组元素的访问方式
+
+```objc
+[array objectAtIndex:index];
+```
+
+- 现在数组元素的访问方式
+
+```objc
+array[index];
+```
+
+### 1.6 NSArray 遍历
+
+#### 1.6.1 NSArray 的下标遍历
+
+```objc
+NSArray *arr = @[@"abc", @"edf", @"hij"];
+for (int i = 0; i < arr.count; ++i) {
+    NSLog(@"arr[%i] = %@", i, arr[i]);
+}
+
+输出结果：
+arr[0] = abc
+arr[1] = edf
+arr[2] = hij
+```
+
+
+
+#### 1.6.2 NSArray 的快速遍历
+
+```objc
+NSArray *arr = @[@"abc", @"edf", @"hij"];    
+// OC 数组可以使用 OC 中的增强 for 循环来遍历
+// 逐个取出 arr 中的元素，将取出的元素赋值给 obj
+// 注意：obj 的类型可以根据数组中元素的类型来写，不一定要写 NSObject
+for (NSString *obj in arr) {
+    NSLog(@"obj = %@", obj);
+}
+
+输出结果：
+obj = abc
+obj = edf
+obj = hij
+
+```
+
+#### 1.6.3 NSArray 使用 block 进行遍历
+
+```objc
+NSArray *arr = @[@"abc", @"edf", @"hij"];      
+// 使用 OC 数组的迭代器来遍历
+// 每取出一个元素就会调用一次 block
+// 每次调用 block 都会将当前取出的元素和元素对应的索引传递给我们
+// obj 就是当前取出的元素, idx 就是当前元素对应的索引
+[arr enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+    if (idx == 1) {
+        *stop = YES;  // stop 用于控制什么时候停止遍历
+    }
+    NSLog(@"obj = %@, idx = %lu", obj, idx);
+}];
+
+输出结果：
+obj = abc, idx = 0
+obj = edf, idx = 1
+```
+
+#### 1.6.4 NSArray 给所有元素发消息
+
+- 让集合里面的所有元素都执行 aSelector 这个方法
+ - `- (void)makeObjectsPerformSelector:(SEL)aSelector;`
+ - `- (void)makeObjectsPerformSelector:(SEL)aSelector withObject:(id)argument;`
+
+```objc
+// 让数组中所有对象执行这个方法
+// 注意：如果数组中的对象没有这个方法会报错，需要实现该方法
+//    [arr makeObjectsPerformSelector:@selector(say)];
+[arr makeObjectsPerformSelector:@selector(eat:) withObject:@"bread"];
+```
+
+### 1.7 NSArray 排序
+
+#### 1.7.1 NSArray 排序
+
+- Foundation 自带类排序
+ - 使用 compare 方法对数组中的元素进行排序, 那么数组中的元素必须是 Foundation 框架中的对象, 也就是说不能是自定义对象
+
+```objc
+NSArray *arr = @[@10,@9,@1,@19];
+NSLog(@"排序前: %@", arr);
+NSArray *newArr = [arr sortedArrayUsingSelector:@selector(compare:)];
+NSLog(@"排序后: %@", newArr);
+
+输出结果：
+排序前: (
+    10,
+    9,
+    1,
+    19
+)
+排序后: (
+    1,
+    9,
+    10,
+    19
+)
+```
+
+- 自定义类排序
+
+定义一个 Person 类，Person 拥有 age 属性。
+
+```objc
+#import <Foundation/Foundation.h>
+
+@interface Person : NSObject
+@property (nonatomic, assign) int age;
+@end
+```
+
+因为不能使用 compare:方法对自定义对象进行排序，我们通过执行区块 block 对自定义类进行排序，下面是按照 age 的大小对 Person 进行排序
+
+```objc
+Person *p1 = [Person new];
+p1.age = 10;
+Person *p2 = [Person new];
+p2.age = 20;    
+Person *p3 = [Person new];
+p3.age = 5;
+Person *p4 = [Person new];
+p4.age = 7;
+
+NSArray *arr = @[p1, p2, p3, p4];
+NSLog(@"排序前: %@", arr);
+// 按照人的年龄进行排序
+// 该方法默认会按照升序排序
+NSArray *newArr = [arr sortedArrayWithOptions:NSSortStable usingComparator:^NSComparisonResult(Person *obj1, Person *obj2) {
+// 每次调用该 block 都会取出数组中的两个元素给我们
+return obj1.age > obj2.age;    // 升序
+//    return obj1.age < obj2.age;    // 降序
+}];
+NSLog(@"排序后: %@", newArr);
+
+输出结果：
+排序前: (
+    "age = 10",
+    "age = 20",
+    "age = 5",
+    "age = 7"
+)
+排序后: (
+    "age = 5",
+    "age = 7",
+    "age = 10",
+    "age = 20"
+)
+```
+
+### 1.8 NSArray 文件读写
+
+#### 1.8.1 NSArray 数据写入到文件中
+
+```objc
+NSArray *arr = @[@"abc", @"def", @"hij", @"klm"];
+
+BOOL flag = [arr writeToFile:@"/Users/Walkers/Desktop/test.plist" atomically:YES];
+NSLog(@"flag = %i", flag);
+
+输出结果：flag = 1
+```
+
+#### 1.8.2 从文件中读取数据到 NSArray 中
+
+```objc
+NSArray *newArr = [NSArray arrayWithContentsOfFile:@"/Users/Walkers/Desktop/test.plist"];
+NSLog(@"newArr = %@", newArr);
+
+输出结果：
+newArr = (
+    abc,
+    def,
+    hij,
+    klm
+)
+```
+
+### 1.9 NSArray 与字符串之间的转换
+
+#### 1.9.1 把数组元素链接成字符串
+- 用 separator 作拼接符将数组元素拼接成一个字符串`- (NSString *)componentsJoinedByString:(NSString *)separator;`
+
+```objc
+NSArray *arr = @[@"abc", @"edf", @"hij", @"klm"];
+
+NSString *res = [arr componentsJoinedByString:@"*"];
+NSLog(@"res = %@", res);
+
+输出结果：res = abc*edf*hij*klm
+```
+
+#### 1.9.2 字符串分割方法
+
+- 将字符串用 separator 作为分隔符切割成数组元素`- (NSArray *)componentsSeparatedByString:(NSString *)separator;`
+
+```objc
+NSString *str = @"abc-edf-hij-klm";
+
+NSArray *arr = [str componentsSeparatedByString:@"-"];
+NSLog(@"arr = %@", arr);
+
+输出结果：
+arr = (
+    abc,
+    edf,
+    hij,
+    klm
+)
+```
+
+***
+
+## 2. NSMutableArray
+
+### 2.1 NSMutableArray 介绍
+
+- NSMutableArray 是 NSArray 的子类
+- NSArray 是不可变的，一旦初始化完毕后，它里面的内容就永远是固定的，不能删除里面的元素，也不能再往里面添加元素
+- NSMutableArray 是可变的，数组元素的个数未指定并且可以根据需要增长，随时可以往里面添加\更改\删除元素
+
+### 2.2 NSMutableArray 基本用法
+
+- 创建空数组
+
+```objc
+NSMutableArray *arr = [NSMutableArray array];
+```
+
+- 创建数组，并且指定长度为 5，此时也是空数组
+
+```objc
+NSMutableArray *arr = [[NSMutableArray alloc] initWithCapacity:5];
+```
+
+- 创建一个数组,包含两个元素
+
+```objc
+NSMutableArray *arr = [NSMutableArray arrayWithObjects:@"1",@"2", nil];
+```
+
+- 调用对象方法创建数组
+
+```objc
+NSMutableArray *arr = [[NSMutableArray alloc] initWithObjects:@"1",@"2", nil];
+```
+
+- 添加一个元素`- (void)addObject:(id)object;`
+
+```objc
+NSMutableArray *arr = [NSMutableArray array];
+
+[arr addObject:@"abc"];
+NSLog(@"%@",arr);
+
+输出结果：
+(
+    abc
+)
+```
+
+
+
+- 添加 otherArray 的全部元素到当前数组中`- (void)addObjectsFromArray:(NSArray *)array;`
+
+```objc
+NSMutableArray *arr = [NSMutableArray arrayWithObjects:@"abc", nil];
+
+[arr addObjectsFromArray:@[@"def",@"hij"]];
+NSLog(@"%@",arr);
+
+输出结果：
+(
+    abc,
+    def,
+    hij
+)
+```
+
+- 在 index 位置插入一个元素`- (void)insertObject:(id)anObject atIndex:(NSUInteger)index;`
+
+```objc
+NSMutableArray *arr = [NSMutableArray arrayWithObjects:@"abc", @"hij",nil];
+
+[arr insertObject:@"def" atIndex:1];
+NSLog(@"%@",arr);
+
+输出结果：
+(
+    abc,
+    def,
+    hij
+)
+```
+
+- 删除最后一个元素`- (void)removeLastObject;`
+
+```objc
+NSMutableArray *arr = [NSMutableArray arrayWithObjects:@"abc",@"def",@"hij",nil];
+
+[arr removeLastObject];
+NSLog(@"%@",arr);
+
+输出结果：
+(
+    abc,
+    def
+)
+```
+
+- 删除所有的元素`- (void)removeAllObjects;`
+
+```objc
+NSMutableArray *arr = [NSMutableArray arrayWithObjects:@"abc",@"def",@"hij",nil];
+
+[arr removeAllObjects];
+NSLog(@"%@",arr);
+
+输出结果：
+(
+)
+```
+
+- 删除 index 位置的元素`- (void)removeObjectAtIndex:(NSUInteger)index;`
+
+```objc
+
+NSMutableArray *arr = [NSMutableArray arrayWithObjects:@"abc",@"def",@"hij",nil];
+[arr removeObjectAtIndex:1];
+
+NSLog(@"%@",arr);
+
+输出结果：
+(
+    abc,
+    hij
+)
+
+```
+
+- 删除特定的元素`- (void)removeObject:(id)object;`
+
+```objc
+NSMutableArray *arr = [NSMutableArray arrayWithObjects:@"abc",@"def",@"hij",nil];
+
+[arr removeObject:@"abc"];
+NSLog(@"%@",arr);
+
+输出结果：
+(
+    def,
+    hij
+)
+```
+
+- 删除 range 范围内的所有元素`- (void)removeObjectsInRange:(NSRange)range;`
+
+```objc
+NSMutableArray *arr = [NSMutableArray arrayWithObjects:@"abc",@"def",@"hij",nil];
+NSRange range = NSMakeRange(1, 2);
+
+[arr removeObjectsInRange:range];
+NSLog(@"%@",arr);
+
+输出结果：
+(
+    abc
+)
+```
+
+- 用 anObject 替换 index 位置对应的元素`- (void)replaceObjectAtIndex:(NSUInteger)index withObject:(id)anObject;`
+
+```objc
+NSMutableArray *arr = [NSMutableArray arrayWithObjects:@"abc",@"def",@"hij",nil];
+
+[arr replaceObjectAtIndex:1 withObject:@"xyz"];
+NSLog(@"%@",arr);
+
+输出结果：
+(
+    abc,
+    xyz,
+    hij
+)
+```
+
+- 交换 idx1 和 idx2 位置的元素`- (void)exchangeObjectAtIndex:(NSUInteger)idx1 withObjectAtIndex:(NSUInteger)idx2;`
+
+```objc
+NSMutableArray *arr = [NSMutableArray arrayWithObjects:@"abc",@"def",@"hij",nil];
+
+[arr exchangeObjectAtIndex:0 withObjectAtIndex:2];
+NSLog(@"%@",arr);
+
+输出结果：
+(
+    hij,
+    def,
+    abc
+)
+```
+
+### 2.3 NSMutableArray 错误用法
+
+- 不可以使用@[]创建可变数组
+
+```objc
+NSMutableArray *array = @[@"lnj", @"lmj", @"jjj"];
+
+// 报错, 本质还是不可变数组
+[array addObject:@“Peter”];
+```
