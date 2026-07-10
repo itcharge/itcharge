@@ -307,7 +307,7 @@ static int Crash(id slf, SEL selector) {
 
 找不到类方法实现的解决方法和之前类似，我们可以利用 Method Swizzling 将 `+forwardingTargetForSelector:` 和 `+ysc_forwardingTargetForSelector:` 进行方法交换。
 
-```Ojbc
+```objc
 #import "NSObject+SelectorDefender.h"
 #import "NSObject+MethodSwizzling.h"
 #import <objc/runtime.h>

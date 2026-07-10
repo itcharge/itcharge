@@ -114,7 +114,7 @@ NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(run)
 
 - 隐式创建并启动线程
 
-```obcj
+```objc
 // 1. 隐式创建并启动线程
 [self performSelectorInBackground:@selector(run) withObject:nil];
 

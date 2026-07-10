@@ -9,6 +9,7 @@
     "dev": "vuepress dev .",
     "start": "vuepress dev .",
     "build": "vuepress build .",
+    "deploy": "bash scripts/web_deploy.sh",
     "fill-empty-posts": "node .vuepress/scripts/fillEmptyPostsFromBackup.mjs"
   },
   "dependencies": {

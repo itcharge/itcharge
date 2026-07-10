@@ -610,7 +610,7 @@ NSDictionary *params = @{
 
 ### 3.3.3 测试代码
 
-```Ojbc
+```objc
 - (void)parseJSON {
     
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Student" ofType:@"json"];

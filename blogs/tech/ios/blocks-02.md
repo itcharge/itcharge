@@ -682,7 +682,7 @@ static void __main_block_func_0(struct __main_block_impl_0 *__cself) {
 
 - 记述全局变量的地方，使用 Block 语法示例代码：
 
-```oc
+```objc
 void (^myGlobalBlock)(void) = ^{
  printf("GlobalBlock\n");
 };
