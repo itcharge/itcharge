@@ -5,8 +5,9 @@ categories:
 tags:
   - 生活
   - 回顾
-createTime: '2020/01/01 00:00:00'
+createTime: 2020/01/01 00:00:00
 permalink: /blogs/life/review/2019-annual/
+comments: true
 ---
 
 2019 年终回顾，总结年初 flag 完成情况，重点记录二战考研的投入过程，并讨论对人生意义与价值选择的思考。

@@ -5,8 +5,9 @@ categories:
 tags:
   - 技术
   - iOS
-createTime: '2018/01/26 00:00:00'
+createTime: 2018/01/26 00:00:00
 permalink: /blogs/tech/ios/multithreading-pthread-and-nsthread/
+comments: true
 ---
 
 pthread 与 NSThread 多线程总结，对比两种线程 API 的创建、状态控制、通信方式及适用场景。

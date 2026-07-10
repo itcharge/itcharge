@@ -5,8 +5,9 @@ categories:
 tags:
   - 技术
   - iOS
-createTime: '2017/01/20 00:00:00'
+createTime: 2017/01/20 00:00:00
 permalink: /blogs/tech/ios/resume-download-nsurlsession/
+comments: true
 ---
 
 文件下载与断点续传系列第二篇，介绍 NSURLSession 的 block/delegate 下载方式及断点续传配合 `NSData` 持久化的做法。

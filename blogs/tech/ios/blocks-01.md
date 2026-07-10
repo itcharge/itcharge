@@ -5,8 +5,9 @@ categories:
 tags:
   - 技术
   - iOS
-createTime: '2019/03/27 00:00:00'
+createTime: 2019/03/27 00:00:00
 permalink: /blogs/tech/ios/blocks-01/
+comments: true
 ---
 
 Blocks 系列第一篇，讲解 Block 的基本概念、声明与赋值语法、参数传递、变量截获及循环引用等入门知识。

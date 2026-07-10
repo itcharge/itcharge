@@ -5,8 +5,9 @@ categories:
 tags:
   - 技术
   - iOS
-createTime: '2019/07/12 00:00:00'
+createTime: 2019/07/12 00:00:00
 permalink: /blogs/tech/ios/runtime-02/
+comments: true
 ---
 
 Runtime 系列第二篇，介绍 Method Swizzling 的原理、多种实现方案、使用注意事项及页面统计、防重复点击等应用场景。

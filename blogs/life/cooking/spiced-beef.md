@@ -5,8 +5,9 @@ categories:
 tags:
   - 生活
   - 美食
-createTime: '2020/02/22 00:00:00'
+createTime: 2020/02/22 00:00:00
 permalink: /blogs/life/cooking/spiced-beef/
+comments: true
 ---
 
 介绍家常酱牛肉的制作方法，包含牛腱选材、香料配比、卤制步骤与成品特点，并穿插对家乡风味的回忆。

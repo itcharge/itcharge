@@ -6,8 +6,9 @@ categories:
 tags:
   - 生活
   - 回顾
-createTime: '2023/01/06 00:00:00'
+createTime: 2023/01/06 00:00:00
 permalink: /blogs/life/review/2022-annual/
+comments: true
 ---
 
 2022 年终总结，从年初开始记录并复盘英语、减肥、论文、Swift、LeetCode 与感情等六大目标的执行结果。

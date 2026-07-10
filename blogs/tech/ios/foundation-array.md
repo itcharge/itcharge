@@ -5,8 +5,9 @@ categories:
 tags:
   - 技术
   - iOS
-createTime: '2016/08/06 00:00:00'
+createTime: 2016/08/06 00:00:00
 permalink: /blogs/tech/ios/foundation-array/
+comments: true
 ---
 
 Foundation 框架数组类总结，涵盖 `NSArray`/`NSMutableArray` 的创建、访问、遍历、排序、文件读写及 `@[]` 字面量等用法。

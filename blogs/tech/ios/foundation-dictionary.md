@@ -5,8 +5,9 @@ categories:
 tags:
   - 技术
   - iOS
-createTime: '2016/08/07 00:00:00'
+createTime: 2016/08/07 00:00:00
 permalink: /blogs/tech/ios/foundation-dictionary/
+comments: true
 ---
 
 Foundation 框架字典类总结，介绍 `NSDictionary`/`NSMutableDictionary` 的键值模型、`@{}` 语法、遍历与持久化等常用 API。

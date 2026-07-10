@@ -5,8 +5,9 @@ categories:
 tags:
   - 技术
   - iOS
-createTime: '2016/08/03 00:00:00'
+createTime: 2016/08/03 00:00:00
 permalink: /blogs/tech/ios/memory-management-02/
+comments: true
 ---
 
 iOS 内存管理 ARC 篇，介绍自动引用计数机制及 `__strong`、`__weak`、`__unsafe_unretained`、`__autoreleasing` 等所有权修饰符。

@@ -5,8 +5,9 @@ categories:
 tags:
   - 技术
   - iOS
-createTime: '2016/07/22 00:00:00'
+createTime: 2016/07/22 00:00:00
 permalink: /blogs/tech/ios/member-variable/
+comments: true
 ---
 
 Objective-C 成员变量与属性语法总结，说明实例变量访问规则、`@public`/`@protected`/`@private` 作用域及 getter/setter 规范。

@@ -5,8 +5,9 @@ categories:
 tags:
   - 生活
   - 回顾
-createTime: '2022/01/05 00:00:00'
+createTime: 2022/01/05 00:00:00
 permalink: /blogs/life/review/2022-goals/
+comments: true
 ---
 
 2022 年目标清单，列出英语、减肥、论文、Swift 开发、LeetCode 刷题与感情生活等方向的小目标、大理想及月度进度。

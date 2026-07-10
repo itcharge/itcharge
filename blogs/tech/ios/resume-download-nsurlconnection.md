@@ -5,8 +5,9 @@ categories:
 tags:
   - 技术
   - iOS
-createTime: '2017/01/20 00:00:00'
+createTime: 2017/01/20 00:00:00
 permalink: /blogs/tech/ios/resume-download-nsurlconnection/
+comments: true
 ---
 
 文件下载与断点续传系列第一篇，讲解 NSURLConnection 的代理回调、Range 请求及断点续传实现思路。

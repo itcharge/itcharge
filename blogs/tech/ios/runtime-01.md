@@ -5,8 +5,9 @@ categories:
 tags:
   - 技术
   - iOS
-createTime: '2019/06/17 00:00:00'
+createTime: 2019/06/17 00:00:00
 permalink: /blogs/tech/ios/runtime-01/
+comments: true
 ---
 
 Runtime 系列第一篇，讲解 Objective-C 消息发送机制、`objc_msgSend`、Class/Object/Meta Class/Method 等概念及消息转发流程。

@@ -5,8 +5,9 @@ categories:
 tags:
   - 技术
   - iOS
-createTime: '2016/08/07 00:00:00'
+createTime: 2016/08/07 00:00:00
 permalink: /blogs/tech/ios/foundation-other/
+comments: true
 ---
 
 Foundation 框架补充总结，涵盖 `NSNumber`、CGPoint/CGSize/CGRect/NSRange、NSDate 与文件操作等类型的常用方法。

@@ -5,8 +5,9 @@ categories:
 tags:
   - 技术
   - iOS
-createTime: '2016/07/20 00:00:00'
+createTime: 2016/07/20 00:00:00
 permalink: /blogs/tech/ios/methods/
+comments: true
 ---
 
 Objective-C 类方法与对象方法入门，对比 `+`/`-` 方法的声明格式、调用方式、适用场景与实现要求。

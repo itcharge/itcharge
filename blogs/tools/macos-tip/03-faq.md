@@ -5,8 +5,9 @@ categories:
 tags:
   - 工具
   - macOS 技巧
-createTime: '2021/02/05 00:00:00'
+createTime: 2021/02/05 00:00:00
 permalink: /blogs/tools/macos-tip/03-faq/
+comments: true
 ---
 
 macOS 常见问题汇总，涵盖第三方 App「已损坏」提示、移动硬盘读写、iPhone 连接等问题的处理办法。

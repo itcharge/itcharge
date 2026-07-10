@@ -5,8 +5,9 @@ categories:
 tags:
   - 技术
   - iOS
-createTime: '2019/08/23 00:00:00'
+createTime: 2019/08/23 00:00:00
 permalink: /blogs/tech/ios/carsh-defender-01/
+comments: true
 ---
 
 Crash 防护系统系列第一篇，介绍基于 Runtime 与 Method Swizzling 拦截 `unrecognized selector` 类崩溃的原理与实现思路。

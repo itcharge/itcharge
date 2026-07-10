@@ -5,8 +5,9 @@ categories:
 tags:
   - 生活
   - 回顾
-createTime: '2019/01/02 00:00:00'
+createTime: 2019/01/02 00:00:00
 permalink: /blogs/life/review/2018-annual/
+comments: true
 ---
 
 2018 年终总结，回顾考研备战、读书学习、技术积累、厨艺尝试与情感生活等方面的经历与变化。

@@ -5,8 +5,9 @@ categories:
 tags:
   - 技术
   - iOS
-createTime: '2019/07/24 00:00:00'
+createTime: 2019/07/24 00:00:00
 permalink: /blogs/tech/ios/runtime-03/
+comments: true
 ---
 
 Runtime 系列第三篇，从底层结构体与加载流程解析 Category 的实现，说明为何分类不能添加实例变量及 `+load`/`+initialize` 调用顺序。

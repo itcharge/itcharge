@@ -5,8 +5,9 @@ categories:
 tags:
   - 技术
   - iOS
-createTime: '2016/08/06 00:00:00'
+createTime: 2016/08/06 00:00:00
 permalink: /blogs/tech/ios/foundation-string/
+comments: true
 ---
 
 Foundation 框架字符串类总结，梳理 `NSString`/`NSMutableString` 的创建、比较、搜索、截取、替换与路径处理等 API。

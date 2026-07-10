@@ -6,8 +6,9 @@ categories:
 tags:
   - 生活
   - 回顾
-createTime: '2023/01/06 00:00:00'
+createTime: 2023/01/06 00:00:00
 permalink: /blogs/life/review/2023-goals/
+comments: true
 ---
 
 2023 年目标清单，涵盖 LeetCode 刷题、算法书推进、论文与技术学习，以及订婚、结婚与蜜月等人生节点安排。

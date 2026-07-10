@@ -5,8 +5,9 @@ categories:
 tags:
   - 工具
   - macOS 技巧
-createTime: '2021/01/19 00:00:00'
+createTime: 2021/01/19 00:00:00
 permalink: /blogs/tools/macos-tip/02-shortcuts/
+comments: true
 ---
 
 macOS 常用快捷键清单，按全局、访达、截图、窗口管理等场景整理高频组合键。

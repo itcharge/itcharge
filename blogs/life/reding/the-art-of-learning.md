@@ -5,8 +5,9 @@ categories:
 tags:
   - 生活
   - 阅读
-createTime: '2019/04/30 00:00:00'
+createTime: 2019/04/30 00:00:00
 permalink: /blogs/life/reding/the-art-of-learning/
+comments: true
 ---
 
 「学习之道」读书笔记，介绍作者乔希·维茨金在国际象棋与太极拳领域的成长经历，以及渐进理论、软区域、划小圈等学习方法。

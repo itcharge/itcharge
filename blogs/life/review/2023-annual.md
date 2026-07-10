@@ -1,14 +1,14 @@
 ---
-title: "2023 年年终总结：书成新章，缘定终身"
+title: 2023 年年终总结：书成新章，缘定终身
 categories:
-  - "学习成长"
-  - "慢生活"
+  - 学习成长
+  - 慢生活
 tags:
   - 生活
   - 回顾
-
-createTime: "2024/01/05 00:00:00"
+createTime: 2024/01/05 00:00:00
 permalink: /blogs/life/review/2023-annual/
+comments: true
 ---
 
 2023 年终总结，回顾订婚结婚、算法通关手册写作、LeetCode 刷题推进，以及英语、减肥、论文等目标的得失。

@@ -6,8 +6,9 @@ categories:
 tags:
   - 技术
   - 服务器
-createTime: '2025/04/29 00:00:00'
+createTime: 2025/04/29 00:00:00
 permalink: /blogs/tech/server/docker-tutorial/
+comments: true
 ---
 
 Docker 入门到实践教程，涵盖容器与镜像概念、各平台安装、常用命令、Dockerfile 编写及 Docker Compose 编排等内容。

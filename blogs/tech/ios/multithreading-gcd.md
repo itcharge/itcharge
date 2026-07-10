@@ -5,8 +5,9 @@ categories:
 tags:
   - 技术
   - iOS
-createTime: '2018/02/24 00:00:00'
+createTime: 2018/02/24 00:00:00
 permalink: /blogs/tech/ios/multithreading-gcd/
+comments: true
 ---
 
 GCD 多线程详尽总结，涵盖任务与队列、同步/异步组合、死锁场景、`dispatch_barrier_async`、`dispatch_group` 等常用模式。

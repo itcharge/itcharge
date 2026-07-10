@@ -5,8 +5,9 @@ categories:
 tags:
   - 技术
   - iOS
-createTime: '2018/03/06 00:00:00'
+createTime: 2018/03/06 00:00:00
 permalink: /blogs/tech/ios/multithreading-nsoperation/
+comments: true
 ---
 
 NSOperation 与 NSOperationQueue 总结，介绍操作对象的创建方式、队列调度、`maxConcurrentOperationCount` 及依赖关系配置。

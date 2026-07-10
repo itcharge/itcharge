@@ -6,8 +6,9 @@ categories:
 tags:
   - 技术
   - 服务器
-createTime: '2024/04/14 00:00:00'
+createTime: 2024/04/14 00:00:00
 permalink: /blogs/tech/server/docker-k8s-commands/
+comments: true
 ---
 
 Docker、Kubernetes 与 KubeSphere 常用命令速查，按镜像、容器、服务管理等维度整理日常运维所需指令。

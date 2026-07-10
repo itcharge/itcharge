@@ -5,8 +5,9 @@ categories:
 tags:
   - 技术
   - iOS
-createTime: '2019/08/29 00:00:00'
+createTime: 2019/08/29 00:00:00
 permalink: /blogs/tech/ios/carsh-defender-03/
+comments: true
 ---
 
 Crash 防护系统系列第三篇，梳理 KVC 崩溃的典型原因与 Setter/Getter 查找流程，并介绍对应的防护实现。

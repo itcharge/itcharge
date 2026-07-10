@@ -3,8 +3,9 @@ title: 2024 年目标清单
 tags:
   - 生活
   - 回顾
-createTime: '2024/01/05 00:00:00'
+createTime: 2024/01/05 00:00:00
 permalink: /blogs/life/review/2024-goals/
+comments: true
 ---
 
 2024 年目标清单，将刷题、算法书收尾、减肥、毕业论文、Swift 学习与阅读观影等事项量化为可追踪的小目标与大理想。

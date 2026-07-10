@@ -5,8 +5,9 @@ categories:
 tags:
   - 技术
   - iOS
-createTime: '2018/03/07 00:00:00'
+createTime: 2018/03/07 00:00:00
 permalink: /blogs/tech/ios/multithreading-runloop/
+comments: true
 ---
 
 RunLoop 详尽总结，说明 CFRunLoopRef、Mode、Source、Timer、Observer 等概念及常见应用场景。

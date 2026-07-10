@@ -5,8 +5,9 @@ categories:
 tags:
   - 技术
   - iOS
-createTime: '2017/01/20 00:00:00'
+createTime: 2017/01/20 00:00:00
 permalink: /blogs/tech/ios/resume-download-afnetworking/
+comments: true
 ---
 
 文件下载与断点续传系列第三篇，介绍使用 AFNetworking 的 `AFURLSessionManager` 实现下载与进度监听的方法。

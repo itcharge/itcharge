@@ -5,8 +5,9 @@ categories:
 tags:
   - 生活
   - 阅读
-createTime: '2016/04/19 00:00:00'
+createTime: 2016/04/19 00:00:00
 permalink: /blogs/life/reding/fortress-besieged/
+comments: true
 ---
 
 「围城」读书笔记，我们每个人都可能陷入困境——总觉得外面的世界更好，但走进去后又发现有新的难题。不同阶段读这本书，会有不一样的体会，也让我反思自己面对选择和生活时的态度。

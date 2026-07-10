@@ -1,14 +1,14 @@
 ---
-title: "2024 年年终总结：书未完，步未停"
+title: 2024 年年终总结：书未完，步未停
 categories:
-  - "学习成长"
-  - "慢生活"
+  - 学习成长
+  - 慢生活
 tags:
   - 生活
   - 回顾
-
-createTime: "2025/01/05 00:00:00"
+createTime: 2025/01/05 00:00:00
 permalink: /blogs/life/review/2024-annual/
+comments: true
 ---
 
 2024 年终总结，回顾 LeetCode 刷题、算法通关手册推进、Swift 学习、毕业论文与减肥计划，以及婚后第一年的阅读与生活。

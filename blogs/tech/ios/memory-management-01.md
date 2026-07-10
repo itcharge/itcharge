@@ -5,8 +5,9 @@ categories:
 tags:
   - 技术
   - iOS
-createTime: '2016/07/30 00:00:00'
+createTime: 2016/07/30 00:00:00
 permalink: /blogs/tech/ios/memory-management-01/
+comments: true
 ---
 
 iOS 内存管理 MRC 篇，讲解引用计数原理、内存分区、单对象与多对象间的 retain/release 规则及 `@property` 修饰符。

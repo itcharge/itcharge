@@ -2,6 +2,7 @@
 pageLayout: home
 pageClass: itcharge-home
 permalink: /
+comments: false
 description: ITCharge 的技术博客，分享 AI Agent 开发、iOS/macOS 开发、服务器技术与生活随笔
 signDown: true
 config:

@@ -5,8 +5,9 @@ categories:
 tags:
   - 技术
   - iOS
-createTime: '2019/07/31 00:00:00'
+createTime: 2019/07/31 00:00:00
 permalink: /blogs/tech/ios/runtime-04/
+comments: true
 ---
 
 Runtime 系列第四篇，介绍运行时遍历类属性与方法、动态添加属性/方法/协议等 API 及典型使用场景。

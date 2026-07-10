@@ -3,6 +3,7 @@ pageLayout: home
 pageClass: itcharge-about
 title: 关于我
 permalink: /about/
+comments: false
 config:
   - type: profile
     avatar: /head.png

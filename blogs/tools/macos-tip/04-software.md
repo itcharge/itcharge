@@ -5,8 +5,9 @@ categories:
 tags:
   - 工具
   - macOS 技巧
-createTime: '2021/02/18 00:00:00'
+createTime: 2021/02/18 00:00:00
 permalink: /blogs/tools/macos-tip/04-software/
+comments: true
 ---
 
 macOS 软件清单，按系统工具、效率、阅读、媒体、浏览器等类别推荐长期使用的应用程序。

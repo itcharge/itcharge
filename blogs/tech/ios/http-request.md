@@ -5,8 +5,9 @@ categories:
 tags:
   - 技术
   - iOS
-createTime: '2016/05/13 00:00:00'
+createTime: 2016/05/13 00:00:00
 permalink: /blogs/tech/ios/http-request/
+comments: true
 ---
 
 iOS HTTP 请求方式总结，对比 `NSURLConnection`、`NSURLSession` 与 AFNetworking 的同步/异步调用与代理用法。

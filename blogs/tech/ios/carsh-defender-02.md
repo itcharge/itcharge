@@ -5,8 +5,9 @@ categories:
 tags:
   - 技术
   - iOS
-createTime: '2019/08/25 00:00:00'
+createTime: 2019/08/25 00:00:00
 permalink: /blogs/tech/ios/carsh-defender-02/
+comments: true
 ---
 
 Crash 防护系统系列第二篇，分析 KVO 误用导致的常见崩溃场景，并对比 BayMax、XXShield 等防护方案。

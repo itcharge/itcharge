@@ -5,8 +5,9 @@ categories:
 tags:
   - 工具
   - macOS 技巧
-createTime: '2020/11/17 00:00:00'
+createTime: 2020/11/17 00:00:00
 permalink: /blogs/tools/macos-tip/01-start-guide/
+comments: true
 ---
 
 macOS 入门指南，面向从 Windows 转来的用户，介绍系统布局、安装卸载软件、触控板手势与基础设置。

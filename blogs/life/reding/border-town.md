@@ -5,8 +5,9 @@ categories:
 tags:
   - 生活
   - 阅读
-createTime: '2016/08/27 00:00:00'
+createTime: 2016/08/27 00:00:00
 permalink: /blogs/life/reding/border-town/
+comments: true
 ---
 
 「边城」读书笔记，概述翠翠与傩送、天保之间的情感线索、边城风物描写及开放式结局带来的阅读感受。

@@ -5,8 +5,9 @@ categories:
 tags:
   - 技术
   - iOS
-createTime: '2016/08/07 00:00:00'
+createTime: 2016/08/07 00:00:00
 permalink: /blogs/tech/ios/foundation/
+comments: true
 ---
 
 Foundation 框架总览，介绍框架定位、NS 前缀由来，以及根对象、集合、字符串、数字、日期与文件等核心类的关系。

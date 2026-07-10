@@ -5,8 +5,9 @@ categories:
 tags:
   - 工具
   - 账号
-createTime: '2020/08/20 00:00:00'
+createTime: 2020/08/20 00:00:00
 permalink: /blogs/tools/account/username-mgmt/
+comments: true
 ---
 
 个人账号密码管理体系（账号篇），建议将账号按公开与私人分类管理，并给出统一命名与归档方式。

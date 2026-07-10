@@ -5,8 +5,9 @@ categories:
 tags:
   - 工具
   - 账号
-createTime: '2020/09/08 00:00:00'
+createTime: 2020/09/08 00:00:00
 permalink: /blogs/tools/account/password-mgmt/
+comments: true
 ---
 
 个人账号密码管理体系（密码篇），介绍密码分类、生成策略、存储工具（1Password/Bitwarden）及诗词/口诀等记忆方法。

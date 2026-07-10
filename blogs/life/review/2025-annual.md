@@ -1,10 +1,11 @@
 ---
-title: "2025 年年终总结：去岁千般皆如愿，今年万事定称心"
+title: 2025 年年终总结：去岁千般皆如愿，今年万事定称心
 tags:
   - 生活
   - 回顾
-createTime: "2026/01/31 00:00:00"
+createTime: 2026/01/31 00:00:00
 permalink: /blogs/life/review/2025-review/
+comments: true
 ---
 
 2025 年终总结，回顾研究生毕业与论文修改、公司裁员与再就业、从大语言模型研究转向 AI Agent 工程实践等学业与工作变化。

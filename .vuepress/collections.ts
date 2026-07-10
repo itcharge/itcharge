@@ -21,6 +21,10 @@ export default defineCollections([
       permalink: "filepath",
       title: true,
       createTime: true,
+      transform: (data) => {
+        data.comments ??= true;
+        return data;
+      },
     },
     profile: {
       avatar: "/head.png",

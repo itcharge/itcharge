@@ -5,8 +5,9 @@ categories:
 tags:
   - 技术
   - iOS
-createTime: '2019/03/28 00:00:00'
+createTime: 2019/03/28 00:00:00
 permalink: /blogs/tech/ios/blocks-02/
+comments: true
 ---
 
 Blocks 系列第二篇，通过 `clang -rewrite-objc` 分析 Block 的底层实现，说明其作为 Objective-C 对象的内存布局与变量截获机制。

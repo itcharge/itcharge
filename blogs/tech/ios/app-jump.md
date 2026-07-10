@@ -5,8 +5,9 @@ categories:
 tags:
   - 技术
   - iOS
-createTime: '2016/09/14 00:00:00'
+createTime: 2016/09/14 00:00:00
 permalink: /blogs/tech/ios/app-jump/
+comments: true
 ---
 
 介绍 iOS 应用间相互跳转的实现方式，涵盖 URL Schemes 配置、`openURL`/`canOpenURL` 用法及带参数回跳原应用的示例。
