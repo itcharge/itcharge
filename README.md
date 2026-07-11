@@ -15,4 +15,4 @@
 
 - **iOS Development**: Native iOS and macOS applications
 - **LLM Applications**: RAG, Agent Systems, MCP Server, Prompt Engineering
-- **Programming Languages**: Python, Objective-C, Swift, Markdown
+- **Programming Languages**: Python, Objective-C, Swift, C, C++, Dart, Markdown

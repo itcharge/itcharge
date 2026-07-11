@@ -14,19 +14,18 @@ comments: true
 
 <!-- more -->
 
-# 【网络请求】iOS 开发：「文件下载、断点下载」的实现（三）：AFNetworking
 
 > 关于「文件下载、断点下载」所有实现的 Demo 地址：[Demo 地址](https://github.com/itcharge/YSC-DownloadDemo)
 
-## 1. AFNetworking 下载简介
+# 1. AFNetworking 下载简介
 
 这里只讲解 AFNetworking 下载文件相关知识。对于第三方框架的导入在这里不做讲解，如果有问题可以上 AFNetworking 的 GitHub 上了解。—> [AFNetworking 官方地址](https://github.com/AFNetworking/AFNetworking)
 
-## 2. AFNetworking 下载相关
+# 2. AFNetworking 下载相关
 
-### 2.1 AFNetworking（文件下载）
+## 2.1 AFNetworking（文件下载）
 
-[](https://qcdn.itcharge.cn/images/iOS-Resume-Download-AFNetworking-001.gif)
+![iOS Resume Download AFNetworking 001](https://qcdn.itcharge.cn/images/iOS-Resume-Download-AFNetworking-001.gif)
 
 AFNetworking 实现文件下载总共四步：
 
@@ -79,12 +78,12 @@ NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:reques
 [downloadTask resume];
 ```
 
-### 2.2 AFNetworking（断点下载 | 支持离线）
+## 2.2 AFNetworking（断点下载 | 支持离线）
 
-[](https://qcdn.itcharge.cn/images/20210729145510.gif)
+![截图](https://qcdn.itcharge.cn/images/20210729145510.gif)
 
 - AFNetworking3.0 是基于 NSURLSession 的。所以实现原理和 NSURLSession 差不多。可参考 NSURLConnection 实现断点下载的方法。
- - 相关文章链接：[iOS 网络--「文件下载、断点下载」的实现（二）：NSURLSession](https://www.jianshu.com/p/5a07352e9473)。
+  - 相关文章链接：[iOS 网络--「文件下载、断点下载」的实现（二）：NSURLSession](https://www.jianshu.com/p/5a07352e9473)。
 
 这里使用了 NSURLSessionDataTask，以便实现「离线断点下载」。
 
@@ -259,7 +258,6 @@ NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:reques
     }
     return fileLength;
 }
-
 ```
 
 这样我们用 AFNetworking 也实现了「离线断点下载」的需求。

@@ -3,8 +3,13 @@ import collections from "./collections";
 import navbar from "./navbar";
 
 export default defineThemeConfig({
-  logo: "/logo.png",
+  logo: "/head.png",
   home: "/",
+  transition: {
+    appearance: "circle-clip",
+  },
+  darkModeSwitchTitle: "切换为深色模式",
+  lightModeSwitchTitle: "切换为浅色模式",
   profile: {
     avatar: "/head.png",
     name: "ITCharge",

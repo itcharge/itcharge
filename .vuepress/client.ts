@@ -4,7 +4,6 @@ import { useRoute } from "vue-router";
 import Layout from "./layouts/Layout.vue";
 import HomeBanner from "./theme/components/HomeBanner.vue";
 import HomeWaves from "./theme/components/HomeWaves.vue";
-import "./theme/styles/index.css";
 
 function markHomeFeaturesAnchor() {
   requestAnimationFrame(() => {
@@ -21,6 +20,7 @@ function applyNoReferrerPolicy(root: ParentNode = document) {
 
 export default defineClientConfig({
   enhance({ app }) {
+    void import("./theme/styles/index.css");
     app.component("home-banner", HomeBanner);
     app.component("HomeBanner", HomeBanner);
     app.component("home-waves", HomeWaves);

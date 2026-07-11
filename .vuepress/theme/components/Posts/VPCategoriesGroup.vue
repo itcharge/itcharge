@@ -1,0 +1,140 @@
+<script setup lang="ts">
+import type { CategoryItem } from "vuepress-theme-plume/client";
+import VPCategories from "@theme/Posts/VPCategories.vue";
+import { computed, onMounted, ref, watch } from "vue";
+import { useRoute } from "vuepress/client";
+import { useData } from "vuepress-theme-plume/client";
+import { formatCategoryPageTitle } from "../../../categoryEmojis";
+
+const { item, depth = 0 } = defineProps<{
+  item: CategoryItem;
+  depth?: number;
+}>();
+
+const { collection } = useData<"page", "post">();
+const route = useRoute();
+const el = ref<HTMLDivElement | null>(null);
+const expand = ref(true);
+const isExpand = ref(false);
+
+const displayTitle = computed(() => formatCategoryPageTitle(item.title));
+
+const expandDepth = computed(() => {
+  const depth = collection.value?.categoriesExpand ?? "deep";
+  if (depth === "deep")
+    return Infinity;
+  const d = Number(depth);
+  if (Number.isNaN(d))
+    return Infinity;
+  return d;
+});
+
+watch(
+  () => [route.query, item, expandDepth.value],
+  () => {
+    const id = route.query.id as string;
+    if (!id) {
+      expand.value = depth <= expandDepth.value;
+    }
+    else {
+      expand.value = hasExpand(item, id);
+    }
+    isExpand.value = id ? item.id === id : false;
+  },
+  { immediate: true },
+);
+
+function hasExpand(item: CategoryItem, id: string) {
+  return item.id === id
+    || item.items.filter(item => item.type === "category").some(item => hasExpand(item, id));
+}
+
+function toggle() {
+  expand.value = !expand.value;
+}
+
+onMounted(() => {
+  if (el.value && isExpand.value) {
+    el.value.scrollIntoView({ block: "center" });
+  }
+});
+</script>
+
+<template>
+  <div ref="el" class="vp-category-group" :class="{ expand }">
+    <p class="folder" @click="toggle">
+      <span class="icon" :class="[expand ? 'vpi-folder-open' : 'vpi-folder']" />
+      <span class="itcharge-category-title">{{ displayTitle }}</span>
+    </p>
+
+    <VPCategories
+      v-if="item.items.length"
+      class="group"
+      :items="item.items"
+      :depth="depth"
+    />
+  </div>
+</template>
+
+<style scoped>
+.vp-category-group {
+  position: relative;
+}
+
+.vp-category-group::after {
+  position: absolute;
+  top: 30px;
+  bottom: 0;
+  left: 8px;
+  display: block;
+  content: "";
+  border-left: 1px solid var(--vp-c-divider);
+  transition: border var(--vp-t-color);
+}
+
+.vp-category-group .folder {
+  display: flex;
+  align-items: center;
+  margin: 8px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--vp-c-text-2);
+  cursor: pointer;
+  transition: color var(--vp-t-color);
+}
+
+.vp-category-group .folder:hover {
+  color: var(--vp-c-text-1);
+}
+
+@media (min-width: 768px) {
+  .vp-category-group .folder {
+    font-size: 18px;
+  }
+}
+
+.vp-category-group .folder .icon {
+  display: inline-block;
+  width: 1em;
+  margin-right: 8px;
+}
+
+.itcharge-category-title {
+  word-spacing: 0.35em;
+}
+
+.vp-category-group > .group {
+  display: none;
+  margin-left: 22px;
+}
+
+@media (min-width: 768px) {
+  .vp-category-group > .group {
+    margin-left: 26px;
+  }
+}
+
+.vp-category-group.expand > .group {
+  display: block;
+}
+</style>

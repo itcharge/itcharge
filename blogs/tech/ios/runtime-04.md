@@ -14,7 +14,6 @@ Runtime 系列第四篇，介绍运行时遍历类属性与方法、动态添加
 
 <!-- more -->
 
-# 【Runtime】iOS 开发：「Runtime」详解（四）获取类详细属性、方法
 
 > 本文用来介绍 iOS 开发中，**如何通过「Runtime」获取类详细属性、方法**。通过本文，您将了解到：
 > 1. 获取类详细属性、方法简述
@@ -30,7 +29,7 @@ Runtime 系列第四篇，介绍运行时遍历类属性与方法、动态添加
 
 ---
 
-[](https://qcdn.itcharge.cn/images/iOS-Runtime-04-001.png)
+![iOS Runtime 04 001](https://qcdn.itcharge.cn/images/iOS-Runtime-04-001.png)
 
 
 
@@ -55,7 +54,7 @@ Runtime 系列第四篇，介绍运行时遍历类属性与方法、动态添加
 
 ## 2.1 获取类的成员变量列表
 
-```Objc
+```objc
 // 打印成员变量列表
 - (void)printIvarList {
     unsigned int count;
@@ -74,7 +73,7 @@ Runtime 系列第四篇，介绍运行时遍历类属性与方法、动态添加
 
 ## 2.2 获取类的属性列表
 
-```Objc
+```objc
 // 打印属性列表
 - (void)printPropertyList {
     unsigned int count;
@@ -91,7 +90,7 @@ Runtime 系列第四篇，介绍运行时遍历类属性与方法、动态添加
 
 ## 2.3 获取类的方法列表
 
-```Objc
+```objc
 // 打印方法列表
 - (void)printMethodList {
     unsigned int count;
@@ -108,7 +107,7 @@ Runtime 系列第四篇，介绍运行时遍历类属性与方法、动态添加
 
 ## 2.4 获取类所遵循的协议列表
 
-```Objc
+```objc
 // 打印协议列表
 - (void)printProtocolList {
     unsigned int count;
@@ -128,7 +127,7 @@ Runtime 系列第四篇，介绍运行时遍历类属性与方法、动态添加
 
 # 3. 应用场景
 
-## 3.1 修改私有属性 
+## 3.1 修改私有属性
 
 > 需求：更改 UITextField 占位文字的颜色和字号
 
@@ -146,7 +145,7 @@ Runtime 系列第四篇，介绍运行时遍历类属性与方法、动态添加
 2. 重写自定义 XXTextField 的 drawPlaceholderInRect: 方法；
 3. 在 drawPlaceholderInRect 方法中设置 placeholder 的属性。
 
-```Objc
+```objc
 - (void)drawPlaceholderInRect:(CGRect)rect {
     
     // 计算占位文字的 Size
@@ -167,7 +166,7 @@ Runtime 系列第四篇，介绍运行时遍历类属性与方法、动态添加
 2. 找到私有的成员变量 `_placeholderLabel`；
 3. 利用 KVC 对 `_placeholderLabel` 进行修改。
 
-```Objc
+```objc
 // 打印 UITextfield 的所有属性和成员变量
 - (void)printUITextFieldList {
     unsigned int count;
@@ -236,7 +235,7 @@ Runtime 系列第四篇，介绍运行时遍历类属性与方法、动态添加
 
 首先，定义跳转规则，如下所示。`XXViewController` 是将要跳转的控制器类名。`property` 字典中保存的是控制器所需的属性参数。
 
-```Objc
+```objc
 // 定义的规则
 NSDictionary *params = @{
                          @"class" : @"XXViewController",
@@ -249,7 +248,7 @@ NSDictionary *params = @{
 
 然后，添加一个工具类 `XXJumpControllerTool`，添加跳转相关的类方法。
 
-```Objc
+```objc
 /********************* XXJumpControllerTool.h 文件 *********************/
 
 #import <Foundation/Foundation.h>
@@ -348,7 +347,7 @@ NSDictionary *params = @{
 ```
 
 测试代码：
-```Objc
+```objc
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     // 万能跳转控制器
     [self jumpController];
@@ -402,7 +401,7 @@ NSDictionary *params = @{
 
 经过分析，我们总共需要三个模型： XXStudentModel、XXAdressModel、XXCourseModel。
 
-```Objc
+```objc
 /********************* XXStudentModel.h 文件 *********************/
 #import <Foundation/Foundation.h>
 #import "NSObject+XXModel.h"
@@ -490,7 +489,7 @@ NSDictionary *params = @{
 
 `NSObject+XXModel.h`、`NSObject+XXModel.m` 就是我们用来解决字典转模型所创建的分类，协议中的 `+ (NSDictionary *)modelContainerPropertyGenericClass` 方法用来告诉分类特殊字段的处理规则，比如 `id --> uid`。
 
-```Objc
+```objc
 /********************* NSObject+XXModel.h 文件 *********************/
 #import <Foundation/Foundation.h>
 
@@ -511,7 +510,7 @@ NSDictionary *params = @{
 @end
 ```
 
-```Objc
+```objc
 /********************* NSObject+XXModel.m 文件 *********************/
 #import "NSObject+XXModel.h"
 #import <objc/runtime.h>
@@ -635,7 +634,7 @@ NSDictionary *params = @{
 
 效果如下：
 
-[](https://qcdn.itcharge.cn/images/iOS-Runtime-04-002.png)
+![iOS Runtime 04 002](https://qcdn.itcharge.cn/images/iOS-Runtime-04-002.png)
 
 
 
@@ -651,7 +650,7 @@ NSDictionary *params = @{
 
 首先在 NSObject 的分类 `NSObject+XXModel.h`、`NSObject+XXModel.m` 中添加以下代码：
 
-```Objc
+```objc
 // 解档
 - (instancetype)xx_modelInitWithCoder:(NSCoder *)aDecoder {
     if (!aDecoder) return self;
@@ -694,7 +693,7 @@ NSDictionary *params = @{
 
 然后在需要实现归档解档的模型中，添加 `-initWithCoder:` 和 `-encodeWithCoder:` 方法。
 
-```Objc
+```objc
 #import "XXPerson.h"
 #import "NSObject+XXModel.h"
 
@@ -717,7 +716,7 @@ NSDictionary *params = @{
 
 测试一下归档解档代码：
 
-```Objc
+```objc
 XXPerson *person = [[XXPerson alloc] init];
 person.uid = @"123412341234";
 person.name = @"行走少年郎";

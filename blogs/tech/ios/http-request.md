@@ -14,13 +14,12 @@ iOS HTTP 请求方式总结，对比 `NSURLConnection`、`NSURLSession` 与 AFNe
 
 <!-- more -->
 
-# 【网络请求】iOS 开发：HTTP 请求
 
 > 本文用来对 iOS 网络中 HTTP 请求相关内容进行总结。
 
-## 1.NSURLConnectiong
+# 1. NSURLConnectiong
 
-### 1.1 同步 GET 请求
+## 1.1 同步 GET 请求
 
 ```objc
 // 1.创建请求路径(url)
@@ -37,7 +36,7 @@ NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse
 NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 ```
 
-### 1.2 异步 GET 请求
+## 1.2 异步 GET 请求
 
 ```objc
 // 1.创建请求路径(url)
@@ -56,7 +55,7 @@ NSURLRequest *request = [NSURLRequest requestWithURL:url];
 
 ```
 
-### 1.3 通过代理发送异步请求
+## 1.3 通过代理发送异步请求
 
 ```objc
 // 1.创建请求路径(url)
@@ -98,7 +97,7 @@ NSURLRequest *request = [NSURLRequest requestWithURL:url];
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error;
 ```
 
-### 1.4 同步 POST 请求
+## 1.4 同步 POST 请求
 
 ```objc
 // 1.创建请求路径(url)
@@ -120,7 +119,7 @@ request.timeoutInterval = 5;
 
 ```
 
-### 1.5 异步 POST 请求
+## 1.5 异步 POST 请求
 
 ```objc
 // 1.创建请求路径(url)
@@ -148,7 +147,7 @@ request.timeoutInterval = 5;
 
 ```
 
-### 1.6 NSURLConnection 中文 URL 处理
+## 1.6 NSURLConnection 中文 URL 处理
 
 ```objc
 NSString *urlStr = @"";
@@ -157,8 +156,9 @@ urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]
 NSURL *url = [NSURL URLWithString:urlStr];
 ```
 
-## 2.NSURLSession
-### 2.1 GET 请求
+# 2. NSURLSession
+
+## 2.1 GET 请求
 
 ```objc
 // 第一种 GET 请求
@@ -188,7 +188,7 @@ NSURLSessionDataTask *task = [session dataTaskWithURL:[NSURL URLWithString:@""] 
 [task resume];
 ```
 
-### 2.2 POST 请求
+## 2.2 POST 请求
 
 ```objc
 // 获得 NSURLSession 对象
@@ -208,7 +208,7 @@ NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHand
 [task resume];
 ```
 
-### 2.3 通过代理发送请求
+## 2.3 通过代理发送请求
 
 ```objc
 // 获得 NSURLSession 对象
@@ -244,9 +244,9 @@ NSURLSessionDataTask *task = [session dataTaskWithRequest:[NSURLRequest requestW
 }
 ```
 
-## 3. AFNetworking
+# 3. AFNetworking
 
-### 3.1 GET 请求
+## 3.1 GET 请求
 
 ```objc
 // 第一种 GET 请求
@@ -281,7 +281,7 @@ NSDictionary *params = @{
 }];
 ```
 
-### 3.2 POST 请求
+## 3.2 POST 请求
 
 ```objc
 // AFHTTPRequestOperationManager 内部包装了 NSURLConnection

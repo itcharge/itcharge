@@ -14,19 +14,18 @@ Foundation 框架字符串类总结，梳理 `NSString`/`NSMutableString` 的创
 
 <!-- more -->
 
-# 【OC 语法】iOS 开发：Foundation 框架详尽总结之「字符串类」
 
 > 本文对 Foundation 框架中的字符串类（NSString、NSMutableString）的使用做一个详细的总结。
 
-## 1. NSString
+# 1. NSString
 
-### 1.1 NSString 介绍
+## 1.1 NSString 介绍
 
 - Foundation 框架支持一个名为 NSString 的类，用于处理字符串对象，由 unichar 字符组成。
 - 一个 NSString 对象就代表一个字符串（文字内容）
 - 一般称 NSString 为字符串类
 
-### 1.2 NSString 创建方式
+## 1.2 NSString 创建方式
 
 1. 通过字符串常量直接创建
 
@@ -46,7 +45,7 @@ Foundation 框架字符串类总结，梳理 `NSString`/`NSMutableString` 的创
   NSString *str = [NSString stringWithFormat:@"abc"];
   ```
 
-### 1.3 字符串读写
+## 1.3 字符串读写
 
 - 从文件中读取字符串
 
@@ -97,36 +96,36 @@ NSLog(@"str = %@", str);
 输出结果: xyz
 ```
 
-### 1.4 使用 URL 读写字符串
+## 1.4 使用 URL 读写字符串
 
-#### 1.4.1 URL 介绍
+### 1.4.1 URL 介绍
 
 - URL 的全称是 Uniform Resource Locator（统一资源定位符）
 - URL 是互联网上标准资源的地址
 - 互联网上的每个资源都有一个唯一的 URL，它包含的信息指出资源的位置
 - 根据一个 URL 就能找到唯一的一个资源
 - URL 的格式
- - 基本 URL 包含协议、主机域名（服务器名称\IP 地址）、路径
- - 举例: https://www.jianshu.com/img/Walkers.gif
- - 可以简单认为: URL == 协议头://主机域名/路径
+  - 基本 URL 包含协议、主机域名（服务器名称\IP 地址）、路径
+  - 举例: https://www.jianshu.com/img/Walkers.gif
+  - 可以简单认为: URL == 协议头://主机域名/路径
 - 常见的 URL 协议头(URL 类型)
- - https:// 或 https:// ：超文本传输协议资源，网络资源
- - ftp:// ：文件传输协议
- - file:// ：本地电脑的文件
+  - https:// 或 https:// ：超文本传输协议资源，网络资源
+  - ftp:// ：文件传输协议
+  - file:// ：本地电脑的文件
 - URL 的创建
- - 传入完整的字符串创建
+  - 传入完整的字符串创建
 
  ```objc
     NSURL *url = [NSURL   URLWithString:@"file:///Users/Walkers/Desktop/str.txt"];
     ```
 
- - 通过文件路径创建（默认就是 file 协议）
+- 通过文件路径创建（默认就是 file 协议）
 
  ```objc
     NSURL *url = [NSURL fileURLWithPath:@"/Users/Walkers/Desktop/str.txt"];
     ```
 
-#### 1.4.2. 使用 NSURL 读写字符串
+### 1.4.2 使用 NSURL 读写字符串
 
 - 从 URL 中读取
 
@@ -157,16 +156,16 @@ NSString *str = @"Walkers";
 [str writeToURL:[NSURL URLWithString:@"/Users/Walkers/Desktop/str.txt"] atomically:YES encoding:NSUTF8StringEncoding error:nil];
 ```
 
-### 1.5 字符串比较
-#### 1.5.1 NSString 大小写处理
+## 1.5 字符串比较
+### 1.5.1 NSString 大小写处理
 - 全部字符转为大写字母`- (NSString *)uppercaseString;`
 - 全部字符转为小写字母`- (NSString *)lowercaseString;`
 - 首字母变大写，其他字母都变小写`- (NSString *)capitalizedString;`
 
-#### 1.5.2 NSString 比较
+### 1.5.2 NSString 比较
 
 - 比较字符串是否内容一样`- (BOOL)isEqualToString:(NSString *)aString;`
- - 两个字符串的内容相同就返回 YES, 否则返回 NO。
+  - 两个字符串的内容相同就返回 YES, 否则返回 NO。
 
 ```objc
 NSString *str1 = @"abc";
@@ -182,11 +181,11 @@ if (str1 == str2) {
 ```
 
 - 比较两个字符串内容的大小`- (NSComparisonResult)compare:(NSString *)string;`
- - 比较方法: 逐个字符地进行比较 ASCII 值，返回 NSComparisonResult 作为比较结果
- - NSComparisonResult 是一个枚举，有 3 个值:
- - 如果左侧 > 右侧，返回 NSOrderedDescending,
- - 如果左侧 < 右侧，返回 NSOrderedAscending,
- - 如果左侧 == 右侧，返回 NSOrderedSame
+  - 比较方法: 逐个字符地进行比较 ASCII 值，返回 NSComparisonResult 作为比较结果
+  - NSComparisonResult 是一个枚举，有 3 个值:
+  - 如果左侧 > 右侧，返回 NSOrderedDescending,
+  - 如果左侧 < 右侧，返回 NSOrderedAscending,
+  - 如果左侧 == 右侧，返回 NSOrderedSame
 
 ```objc
 NSString *str1 = @"abc";
@@ -208,7 +207,7 @@ switch ([str1 compare:str2]) {
 ```
 
 - 忽略大小写进行比较`(NSComparisonResult) caseInsensitiveCompare:(NSString *)string;`
- - 返回值与 compare:一致
+  - 返回值与 compare:一致
 
 ```objc
 NSString *str1 = @"abc";
@@ -229,7 +228,7 @@ switch ([str1 caseInsensitiveCompare:str2]) {
 输出结果：两个字符串一样
 ```
 
-### 1.6 字符串搜索
+## 1.6 字符串搜索
 
 - 是否以 aString 开头`- (BOOL)hasPrefix:(NSString *)aString;`
 
@@ -260,8 +259,8 @@ if ([str hasSuffix:@".gif"]) {
 ```
 
 - 检查字符串内容中是否包含了 aString`- (NSRange)rangeOfString:(NSString *)aString;`
- - 如果包含, 就返回 aString 的范围
- - 如果不包含, NSRange 的 location 为 NSNotFound, length 为 0
+  - 如果包含, 就返回 aString 的范围
+  - 如果不包含, NSRange 的 location 为 NSNotFound, length 为 0
 
 ```objc
 NSString *str = @"https://jianshu.com/img/Walkers.gif";
@@ -279,7 +278,7 @@ str 中有需要查找的字符串
 location = 23, length = 7
 ```
 
-### 1.7 字符串的截取
+## 1.7 字符串的截取
 
 - 从指定位置 from 开始(包括指定位置的字符)到尾部`- (NSString *)substringFromIndex:(NSUInteger)from;`
 
@@ -319,7 +318,7 @@ NSLog(@"res = %@", res);
 输出结果: 程序员
 ```
 
-### 1.8 字符串的替换函数
+## 1.8 字符串的替换函数
 
 - 用 replacement 替换 target `- (NSString *)stringByReplacingOccurrencesOfString:(NSString *)target withString:(NSString *)replacement;`
 
@@ -332,7 +331,7 @@ NSLog(@"newStr = %@", newStr);
 ```
 
 - 去除首尾 `- (NSString *)stringByTrimmingCharactersInSet:(NSCharacterSet *)set;`
- - 去除首尾的" "
+  - 去除首尾的" "
 
  ```objc
     NSString *str =  @"   https://jianshu.com/img/Walkers.gif   ";
@@ -345,7 +344,7 @@ NSLog(@"newStr = %@", newStr);
     newStr =|https://jianshu.com/img/Walkers.gif|
     ```
 
- - 去除首尾的 "*"
+- 去除首尾的 "*"
 
  ```objc
     NSString *str =  @"***https://jianshu.com/img/Walkers.gif***";    
@@ -358,7 +357,7 @@ NSLog(@"newStr = %@", newStr);
     newStr =|https://jianshu.com/img/Walkers.gif|
     ```
 
-### 1.9 NSString 与路径
+## 1.9 NSString 与路径
 
 - 是否为绝对路径`- (BOOL)isAbsolutePath;`
 
@@ -398,7 +397,7 @@ NSLog(@"newStr = %@", newStr);
 ```
 
 - 在路径的后面拼接一个目录`- (NSString *)stringByAppendingPathComponent:(NSString *)str;`
- - 也可以使用`stringByAppendingString:`或者`stringByAppendingFormat:`拼接字符串内容
+  - 也可以使用`stringByAppendingString:`或者`stringByAppendingFormat:`拼接字符串内容
 
 ```objc
 // 其实就是在最后面加上/和要拼接得内容
@@ -411,7 +410,7 @@ NSLog(@"newStr = %@", newStr);
 输出结果：newStr = /Users/Walkers/Desktop/abc
 ```
 
-### 1.10 NSString 与文件拓展名
+## 1.10 NSString 与文件拓展名
 
 - 获得拓展名`- (NSString *)pathExtension;`
 
@@ -448,12 +447,12 @@ NSLog(@"newStr = %@", newStr);
 输出结果：newStr = abc.gif
 ```
 
-### 1.11 获取字符串的每个字符
+## 1.11 获取字符串的每个字符
 
 - 返回字符串的长度(有多少个文字)`- (NSUInteger)length;`
 - 返回 index 位置对应的字符`- (unichar)characterAtIndex:(NSUInteger)index;`
 
-### 1.12 字符串大小写转换
+## 1.12 字符串大小写转换
 
 - 将字符串转换为大写
 
@@ -486,12 +485,12 @@ NSLog(@"%@", newStr);
 输出结果：Abc
 ```
 
-### 1.13 字符串和其他数据类型转换
+## 1.13 字符串和其他数据类型转换
 
 - 字符串转为基本数据类型
- - `- (double)doubleValue;`
- - `- (float)floatValue;`
- - `- (int)intValue;`
+  - `- (double)doubleValue;`
+  - `- (float)floatValue;`
+  - `- (int)intValue;`
 
 ```objc
 NSString *str1 = @"110";
@@ -523,17 +522,17 @@ NSLog(@"str = %@", str);
 
 ***
 
-## 2. NSMutableString
+# 2. NSMutableString
 
-### 2.1 NSMutableString 介绍
+## 2.1 NSMutableString 介绍
 
 - NSMutableString 类继承 NSString 类，那么 NSString 提供的方法在 NSMutableString 中基本都可以使用，NSMutableString 好比一个字符串链表，它可以任意的动态在字符串中添加字符串、删除字符串、在指定位置插入字符串，使用它来操作字符串会更加灵活。
 - NSMutableString 和 NSString 的区别
- - NSString 是不可变的，里面的文字内容是不能进行修改的
- - NSMutableString 是可变的，里面的文字内容可以随时更改
- - NSMutableString 能使用 NSString 的所有方法
+  - NSString 是不可变的，里面的文字内容是不能进行修改的
+  - NSMutableString 是可变的，里面的文字内容可以随时更改
+  - NSMutableString 能使用 NSString 的所有方法
 
-### 2.2 字符串中的可变和不可变
+## 2.2 字符串中的可变和不可变
 
 - 不可变：指的是字符串在内存中占用的存储空间固定，并且存储的内容不能发生变化
 
@@ -555,15 +554,15 @@ newStr = yz
 
 执行完`NSString *str = @"abc";`后在内存中的表现如下图所示，str 指向@"abc"对应的内存
 
-[1.png](https://qcdn.itcharge.cn/images/iOS-Foundation-String-001.png)
+![1.png](https://qcdn.itcharge.cn/images/iOS-Foundation-String-001.png)
 
 执行完`str = @"xyz";`后在内存中的表现如下图所示，该语句修改了 str 指针的指向，让它指向@"xyz"对应的内存
 
-[2.png](https://qcdn.itcharge.cn/images/iOS-Foundation-String-002.png)
+![2.png](https://qcdn.itcharge.cn/images/iOS-Foundation-String-002.png)
 
 执行完`NSString *newStr = [str substringFromIndex:1];`，在内存中的表现如下图所示，该语句生成了一个新的字符串，并没有修改原有字符串
 
-[3.png](https://qcdn.itcharge.cn/images/iOS-Foundation-String-003.png)
+![3.png](https://qcdn.itcharge.cn/images/iOS-Foundation-String-003.png)
 
 - 可变：指的是字符串在内存中占用的存储空间可以不固定，并且存储的内容可以被修改
 
@@ -582,17 +581,17 @@ NSLog(@"str = %@", str);
 
 执行完`NSMutableString *str = [NSMutableString string];`后，在内存中的表现如下图所示
 
-[4.png](https://qcdn.itcharge.cn/images/iOS-Foundation-String-004.png)
+![4.png](https://qcdn.itcharge.cn/images/iOS-Foundation-String-004.png)
 
 执行完`[str appendString:@"abc"];`后，在内存中的表现如下图所示，该语句修改了原有字符串，并没有生成新的字符串
 
-[5.png](https://qcdn.itcharge.cn/images/iOS-Foundation-String-005.png)
+![5.png](https://qcdn.itcharge.cn/images/iOS-Foundation-String-005.png)
 
 接着执行`[str appendString:@" xyz"];`后，在内存中的表现如下图所示，该语句同样修改了原有字符串，并没有生成新的字符串
 
-[6.png](https://qcdn.itcharge.cn/images/iOS-Foundation-String-006.png)
+![6.png](https://qcdn.itcharge.cn/images/iOS-Foundation-String-006.png)
 
-### 2.3 NSMutableString 常用方法
+## 2.3 NSMutableString 常用方法
 
 - 拼接 aString 到字符串最后面`- (void)appendString:(NSString *)aString;`
 
@@ -654,7 +653,7 @@ NSLog(@"str = %@", str);
 输出结果：str = https://jianshu.com/img/abc.gif
 ```
 
-### 2.4 字符串使用注意事项
+## 2.4 字符串使用注意事项
 
 - `@"abc"`这种方式创建的字符串始终是 NSString，不是 NSMutalbeString。所以下面的代码创建的还是 NSString，此时使用可变字符串的函数，无法操作字符串。
 

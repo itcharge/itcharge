@@ -14,19 +14,18 @@ Foundation 框架补充总结，涵盖 `NSNumber`、CGPoint/CGSize/CGRect/NSRang
 
 <!-- more -->
 
-# 【OC 语法】iOS 开发：Foundation 框架详尽总结之「数字、结构体、日期、文件类」
 
 > 本文对 Foundation 框架中一些数字类（NSNumber）、常用结构体类（CGPoint、CGSize、CGRect、CGRange 和 NSValue）、日期类（NSDate、NSCalendar）和文件类（NSFileManager）的使用做一个详细的总结。
 
-## 1.数字类（NSNumber）
+# 1. 数字类（NSNumber）
 
-### 1.1 NSNumber 介绍
+## 1.1 NSNumber 介绍
 
 - NSArray\NSDictionary 中只能存放 OC 对象，不能存放 int\float\double 等基本数据类
 - 如果需要使用将基本数据的值作为对象使用，比如说放进数组或字典中，需要先将基本数据类型包装成 OC 对象，可使用 NSNumber 类
 - NSNumber 可以根据基本数据的类型创建对象，这样就可以间接将基本数据类型存进 NSArray\NSDictionary 中
 
-### 1.2 NSNumber 的创建
+## 1.2 NSNumber 的创建
 
 - 以前 NSNumber 的创建方式
 
@@ -66,7 +65,7 @@ NSNumber *valueN = @6;
 NSNumber *flag = @YES;
 ```
 
-### 1.3 从 NSNumber 对象中的到基本类型数据
+## 1.3 从 NSNumber 对象中的到基本类型数据
 
 ```objc
 - (char)charValue;
@@ -91,7 +90,7 @@ NSLog(@"age = %d", age);
 输出结果：age = 10
 ```
 
-### 1.4 NSNumber 判断大小
+## 1.4 NSNumber 判断大小
 
 - 判断两个数相等`- (BOOL)isEqualToNumber:(NSNumber *)number;`
 
@@ -124,13 +123,13 @@ if ([num1 compare:num2] == NSOrderedSame) {     // 相等
 输出结果：num1 > num2
 ```
 
-## 2. 结构体类（CGPoint、CGSize、CGRect、CGRange 和 NSValue）
+# 2. 结构体类（CGPoint、CGSize、CGRect、CGRange 和 NSValue）
 
-### 2.1 结构体介绍
+## 2.1 结构体介绍
 
 - 在 iOS 开发中，我们经常会用到一些结构体，比如定义矩形原点坐标的结构体 CGPoint、定义矩形尺寸的结构体 CGSize、同时定义矩形原点和尺寸的结构体 CGRect、描述位置和大小范围的结构体 NSRange 等。
 
-### 2.2 NSPoint 和 CGPoint
+## 2.2 NSPoint 和 CGPoint
 
 - CGPoint 和 NSPoint 是同义的
 - CGPoint 代表的是二维平面中的一个点
@@ -155,7 +154,7 @@ typedef double CGFloat;
 CGPoint point = CGPointMake(10.0, 10.0);
 ```
 
-### 2.3 NSSize 和 CGSize
+## 2.3 NSSize 和 CGSize
 
 - CGSize 和 NSSize 是同义的
 - CGSize 代表的是二维平面中的某个物体的尺寸(宽度和高度)
@@ -179,7 +178,7 @@ typedef struct CGSize CGSize;
 CGSize size =  CGSizeMake(20.0, 20.0);
 ```
 
-### 2.4 NSRect 和 CGRect
+## 2.4 NSRect 和 CGRect
 
 - CGRect 和 NSRect 是同义的
 - CGRect 代表的是二维平面中的某个物体的位置和尺寸
@@ -203,7 +202,7 @@ typedef struct CGRect CGRect;
 CGRect rect = CGRectMake(10.0, 10.0, 20.0, 20.0);
 ```
 
-### 2.5 NSRange
+## 2.5 NSRange
 
 - 没有 CGRange
 - NSRange 表示事物的一个范围，通常是字符串里的字符范围或者数组里的元素范围
@@ -237,7 +236,7 @@ NSRange range = {.location = 7,.length = 3};
 NSRange range = NSMakeRange(7, 3);
 ```
 
-### 2.6 NSValue
+## 2.6 NSValue
 
 - 我们有时候需要将结构体存储在集合中，但不能直接坐到。
 - Foundation 提供了 NSValue 类将结构体转换为对象，并把它存储在集合中。
@@ -321,9 +320,9 @@ NSLog(@"age = %i, name = %s, height = %f", res.age, res.name, res.height);
 输出结果：age = 20, name = abc, height = 1.750000
 ```
 
-## 3. 日期类（NSDate、NSCalendar）
+# 3. 日期类（NSDate、NSCalendar）
 
-### 3.1 NSDate
+## 3.1 NSDate
 
 - NSDate 可以用来表示时间，可以进行一些常见的日期\时间处理
 - 一个 NSDate 对象就代表一个时间
@@ -381,7 +380,7 @@ NSLog(@"%@", date);
 输出结果：2015-06-28 11:53:24 +0000
 ```
 
-### 3.2 NSCalendar
+## 3.2 NSCalendar
 
 - 结合 NSCalendar 和 NSDate 能做更多的日期\时间处理
 - 获得 NSCalendar 对象`NSCalendar *calendar = [NSCalendar currentCalendar];`
@@ -435,14 +434,14 @@ NSLog(@"两个时间相差%ld年%ld月%ld日%ld小时%ld分钟%ld秒", cmps.year
 输出结果：两个时间相差 0 年 0 月 4 日 21 小时 51 分钟 55 秒
 ```
 
-## 4. 文件类（NSFileManager）
+# 4. 文件类（NSFileManager）
 
-### 4.1 NSFileManager 介绍
+## 4.1 NSFileManager 介绍
 
 - NSFileManager 是用来管理文件系统的
 - 它可以用来进行常见的文件\文件夹操作
 
-### 4.2 NSFileManager 用法
+## 4.2 NSFileManager 用法
 
 - 判断 path 这个文件\文件夹是否存在`- (BOOL)fileExistsAtPath:(NSString *)path;`
 
@@ -470,12 +469,12 @@ NSLog(@"flag = %i, directory = %i", flag, directory);
 - 判断 path 这个文件\文件夹是否可读`- (BOOL)isReadableFileAtPath:(NSString *)path;` 
 
 - path 这个文件\文件夹是否可写`- (BOOL)isWritableFileAtPath:(NSString *)path;`
-    - 系统目录不允许写入
+- 系统目录不允许写入
 
 - path 这个文件\文件夹是否可删除`- (BOOL)isDeletableFileAtPath:(NSString *)path;`
-    - 系统目录不允许删除
+- 系统目录不允许删除
 
-### 4.3 NSFileManager 的文件访问
+## 4.3 NSFileManager 的文件访问
 
 - 获得 path 这个文件\文件夹的属性`- (NSDictionary *)attributesOfItemAtPath:(NSString *)path error:(NSError **)error;`
 
@@ -497,7 +496,7 @@ NSLog(@"paths = %@", paths);
 
 - 获得 path 的所有子路径
     - `- (NSArray *)subpathsAtPath:(NSString *)path;`
-    - `- (NSArray *)subpathsOfDirectoryAtPath:(NSString *)path error:(NSError **)error;`
+- `- (NSArray *)subpathsOfDirectoryAtPath:(NSString *)path error:(NSError **)error;`
 
  ```objc
     NSFileManager *manager = [NSFileManager defaultManager];
@@ -505,7 +504,7 @@ NSLog(@"paths = %@", paths);
     NSLog(@"paths = %@", paths);
     ```
 
-### 4.4 NSFileManager 的文件操作
+## 4.4 NSFileManager 的文件操作
 
 - 拷贝`- (BOOL)copyItemAtPath:(NSString *)srcPath toPath:(NSString *)dstPath error:(NSError **)error;`
 

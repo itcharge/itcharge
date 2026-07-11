@@ -14,7 +14,6 @@ Crash 防护系统系列第三篇，梳理 KVC 崩溃的典型原因与 Setter/G
 
 <!-- more -->
 
-# 【Runtime】iOS 开发：「Crash 防护系统」（三）KVC 防护
 
 > 本文是 **「Crash 防护系统」系列** 第三篇。通过本文，您将了解到：
 > 1. KVC Crash 的主要原因
@@ -23,7 +22,7 @@ Crash 防护系统系列第三篇，梳理 KVC 崩溃的典型原因与 Setter/G
 >
 > 文中示例代码在： [itcharge](https://github.com/itcharge) / **[YSC-Avoid-Crash](https://github.com/itcharge/YSC-Avoid-Crash)**
 
-[](https://qcdn.itcharge.cn/images/iOS-YSCDefender-03-001.jpg)
+![iOS YSCDefender 03 001](https://qcdn.itcharge.cn/images/iOS-YSCDefender-03-001.jpg)
 
 ---
 
@@ -39,7 +38,7 @@ Crash 防护系统系列第三篇，梳理 KVC 崩溃的典型原因与 Setter/G
 
 常见的使用 KVC 造成崩溃代码：
 
-```Objc
+```objc
 /********************* KVCCrashObject.h 文件 *********************/
 #import <Foundation/Foundation.h>
 
@@ -162,7 +161,7 @@ KVCCrashObject *objc = [[KVCCrashObject alloc] init];
 
 - KVC `setValue:forKey:` 搜索模式流程图：
 
-[](https://qcdn.itcharge.cn/images/iOS-YSCDefender-03-002.png)
+![iOS YSCDefender 03 002](https://qcdn.itcharge.cn/images/iOS-YSCDefender-03-002.png)
 
 ---
 
@@ -171,17 +170,17 @@ KVCCrashObject *objc = [[KVCCrashObject alloc] init];
 系统在执行 `valueForKey:` 方法时，会将给定的 `key` 作为输入参数，在调用对象的内部进行以下几个步骤：
 1. 按顺序查找名为 `get<Key>`、`<key>`、`is<Key>`、`_<key>` 的访问方法。如果找到，调用该方法，并继续执行步骤 5。否则继续向下执行步骤 2。
 2. 搜索形如 `countOf<Key>`、`objectIn<Key>AtIndex:`、`<key>AtIndexes:` 的方法。
- - 如果实现了 `countOf<Key>` 方法，并且实现了 `objectIn<Key>AtIndex:` 和 `<key>AtIndexes:` 这两个方法的任意一个方法，系统就会以 NSArray 为父类，动态生成一个类型为 NSKeyValueArray 的集合类对象，并调用上边的实现方法，将结果直接返回。
- - 如果对象还实现了形如 `get<Key>:range:` 的方法，系统也会在必要的时候自动调用。
- - 如果上述操作不成功则继续向下执行步骤 3。
+   - 如果实现了 `countOf<Key>` 方法，并且实现了 `objectIn<Key>AtIndex:` 和 `<key>AtIndexes:` 这两个方法的任意一个方法，系统就会以 NSArray 为父类，动态生成一个类型为 NSKeyValueArray 的集合类对象，并调用上边的实现方法，将结果直接返回。
+   - 如果对象还实现了形如 `get<Key>:range:` 的方法，系统也会在必要的时候自动调用。
+   - 如果上述操作不成功则继续向下执行步骤 3。
 3. 如果上边两步失败，系统就会查找形如 `countOf<Key>`、`enumeratorOf<Key>`、`memberOf<Key>:` 的方法。系统会自动生成一个 NSSet 类型的集合类对象，该对象响应所有 NSSet 方法并将结果返回。如果查找失败，则执行步骤 4。
 4. 如果上边三步失败，系统就会访问类的 `accessInstanceVariablesDirectly` 方法。
- - 如果返回 `YES`，就按顺序查找名为 `_<key>`、`_is<Key>`、`<key>`、`is<Key>` 的实例变量。如果找到了对应的实例变量，则直接获取实例变量的值。并继续执行步骤 5。 
- - 如果返回 `NO`，或者未找到对应的实例变量，则继续执行步骤 6。
+   - 如果返回 `YES`，就按顺序查找名为 `_<key>`、`_is<Key>`、`<key>`、`is<Key>` 的实例变量。如果找到了对应的实例变量，则直接获取实例变量的值。并继续执行步骤 5。 
+   - 如果返回 `NO`，或者未找到对应的实例变量，则继续执行步骤 6。
 5. 分为三种情况：
- - 如果检索到的属性值是对象指针，则直接返回结果。
- - 如果检索到的属性值是 `NSNumber` 支持的基础数据类型，则将其存储在 `NSNumber` 实例中并返回该值。
- - 如果检索到的属性值是 `NSNumber` 不支持的数据类型，则转换为 `NSValue` 对象并返回该对象。
+   - 如果检索到的属性值是对象指针，则直接返回结果。
+   - 如果检索到的属性值是 `NSNumber` 支持的基础数据类型，则将其存储在 `NSNumber` 实例中并返回该值。
+   - 如果检索到的属性值是 `NSNumber` 不支持的数据类型，则转换为 `NSValue` 对象并返回该对象。
 6. 如果一切都失败了，调用 `valueForUndefinedKey:`，并引发崩溃。
 
 ---
@@ -189,8 +188,8 @@ KVCCrashObject *objc = [[KVCCrashObject alloc] init];
 # 3. KVC Crash 防护方案
 
 - 从 2.1 KVC Setter 搜索模式 和 2.2 KVC Getter 搜索模式 可以看出：
- - `setValue:forKey:` 执行失败会调用 `setValue: forUndefinedKey:` 方法，并引发崩溃。
- - `valueForKey:` 执行失败会调用 `valueForUndefinedKey:` 方法，并引发崩溃。
+  - `setValue:forKey:` 执行失败会调用 `setValue: forUndefinedKey:` 方法，并引发崩溃。
+  - `valueForKey:` 执行失败会调用 `valueForUndefinedKey:` 方法，并引发崩溃。
 
 所以，为了进行 KVC Crash 防护，我们就需要重写 `setValue: forUndefinedKey:` 方法和 `valueForUndefinedKey:` 方法。重写这两个方法之后，就可以防护 **1. key 不是对象的属性** 和 **2. keyPath 不正确** 这两种崩溃情况了。
 
@@ -213,7 +212,7 @@ KVCCrashObject *objc = [[KVCCrashObject alloc] init];
 
 - 具体防护代码：
 
-```Objc
+```objc
 /********************* NSObject+KVCDefender.h 文件 *********************/
 #import <Foundation/Foundation.h>
 

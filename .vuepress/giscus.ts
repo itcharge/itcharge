@@ -25,7 +25,9 @@ export function getGiscusConfig(): CommentPluginOptions | false {
     lazyLoading: true,
     reactionsEnabled: true,
     inputPosition: "top",
-    lightTheme: "preferred_color_scheme",
-    darkTheme: "preferred_color_scheme",
+    lightTheme: "light",
+    darkTheme: "dark",
+    // circle-clip 动效 650ms，延迟更新避免切换过程中样式错位
+    delay: 850,
   };
 }

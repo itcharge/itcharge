@@ -14,19 +14,9 @@ Blocks 系列第一篇，讲解 Block 的基本概念、声明与赋值语法、
 
 <!-- more -->
 
-# 【OC 语法】iOS 开发：「Blocks」详尽总结 （一）基本使用
-
-> 本文用来介绍 iOS 开发中 『Blocks』的基本使用。通过本文您将了解到：
-> 1. 什么是 **Blocks**
-> 2. Blocks 变量语法
-> 3. Blocks 变量的声明与赋值
-> 4. Blocks 变量截获局部变量值特性
-> 5. 使用 __block 说明符
-> 6. Blocks 变量的循环引用以及如何避免
->
 > 文中 Demo 我已放在了 Github 上，Demo 链接：[传送门](https://github.com/itcharge/YSC-Blocks-Demo)
 
-[](https://qcdn.itcharge.cn/images/iOS-Blocks-01-001.png)
+![iOS Blocks 01 001](https://qcdn.itcharge.cn/images/iOS-Blocks-01-001.png)
 
 # 1. 什么是 **Blocks** ？
 
@@ -102,7 +92,7 @@ int (^ myBlock)(int)= ^(int num) {
 
 这个 Blocks 示例中，**myBlock** 是声明的块对象，返回类型是 **整型值**，myBlock 块对象有一个 **参数**，参数类型为整型值，参数名称为 num。myBlock 块对象的 **主体部分** 为 `return num * multiplier;`，包含在 `{}` 中。
 
-[](https://qcdn.itcharge.cn/images/iOS-Blocks-01-002.png)
+![iOS Blocks 01 002](https://qcdn.itcharge.cn/images/iOS-Blocks-01-002.png)
 
 
 参考上面的示例，我们可以将 Blocks 表达式语法表述为：
@@ -165,7 +155,7 @@ Blocks 变量的声明与赋值语法可以总结为：
 
 例如，定义一个变量名为 blk 的 Blocks 变量：
 
-```Objc
+```objc
 int (^blk) (int)  = ^(int count) { return count + 1; };
 int (^blk1) (int);    // 声明变量名为 blk1 的 Blocks 变量
 blk1 = blk;        // 将 blk 赋值给 blk1
@@ -186,7 +176,7 @@ int (*funcptr)(int) = &func;
 int (^blk) (int)  = ^(int count) { return count + 1; };
 ```
 
-## 3.2 Blocks 变量的声明与赋值的使用 
+## 3.2 Blocks 变量的声明与赋值的使用
 
 ### 3.2.1 作为局部变量：`返回值类型 (^变量名) (参数列表) =  返回值类型 (参数列表) { 表达式 };`
 
@@ -305,7 +295,7 @@ typedef 返回值类型 (^声明名称)(参数列表);
 
 实际上，在使用 Block 表达式的时候，只能使用保存的局部变量的瞬时值，并不能直接对其进行改写。直接修改编译器会直接报错，如下图所示。
 
-[](https://qcdn.itcharge.cn/images/iOS-Blocks-01-003.png)
+![iOS Blocks 01 003](https://qcdn.itcharge.cn/images/iOS-Blocks-01-003.png)
 
 
 那么如果，我们想要该写 Block 表达式中截获的局部变量的值，该怎么办呢？

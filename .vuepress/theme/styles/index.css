@@ -4,6 +4,22 @@
  */
 
 :root {
+  --itcharge-font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "PingFang SC",
+    "Hiragino Sans GB",
+    "Microsoft YaHei",
+    "微软雅黑",
+    "Helvetica Neue",
+    helvetica,
+    ubuntu,
+    roboto,
+    noto,
+    "Segoe UI",
+    Arial,
+    sans-serif;
+  --vp-font-family-base: var(--itcharge-font-family);
   --itcharge-nav-logo-radius: 50%;
   --itcharge-bg-warm: #faf6ee;
   --vp-c-bg-alt: var(--itcharge-bg-warm);
@@ -16,6 +32,11 @@
   --itcharge-wave-4: var(--itcharge-bg-warm);
   /* 全站底纹：叶片 SVG 平铺 */
   --itcharge-bg-texture: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27200%27%20height%3D%27200%27%20viewBox%3D%270%200%20200%20200%27%3E%3Cg%20fill%3D%27none%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20stroke%3D%27%23b8956a%27%20stroke-opacity%3D%270.34%27%20stroke-width%3D%271.05%27%20d%3D%27M12%20175Q55%2095%2088%20155Q45%20168%2012%20175Z%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.22%27%20stroke-width%3D%270.62%27%20d%3D%27M30%20162Q58%20128%2076%20150%27%2F%3E%3Cpath%20stroke%3D%27%23b8956a%27%20stroke-opacity%3D%270.34%27%20stroke-width%3D%271.05%27%20d%3D%27M125%2018Q188%2055%20150%2092Q128%2048%20125%2018Z%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.22%27%20stroke-width%3D%270.62%27%20d%3D%27M142%2042Q162%2068%20148%2078%27%2F%3E%3Cpath%20stroke%3D%27%23b8956a%27%20stroke-opacity%3D%270.3%27%20stroke-width%3D%270.95%27%20d%3D%27M78%2095Q115%2048%20142%2088Q108%20108%2078%2095Z%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.2%27%20stroke-width%3D%270.58%27%20d%3D%27M92%2092Q112%2072%20126%2084%27%2F%3E%3Cpath%20stroke%3D%27%23b8956a%27%20stroke-opacity%3D%270.3%27%20stroke-width%3D%270.9%27%20d%3D%27M8%2058Q42%2022%2068%2052Q38%2062%208%2058Z%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.2%27%20stroke-width%3D%270.55%27%20d%3D%27M22%2052Q38%2038%2052%2048%27%2F%3E%3Cpath%20stroke%3D%27%23b8956a%27%20stroke-opacity%3D%270.3%27%20stroke-width%3D%270.9%27%20d%3D%27M168%2088Q198%20118%20172%20148Q152%20118%20168%2088Z%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.2%27%20stroke-width%3D%270.55%27%20d%3D%27M172%20108Q182%20128%20168%20132%27%2F%3E%3Cpath%20stroke%3D%27%23b8956a%27%20stroke-opacity%3D%270.27%27%20stroke-width%3D%270.85%27%20d%3D%27M48%20128Q72%20108%2088%20132Q62%20138%2048%20128Z%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.18%27%20stroke-width%3D%270.52%27%20d%3D%27M58%20128Q72%20118%2078%20126%27%2F%3E%3Cpath%20stroke%3D%27%23b8956a%27%20stroke-opacity%3D%270.27%27%20stroke-width%3D%270.85%27%20d%3D%27M108%20168Q138%20148%20152%20172Q124%20182%20108%20168Z%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.18%27%20stroke-width%3D%270.52%27%20d%3D%27M120%20168Q134%20158%20142%20168%27%2F%3E%3Cpath%20stroke%3D%27%23b8956a%27%20stroke-opacity%3D%270.25%27%20stroke-width%3D%270.75%27%20d%3D%27M22%2048Q38%2028%2052%2044Q36%2052%2022%2048Z%27%2F%3E%3Cpath%20stroke%3D%27%23b8956a%27%20stroke-opacity%3D%270.25%27%20stroke-width%3D%270.72%27%20d%3D%27M158%20142Q172%20128%20184%20140Q168%20148%20158%20142Z%27%2F%3E%3Cpath%20stroke%3D%27%23b8956a%27%20stroke-opacity%3D%270.22%27%20stroke-width%3D%270.7%27%20d%3D%27M92%208Q104%20-2%20116%2010Q100%2016%2092%208Z%27%2F%3E%3Cpath%20stroke%3D%27%23b8956a%27%20stroke-opacity%3D%270.22%27%20stroke-width%3D%270.68%27%20d%3D%27M175%2028Q186%2018%20196%2030Q182%2036%20175%2028Z%27%2F%3E%3Cpath%20stroke%3D%27%23b8956a%27%20stroke-opacity%3D%270.22%27%20stroke-width%3D%270.68%27%20d%3D%27M0%20145Q10%20132%2022%20142Q8%20150%200%20145Z%27%2F%3E%3Cpath%20stroke%3D%27%23b8956a%27%20stroke-opacity%3D%270.2%27%20stroke-width%3D%270.65%27%20d%3D%27M62%2042Q74%2034%2082%2046Q68%2050%2062%2042Z%27%2F%3E%3Cpath%20stroke%3D%27%23b8956a%27%20stroke-opacity%3D%270.2%27%20stroke-width%3D%270.65%27%20d%3D%27M138%2062Q150%2052%20160%2064Q146%2070%20138%2062Z%27%2F%3E%3Cpath%20stroke%3D%27%23b8956a%27%20stroke-opacity%3D%270.2%27%20stroke-width%3D%270.62%27%20d%3D%27M28%20108Q38%2098%2048%20108Q34%20114%2028%20108Z%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.2%27%20stroke-width%3D%270.6%27%20d%3D%27M0%2088C40%2072%2072%2096%20120%20110%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.18%27%20stroke-width%3D%270.52%27%20d%3D%27M165%20135C175%20155%20190%20165%20200%20175%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.18%27%20stroke-width%3D%270.5%27%20d%3D%27M36%2068C58%2082%2082%2074%20108%2088%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.17%27%20stroke-width%3D%270.48%27%20d%3D%27M132%20108C148%20122%20162%20118%20180%20128%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.17%27%20stroke-width%3D%270.46%27%20d%3D%27M52%20158C72%20148%2092%20162%20112%20152%27%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+}
+
+:root:where(:lang(zh)),
+:root:where(:lang(zh-CN)) {
+  --vp-font-family-base: var(--itcharge-font-family);
 }
 
 html[data-theme="dark"] {
@@ -194,6 +215,16 @@ html[data-theme="dark"] .vp-doc-container.is-posts .aside-content {
   height: min(var(--vp-nav-logo-height, 24px), 48px);
   object-fit: cover;
   border-radius: var(--itcharge-nav-logo-radius);
+}
+
+/* 导航栏 emoji 与文字间距 */
+.vp-navbar .navbar-menu-link > span,
+.vp-navbar .vp-flyout .text > span:not(.text-icon),
+.vp-navbar .vp-menu-link .vp-link,
+.vp-nav-screen-menu-link > span,
+.vp-nav-screen-menu-group-link > span,
+.vp-nav-screen-menu-group .button-text > span {
+  word-spacing: 0.35em;
 }
 
 /* 首页 banner 与下方内容区的衔接 */
@@ -654,5 +685,194 @@ html[data-theme="dark"] .itcharge-about .vp-home > div:nth-child(even) .vp-home-
 
   .vp-profile:hover img {
     transform: none;
+  }
+}
+
+/* 文章正文：排版优化（仅间距/字号/布局，不改主题色） */
+.vp-doc-container.is-posts .vp-doc {
+  font-size: 16px;
+  line-height: 1.8;
+  text-wrap: pretty;
+}
+
+.vp-doc-container.is-posts .vp-doc p,
+.vp-doc-container.is-posts .vp-doc summary {
+  margin: 1em 0;
+  line-height: 1.8;
+}
+
+.vp-doc-container.is-posts .vp-doc h1,
+.vp-doc-container.is-posts .vp-doc h2,
+.vp-doc-container.is-posts .vp-doc h3,
+.vp-doc-container.is-posts .vp-doc h4 {
+  text-wrap: balance;
+}
+
+/* 标题间距：避免 margin + padding-top 叠加；同级/子级标题之间收紧 */
+#app .vp-doc-container.is-posts .vp-doc :is(h2, h3, h4, h5, h6)
+  + :is(h2, h3, h4, h5, h6) {
+  margin-top: 0.75em;
+}
+
+#app .vp-doc-container.is-posts .vp-doc h2 {
+  margin-top: 1.75em;
+  margin-bottom: 0.75em;
+  padding-top: 0.625em;
+  border-top: 1px solid var(--vp-c-divider);
+}
+
+/* 正文以 h2 开头：无顶部分隔 */
+#app .vp-doc-container.is-posts .vp-doc > h2:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+/* h1 与首个章节 h2：保留间距，不加顶部分隔线 */
+#app .vp-doc-container.is-posts .vp-doc h1 + h2 {
+  margin-top: 1.25em;
+  padding-top: 0;
+  border-top: none;
+}
+
+#app .vp-doc-container.is-posts .vp-doc h2 + :is(h3, h4) {
+  margin-top: 0.625em;
+}
+
+#app .vp-doc-container.is-posts .vp-doc h3 {
+  margin-top: 1.375em;
+  margin-bottom: 0.625em;
+}
+
+#app .vp-doc-container.is-posts .vp-doc h4 {
+  margin-top: 1.125em;
+  margin-bottom: 0.5em;
+}
+
+.vp-doc-container.is-posts .vp-doc ul,
+.vp-doc-container.is-posts .vp-doc ol {
+  padding-left: 1.5em;
+  margin: 1em 0;
+}
+
+.vp-doc-container.is-posts .vp-doc li {
+  line-height: 1.75;
+}
+
+.vp-doc-container.is-posts .vp-doc li > ul,
+.vp-doc-container.is-posts .vp-doc li > ol {
+  margin-top: 0.5em;
+  padding-left: 1.25em;
+}
+
+#app .vp-doc-container.is-posts .vp-doc ol > li > ul,
+#app .vp-doc-container.is-posts .vp-doc ol > li > ol,
+#app .vp-doc-container.is-posts .vp-doc ul > li > ul,
+#app .vp-doc-container.is-posts .vp-doc ul > li > ol {
+  margin: 0.35em 0 0.65em;
+  padding-left: 1em;
+  list-style-type: circle;
+}
+
+#app .vp-doc-container.is-posts .vp-doc ol > li > ul > li,
+#app .vp-doc-container.is-posts .vp-doc ul > li > ul > li {
+  color: var(--vp-c-text-2);
+}
+
+#app .vp-doc-container.is-posts .vp-doc li > ul > li,
+#app .vp-doc-container.is-posts .vp-doc li > ol > li {
+  margin-top: 0.25em;
+}
+
+.vp-doc-container.is-posts .vp-doc li + li {
+  margin-top: 0.4em;
+}
+
+#app .vp-doc blockquote,
+#app .vp-doc blockquote.itcharge-blockquote {
+  margin: 1.25em 0;
+  padding: 0.5em 1.25em 0.5em 1.125em !important;
+  border-left: 4px solid var(--vp-c-text-2) !important;
+  border-radius: 0 8px 8px 0;
+}
+
+#app .vp-doc blockquote::before,
+#app .vp-doc blockquote.itcharge-blockquote::before {
+  content: none !important;
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  mask: none !important;
+  background: none !important;
+}
+
+#app .vp-doc blockquote > p + p,
+#app .vp-doc blockquote.itcharge-blockquote > p + p {
+  margin-top: 0.75em;
+}
+
+.vp-doc-container.is-posts .vp-doc hr {
+  margin: 2em 0;
+}
+
+.vp-doc-container.is-posts .vp-doc img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.vp-doc-container.is-posts .vp-doc figure {
+  margin: 1.5em auto;
+}
+
+.vp-doc-container.is-posts .vp-doc figure figcaption {
+  margin-top: 0.5em;
+  line-height: 1.6;
+}
+
+.vp-doc-container.is-posts .vp-doc table {
+  width: 100%;
+  margin: 1.25em 0;
+  font-size: 14px;
+  line-height: 1.6;
+  border-radius: 8px;
+}
+
+.vp-doc-container.is-posts .vp-doc th,
+.vp-doc-container.is-posts .vp-doc td {
+  padding: 10px 14px;
+  vertical-align: top;
+}
+
+.vp-doc-container.is-posts .vp-doc .vp-table {
+  margin: 1.25em 0;
+}
+
+.vp-doc-container.is-posts .vp-doc .vp-table .table-inner {
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+}
+
+.vp-doc-container.is-posts .vp-doc .vp-table .table-inner table {
+  border-radius: 8px;
+}
+
+.vp-doc-container.is-posts .vp-doc div[class*="language-"] {
+  margin: 1.25em 0;
+  border-radius: 8px;
+}
+
+.vp-doc-container.is-posts .vp-doc :not(pre) > code {
+  padding: 2px 6px;
+}
+
+@media (min-width: 768px) {
+  .vp-doc-container.is-posts .vp-doc {
+    font-size: 16px;
+  }
+
+  .vp-doc-container.is-posts .vp-doc th,
+  .vp-doc-container.is-posts .vp-doc td {
+    padding: 10px 16px;
   }
 }

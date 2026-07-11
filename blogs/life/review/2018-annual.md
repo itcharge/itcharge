@@ -14,14 +14,13 @@ comments: true
 
 <!-- more -->
 
-# 2018 年，做平凡世界里的超人
 
 > 前两年的年终总结拖着没写，于是现在变成了『2018 年终总结』 。我怕再不写就变成了 2020 年。
 >
 > 人啊，总是要学会改变的，不是吗？
 
 
-[](https://qcdn.itcharge.cn/images/2018-Year-End-Summary-001.jpg)
+![2018 Year End Summary 001](https://qcdn.itcharge.cn/images/2018-Year-End-Summary-001.jpg)
 
 2018 年已经结束，新的一年已经开始了。回首再看这一年，越发觉得时间过得很快。**时间从来不会在乎我们的意识，只会无情推着我们向前行走。与其止步不前，站在原地思考，不如主动接受改变，先一步一步地往前走。**
 
@@ -29,7 +28,7 @@ comments: true
 
 这一年，看书学习、技术进阶、备战考研、研究厨艺、情感成长。生活繁忙，而又充实。一年下来，竟也收获满满。
 
-## 一、备战考研
+# 1. 备战考研
 
 没有想到，在毕业许久之后我还会选择走考研这一条路。离开校园已经很长时间了，许多知识早已生疏。
 
@@ -53,10 +52,9 @@ comments: true
 >
 > **之后不再去想结果，不再去想得失，只要对得起这 10 个月的坚持，这一切就值得。**
 
-[](https://qcdn.itcharge.cn/images/2018-Year-End-Summary-002.jpg)
+![2018 Year End Summary 002](https://qcdn.itcharge.cn/images/2018-Year-End-Summary-002.jpg)
 
-
-## 二、看书学习
+# 2. 看书学习
 
 **读书，是我为数不多的从小就喜欢，并一直保持下来的爱好之一。**
 
@@ -87,10 +85,10 @@ comments: true
 
 **对内，靠读书思考，提高自我认知。对外，靠行动实践，实现目标理想。**
 
-[](https://qcdn.itcharge.cn/images/2018-Year-End-Summary-003.jpg)
+![2018 Year End Summary 003](https://qcdn.itcharge.cn/images/2018-Year-End-Summary-003.jpg)
 
 
-## 三、技术成长
+# 3. 技术成长
 
 这一年，接触了很多之前没有涉及的技术，收获满满。
 
@@ -102,10 +100,10 @@ comments: true
 
 值得欣慰的是，自己写的文章能够带给大家有效的帮助。得到了粉丝普遍的肯定，也收获了很多不错的意见和建议。
 
-[](https://qcdn.itcharge.cn/images/2018-Year-End-Summary-004.jpg)
+![2018 Year End Summary 004](https://qcdn.itcharge.cn/images/2018-Year-End-Summary-004.jpg)
 
 
-## 四、研究厨艺
+# 4. 研究厨艺
 
 **这世间，唯有美食与爱不可辜负。**
 
@@ -127,9 +125,9 @@ comments: true
 
 | | | | |
 | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| [花了三个小时功夫做出来的『把子肉』](https://qcdn.itcharge.cn/images/2018-Year-End-Summary-005.jpg) | [最拿手的『红烧排骨』](https://qcdn.itcharge.cn/images/2018-Year-End-Summary-006.jpg) | [『香菇菜心』](https://qcdn.itcharge.cn/images/2018-Year-End-Summary-007.jpg) | [『蒜蓉油麦菜』](https://qcdn.itcharge.cn/images/2018-Year-End-Summary-008.jpg) |
-| [『蒜黄鸡蛋』、『沙茶豆腐』、『葱姜炒鸡』](https://qcdn.itcharge.cn/images/2018-Year-End-Summary-009.jpg) | [『大盘鸡』](https://qcdn.itcharge.cn/images/2018-Year-End-Summary-010.jpg) | [『清炖狮子头』](https://qcdn.itcharge.cn/images/2018-Year-End-Summary-011.jpg) | [『沙茶豆腐』](https://qcdn.itcharge.cn/images/2018-Year-End-Summary-012.jpg) |
-| [『宫保鸡丁』](https://qcdn.itcharge.cn/images/2018-Year-End-Summary-013.jpg) | [『五彩黄金炒饭』](https://qcdn.itcharge.cn/images/2018-Year-End-Summary-014.jpg) | [『蛋包豆腐丁』](https://qcdn.itcharge.cn/images/2018-Year-End-Summary-015.jpg) | [『番茄肉酱意面』](https://qcdn.itcharge.cn/images/2018-Year-End-Summary-016.jpg) |
+| ![花了三个小时功夫做出来的『把子肉』](https://qcdn.itcharge.cn/images/2018-Year-End-Summary-005.jpg) | ![最拿手的『红烧排骨』](https://qcdn.itcharge.cn/images/2018-Year-End-Summary-006.jpg) | ![『香菇菜心』](https://qcdn.itcharge.cn/images/2018-Year-End-Summary-007.jpg) | ![『蒜蓉油麦菜』](https://qcdn.itcharge.cn/images/2018-Year-End-Summary-008.jpg) |
+| ![『蒜黄鸡蛋』、『沙茶豆腐』、『葱姜炒鸡』](https://qcdn.itcharge.cn/images/2018-Year-End-Summary-009.jpg) | ![『大盘鸡』](https://qcdn.itcharge.cn/images/2018-Year-End-Summary-010.jpg) | ![『清炖狮子头』](https://qcdn.itcharge.cn/images/2018-Year-End-Summary-011.jpg) | ![『沙茶豆腐』](https://qcdn.itcharge.cn/images/2018-Year-End-Summary-012.jpg) |
+| ![『宫保鸡丁』](https://qcdn.itcharge.cn/images/2018-Year-End-Summary-013.jpg) | ![『五彩黄金炒饭』](https://qcdn.itcharge.cn/images/2018-Year-End-Summary-014.jpg) | ![『蛋包豆腐丁』](https://qcdn.itcharge.cn/images/2018-Year-End-Summary-015.jpg) | ![『番茄肉酱意面』](https://qcdn.itcharge.cn/images/2018-Year-End-Summary-016.jpg) |
 
 ---
 
@@ -137,9 +135,9 @@ comments: true
 
 **在做饭这一件事上，花费的时间和精力是值得的。感谢烹饪，改变了我很多，也帮我表达了很多。**
 
-[](https://qcdn.itcharge.cn/images/2018-Year-End-Summary-017.jpg)
+![2018 Year End Summary 017](https://qcdn.itcharge.cn/images/2018-Year-End-Summary-017.jpg)
 
-## 五、情感成长
+# 5. 情感成长
 
 感情这件事，经历多了，就会明白：**相爱是偶然，爱而不得才是常态。**
 
@@ -167,9 +165,9 @@ comments: true
 
 **来日方长，你要等。**
 
-[](https://qcdn.itcharge.cn/images/2018-Year-End-Summary-018.jpg)
+![2018 Year End Summary 018](https://qcdn.itcharge.cn/images/2018-Year-End-Summary-018.jpg)
 
-## 六、写在最后
+# 6. 写在最后
 
 这一年已经过去，无论结果如何，都属于过去。如果满足与当下，最终就会被生活推着向前走。
 
@@ -179,4 +177,4 @@ comments: true
 
 **未来的你，要加油哦。**
 
-[](https://qcdn.itcharge.cn/images/2018-Year-End-Summary-019.png)
+![2018 Year End Summary 019](https://qcdn.itcharge.cn/images/2018-Year-End-Summary-019.png)

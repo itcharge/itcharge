@@ -16,9 +16,9 @@ comments: true
 
 > **唯有相思似春色，江南江北送君归。**
 
-[](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-001.jpg)
+![Travel SuZhou HangZhou ShangHai 001](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-001.jpg)
 
-## 一、「苏沪杭之行」缘起
+# 1. 「苏沪杭之行」缘起
 
 这次苏沪杭之行，不是临时起意，而是蓄谋已久。
 
@@ -38,9 +38,9 @@ comments: true
 
 * * *
 
-## 二、园林之城——姑苏
+# 2. 园林之城——姑苏
 
-### 2.1 苏州火车站
+## 2.1 苏州火车站
 
 在火车上度过了漫长的几个小时，带着对旅行的期待，和面基的兴奋，终于来到了苏州。
 
@@ -50,13 +50,13 @@ comments: true
 
 「苏州火车站」 
 --- 
-[](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-002.jpg) 
-[](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-003.jpg) 
-[](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-004.jpg) 
+![Travel SuZhou HangZhou ShangHai 002](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-002.jpg) 
+![Travel SuZhou HangZhou ShangHai 003](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-003.jpg) 
+![Travel SuZhou HangZhou ShangHai 004](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-004.jpg) 
 
 * * *
 
-### 2.2 苏州品園
+## 2.2 苏州品園
 
 我没有在火车站做过多停留。从苏州火车站出来，穿过人行通道，下到地下一层地铁。直奔今晚的目的地 ——「苏州品園」。
 
@@ -64,10 +64,10 @@ comments: true
 
 「苏州品園」 
 --- 
-[](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-005.jpg) 
-[](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-006.jpg) 
-[](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-007.jpg) 
-[](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-008.jpg) 
+![Travel SuZhou HangZhou ShangHai 005](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-005.jpg) 
+![Travel SuZhou HangZhou ShangHai 006](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-006.jpg) 
+![Travel SuZhou HangZhou ShangHai 007](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-007.jpg) 
+![Travel SuZhou HangZhou ShangHai 008](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-008.jpg) 
 
 顺着阿浪分享给我的实时位置，出地铁走了没几步，就看到了在门口等我的他。阿浪是我们扇贝群的群主。本身在群里就是风趣活跃的一个人，初次见面，出于恶趣味，我决定先调侃他一下。
 
@@ -87,23 +87,23 @@ comments: true
 
 「苏州品園合影」 
 --- 
-[](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-009.jpg) 
+![Travel SuZhou HangZhou ShangHai 009](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-009.jpg) 
 
 * * *
 
-### 2.3 夜游金鸡湖
+## 2.3 夜游金鸡湖
 
 晚上的时候，我们一起去逛了金鸡湖。看到了被戏称为的「大秋裤」的地标性建筑「东方之门」。我们在金鸡湖畔吹着风，聊着天。后来因为没有等到 8 点的音乐瀑布，大家也都饿了，就直接去了苏州中心吃了汉堡王。夜晚苏州街上人还是蛮多的，尤其是年轻人居多。可以从侧面感受到这座城市的青春活力。
 
 「东方之门」 
 --- 
-[](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-010.jpg) 
+![Travel SuZhou HangZhou ShangHai 010](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-010.jpg) 
 「苏州中心」 
-[](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-011.jpg) 
+![Travel SuZhou HangZhou ShangHai 011](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-011.jpg) 
 
 * * *
 
-### 2.4 闲逛平江路
+## 2.4 闲逛平江路
 
 由于第一天晚上玩的比较嗨，导致全员第二天早上 9 点才陆续起床。本来打算早起去拙政园和苏州博物馆，结果到了目的地才发现：人多的令人崩溃。等到排队进景区怕是得要 4、5 个小时以上了。遂放弃。
 
@@ -115,14 +115,14 @@ comments: true
 
 「平江路」 | 「平江路」 
 ---|--- 
-[](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-012.jpg) | [](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-013.jpg) 
-[](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-014.jpg) | [](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-015.jpg) 
+![Travel SuZhou HangZhou ShangHai 012](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-012.jpg) | ![Travel SuZhou HangZhou ShangHai 013](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-013.jpg) 
+![Travel SuZhou HangZhou ShangHai 014](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-014.jpg) | ![Travel SuZhou HangZhou ShangHai 015](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-015.jpg) 
 
 与平江路纵横交错的是诸多狭窄的巷弄，小巷的一头连着古朴的平江路，另一头连着热闹的都市街道。令平江路有一种闹中取静，世外桃源般的韵味。
 
 「平江路小巷」 
 --- 
-[](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-016.jpg) 
+![Travel SuZhou HangZhou ShangHai 016](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-016.jpg) 
 
 在苏州还可以看到很多穿汉服古装的小姐姐拍照。景美衣美人也美。不禁令人想到了戴望舒写的那首「雨巷」。
 
@@ -130,11 +130,11 @@ comments: true
 
 「汉服小姐姐」 
 --- 
-[](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-017.jpg) 
+![Travel SuZhou HangZhou ShangHai 017](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-017.jpg) 
 
 * * *
 
-### 2.5 苏帮菜
+## 2.5 苏帮菜
 
 逛完平江路，已经是中午了。我们在苏州的最后一站就是房东老板娘给我们推荐的一家苏帮菜馆。
 
@@ -147,7 +147,7 @@ comments: true
 
 「松鼠桂鱼」 | 「酱方」 | 「瓦罐鸡」 
 ---|---|--- 
-[](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-018.jpg) | [](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-019.jpg) | [](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-020.jpg) 
+![![Travel SuZhou HangZhou ShangHai 019](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-019.jpg)](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-018.jpg) | ![Travel SuZhou HangZhou ShangHai 019](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-019.jpg) | ![Travel SuZhou HangZhou ShangHai 020](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-020.jpg) 
 
 至此，苏州之行结束。没到过苏州之前，我印象中的苏州，是张继「枫桥夜泊」中的一桥一水，一寺一城。是有着江南水乡小桥流水、粉墙黛瓦的古城。到了苏州之后，苏州给我的印象是温婉如玉，安静又不失风雅。
 
@@ -155,9 +155,9 @@ comments: true
 
 * * *
 
-## 三、东方魔都——上海
+# 3. 东方魔都——上海
 
-### 3.1 外滩江景豪宅
+## 3.1 外滩江景豪宅
 
 吃完午饭，我们直接坐高铁前往上海。
 
@@ -167,15 +167,15 @@ comments: true
 
 这一换房，反而意料之外的住了次外滩江景豪宅。 换的这套房在北外滩地区，是套顶层四居室。站在顶层的阳台上，向窗外望去，外滩，黄浦江，东方明珠，尽收眼底。
 
-[](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-021.jpg) 
+![Travel SuZhou HangZhou ShangHai 021](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-021.jpg) 
 --- 
-[](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-022.jpg) | [](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-023.jpg) 
+![Travel SuZhou HangZhou ShangHai 022](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-022.jpg) | ![Travel SuZhou HangZhou ShangHai 023](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-023.jpg) 
 ---|--- 
-[](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-024.jpg) | [](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-025.jpg) 
+![Travel SuZhou HangZhou ShangHai 024](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-024.jpg) | ![Travel SuZhou HangZhou ShangHai 025](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-025.jpg) 
 
 * * *
 
-### 3.2 夜游外滩
+## 3.2 夜游外滩
 
 在房间休息片刻，我们步行到了外滩，打算近距离的欣赏江景。
 
@@ -185,17 +185,17 @@ comments: true
 
 「外白渡桥」 
 --- 
-[](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-026.jpg) 
+![Travel SuZhou HangZhou ShangHai 026](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-026.jpg) 
 
 这座桥曾经分割了租界区和华人区，记录了那些时代的屈辱和反抗，更是见证了近代中国从"被动挨打"到"主动求变"的抗争历史。如今的这座承载了百年荣辱的外白渡桥，已经成为了游客路人拍照打卡的标志性建筑。以一种新的方式，成为了上海不可割舍的一部分。
 
 「南京路」 
 --- 
-[](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-027.jpg) 
+![Travel SuZhou HangZhou ShangHai 027](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-027.jpg) 
 
 * * *
 
-### 3.3 派对游戏
+## 3.3 派对游戏
 
 以往每次旅行，准备旅行物品的时候，我总会斟酌再三，尽可能的精简重量，轻装旅行，随性而行。但是这次除了带上了必备的洗漱用品之外，还带上了被称为聚会神器的游戏机「Switch」。期待着能和大家来一场来自沙雕们的游戏大战。
 
@@ -203,7 +203,7 @@ comments: true
 
 「派对」 | 「美食」 
 ---|--- 
-[](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-028.jpg) | [](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-029.jpg) 
+![Travel SuZhou HangZhou ShangHai 028](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-028.jpg) | ![Travel SuZhou HangZhou ShangHai 029](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-029.jpg) 
 
 「Switch」真不愧是聚会神器，我们几个人在一起都快笑疯了。我们这次玩了「全明星大乱斗」、「1-2 SWITCH」、「马里奥赛车 8」、「你裁我剪」。
 
@@ -211,20 +211,20 @@ comments: true
 
 「马里奥赛车」 
 --- 
-[](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-030.jpg) 
+![Travel SuZhou HangZhou ShangHai 030](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-030.jpg) 
 
 第二个是「你裁我剪」。这是一款合作解谜类游戏，通过互相剪裁来跟环境互动达成目标。需要大家的默契配合，在寻找最优方法解决问题的过程中，还可能会发生一点争执。 
 前几关还蛮容易的，后边实在有点难，我们就放弃了。
 
 「你裁我剪」 
 --- 
-[](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-031.jpg) 
+![Travel SuZhou HangZhou ShangHai 031](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-031.jpg) 
 
 第三个游戏是这次游戏的重头戏——「1-2 SWITCH」。这款游戏承包了我们今晚上 90% 的笑点。
 
 「1-2 SWITCH」 
 --- 
-[](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-032.jpg) 
+![Travel SuZhou HangZhou ShangHai 032](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-032.jpg) 
 
 这个游戏是众多游戏中，聚会效果最成功的一个。「1-2 SWITCH」里边内置了 28 个沙雕游戏。玩起来场面很炸，一群成年人嘻嘻哈哈笑得跟傻逼一样。
 
@@ -232,11 +232,11 @@ comments: true
 
 「1-2 SWITCH：魔法师对决」 
 --- 
-[](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-033.jpg) 
+![Travel SuZhou HangZhou ShangHai 033](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-033.jpg) 
 
 * * *
 
-## 三、人间天堂——杭城
+# 4. 人间天堂——杭城
 
 > **望海潮·东南形胜 [柳永]** 
 > 东南形胜，三吴都会，钱塘自古繁华。烟柳画桥，风帘翠幕，参差十万人家。 
@@ -250,7 +250,7 @@ comments: true
 
 * * *
 
-### 3.1 西湖
+## 4.1 西湖
 
 提起杭州，最先想到的应该就是西湖了。自古以来，不少的文人墨客都将西湖描绘成人间仙境。"欲把西湖比西子，淡妆浓抹总相宜"。西湖就像是一位柔情似水的江南女子，温柔清婉，可爱怡人。
 
@@ -259,13 +259,13 @@ comments: true
 
 「西湖全景图」 
 --- 
-[](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-034.jpg) 
+![Travel SuZhou HangZhou ShangHai 034](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-034.jpg) 
 
 西湖周边群山环绕，我和朋友到达西湖风景区的第一件事，是骑上共享单车，绕湖骑行。骑行路上微风习习，绿树成荫，两边是绝美的湖景，山景。沿着山路时而上行，时而下行，十分的轻松惬意。
 
 「西湖山景」 
 --- 
-[](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-035.jpg) 
+![Travel SuZhou HangZhou ShangHai 035](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-035.jpg) 
 
 在西湖游玩的途中，我们先去了「雷峰塔」，最后在「断桥」结束行程。「断桥」是「白蛇传」中白娘子与许仙雨中相会，借伞定情的地方。而「雷峰塔」是因人妖殊途，白娘子后来被镇压的地方。
 
@@ -275,23 +275,23 @@ comments: true
 
 「断桥」 
 --- 
-[](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-036.jpg) 
+![Travel SuZhou HangZhou ShangHai 036](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-036.jpg) 
 「雷峰塔」 
 --- 
-[](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-037.jpg) 
+![Travel SuZhou HangZhou ShangHai 037](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-037.jpg) 
 
 西湖有十景，其中「三潭映月」被誉为"西湖第一胜境"。「西湖志」上说：“月光映潭，分塔为三，故有三潭印月之目”。据说，每逢月圆之夜，人们划船到湖中央去，在石塔上那三面透光的圆洞洞里点烛火，烛光映在湖里，就会出现好几个月影。
 
 「三潭映月」 
 --- 
-[](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-038.jpg) 
+![Travel SuZhou HangZhou ShangHai 038](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-038.jpg) 
 「三潭映月岛风景」 
 --- 
-[](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-039.jpg) 
+![Travel SuZhou HangZhou ShangHai 039](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-039.jpg) 
 
 * * *
 
-### 3.2 杭帮菜
+## 4.2 杭帮菜
 
 西湖游玩一圈，肚子也饿了。我们在杭州的最后一站，自然是品尝一下「杭帮菜」。
 
@@ -301,20 +301,20 @@ comments: true
 
 「叫花鸡」 | 「宋嫂鱼羹」 
 ---|--- 
-[](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-040.jpg) | [](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-041.jpg) 
+![Travel SuZhou HangZhou ShangHai 040](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-040.jpg) | ![Travel SuZhou HangZhou ShangHai 041](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-041.jpg) 
 「龙井虾仁」 | 「西湖醋鱼」 
-[](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-042.jpg) | [](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-043.jpg) 
+![Travel SuZhou HangZhou ShangHai 042](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-042.jpg) | ![Travel SuZhou HangZhou ShangHai 043](https://qcdn.itcharge.cn/images/Travel-SuZhou-HangZhou-ShangHai-043.jpg) 
 
- * 「叫花鸡」：用绍兴酒坛泥和西湖荷叶包裹后烤制，使荷叶的清香和母鸡的鲜香融为一体，鸡肉酥烂异香，味透而嫩，上筷骨肉脱离，荷香满溢。
- * 「宋嫂鱼羹」：将鲈鱼蒸熟后剔去皮骨，加上火腿丝、香菇、竹笋末、鸡汤等佐料烹制而成。色泽油亮，鲜嫩滑润，味似蟹肉。
- * 「龙井虾仁」：将清心碧绿的龙井绿茶与鲜活的西湖虾仁一起烹制，嫩鲜里浸透出茶特有的香味，特有的味道，让人回味醇鲜。
- * 「西湖醋鱼」：选用西湖草鱼，鱼长不过尺，重不逾半斤，宰割收拾过后沃以沸汤，熟即起锅，勾芡调汁，浇在鱼上，即可上桌。鱼肉嫩美，带有蟹味，道鲜嫩酸甜。
+- 「叫花鸡」：用绍兴酒坛泥和西湖荷叶包裹后烤制，使荷叶的清香和母鸡的鲜香融为一体，鸡肉酥烂异香，味透而嫩，上筷骨肉脱离，荷香满溢。
+  * 「宋嫂鱼羹」：将鲈鱼蒸熟后剔去皮骨，加上火腿丝、香菇、竹笋末、鸡汤等佐料烹制而成。色泽油亮，鲜嫩滑润，味似蟹肉。
+  * 「龙井虾仁」：将清心碧绿的龙井绿茶与鲜活的西湖虾仁一起烹制，嫩鲜里浸透出茶特有的香味，特有的味道，让人回味醇鲜。
+  * 「西湖醋鱼」：选用西湖草鱼，鱼长不过尺，重不逾半斤，宰割收拾过后沃以沸汤，熟即起锅，勾芡调汁，浇在鱼上，即可上桌。鱼肉嫩美，带有蟹味，道鲜嫩酸甜。
 
 
 
 * * *
 
-## 四、意犹未尽
+# 5. 意犹未尽
 
 这次旅行虽然没去成「拙政园」和「苏州博物馆」。但是体验了苏式宅院，还有上海的江景房。也品尝了地道的「苏帮菜」和「杭帮菜」，更是见到了众多朋友，共度了一个美好的清明。
 

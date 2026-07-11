@@ -14,8 +14,6 @@ Runtime 系列第一篇，讲解 Objective-C 消息发送机制、`objc_msgSend`
 
 <!-- more -->
 
-# 【Runtime】iOS 开发：「Runtime」详解（一）基础知识
-
 > 本文用来介绍 iOS 开发中「Runtime」相关的基础知识。通过本文，您将了解到：
 > 1. 什么是 Runtime？
 > 2. 消息机制的基本原理
@@ -25,9 +23,7 @@ Runtime 系列第一篇，讲解 Objective-C 消息发送机制、`objc_msgSend`
 
 ---
 
-
-
-[](https://qcdn.itcharge.cn/images/iOS-Runtime-01-001.png)
+![iOS Runtime 01 001](https://qcdn.itcharge.cn/images/iOS-Runtime-01-001.png)
 
 # 1. 什么是 Runtime？
 
@@ -52,14 +48,14 @@ Runtime 系列第一篇，讲解 Objective-C 消息发送机制、`objc_msgSend`
 我们来看看方法调用 `[receiver selector];` 在「编译阶段」和「运行阶段」分别做了什么？
 
 1. 编译阶段：`[receiver selector];` 方法被编译器转换为: 
- 1. `objc_msgSend(receiver，selector)` （不带参数）
- 2. `objc_msgSend(recevier，selector，org1，org2，…)`（带参数）
+   1. `objc_msgSend(receiver，selector)` （不带参数）
+   2. `objc_msgSend(recevier，selector，org1，org2，…)`（带参数）
 2. 运行时阶段：消息接受者 `recever` 寻找对应的 `selector`。
- 1. 通过 `recevier` 的 `isa 指针` 找到 `recevier` 的 `Class（类）`；
- 2. 在 `Class（类）` 的 `method list（方法列表）` 中找对应的 `selector`；
- 3. 如果在 `Class（类）` 中没有找到这个 `selector`，就继续在它的 `superClass（父类）`中寻找；
- 4. 一旦找到对应的 `selector`，直接执行 `recever` 对应 `selector` 方法实现的 `IMP（方法实现）`。
- 5. 若找不到对应的 `selector`，消息被转发或者临时向 `recever` 添加这个 `selector` 对应的实现方法，否则就会发生崩溃。
+   1. 通过 `recevier` 的 `isa 指针` 找到 `recevier` 的 `Class（类）`；
+   2. 在 `Class（类）` 的 `method list（方法列表）` 中找对应的 `selector`；
+   3. 如果在 `Class（类）` 中没有找到这个 `selector`，就继续在它的 `superClass（父类）`中寻找；
+   4. 一旦找到对应的 `selector`，直接执行 `recever` 对应 `selector` 方法实现的 `IMP（方法实现）`。
+   5. 若找不到对应的 `selector`，消息被转发或者临时向 `recever` 添加这个 `selector` 对应的实现方法，否则就会发生崩溃。
 
 在上述过程中涉及了好几个新的概念：`objc_msgSend`、`isa 指针`、`Class（类）`、`IMP（方法实现）` 等，下面我们来具体讲解一下各个概念的含义。
 
@@ -99,7 +95,7 @@ struct objc_class {
 
 > `objc_class 结构体` 的第一个成员变量是 `isa 指针`，`isa 指针` 保存的是所属类的结构体的实例的指针，这里保存的就是 `objc_class 结构体`的实例指针，而实例换个名字就是 **对象**。换句话说，`Class（类）` 的本质其实就是一个对象，我们称之为 **类对象**。
 
-## 3.3 Object（对象） 
+## 3.3 Object（对象）
 
 接下来，我们再来看看 `objc/objc.h` 中关于 `Object（对象）` 的定义。
 `Object（对象）`被定义为 `objc_object 结构体`，其数据结构如下：
@@ -152,7 +148,7 @@ NSString *testString = [NSString stringWithFormat:@"%d,%s",3, "test"];
 
 上面，我们讲解了 **实例对象（Object）**、**类（Class）**、**Meta Class（元类）** 的基本概念，以及简单的指向关系。下面我们通过一张图来清晰地表示出这种关系。
 
-[](https://qcdn.itcharge.cn/images/iOS-Runtime-01-002.png)
+![iOS Runtime 01 002](https://qcdn.itcharge.cn/images/iOS-Runtime-01-002.png)
 
 
 我们先来看 `isa 指针`：
@@ -228,7 +224,7 @@ typedef id _Nullable (*IMP)(id _Nonnull, SEL _Nonnull, ...);
 
 > 当一个方法找不到的时候，Runtime 提供了 **消息动态解析**、**消息接受者重定向**、**消息重定向** 等三步处理消息，具体流程如下图所示：
 
-[](https://qcdn.itcharge.cn/images/iOS-Runtime-01-003.png)
+![iOS Runtime 01 003](https://qcdn.itcharge.cn/images/iOS-Runtime-01-003.png)
 
 
 ## 4.1 消息动态解析
@@ -372,7 +368,7 @@ void funMethod(id obj, SEL _cmd) {
 ## 4.3 消息重定向
 
 如果经过消息动态解析、消息接受者重定向，Runtime 系统还是找不到相应的方法实现而无法响应消息，Runtime 系统会利用 `-methodSignatureForSelector:` 方法获取函数的参数和返回值类型。
- - 如果 `-methodSignatureForSelector:` 返回了一个 `NSMethodSignature` 对象（函数签名），Runtime 系统就会创建一个 `NSInvocation` 对象，并通过 `-forwardInvocation:` 消息通知当前对象，给予此次消息发送最后一次寻找 IMP 的机会。
+- 如果 `-methodSignatureForSelector:` 返回了一个 `NSMethodSignature` 对象（函数签名），Runtime 系统就会创建一个 `NSInvocation` 对象，并通过 `-forwardInvocation:` 消息通知当前对象，给予此次消息发送最后一次寻找 IMP 的机会。
 - 如果 `-methodSignatureForSelector:` 返回 `nil`。则 Runtime 系统会发出 `-doesNotRecognizeSelector:` 消息，程序也就崩溃了。
 
 所以我们可以在 `-forwardInvocation:` 方法中对消息进行转发。
@@ -472,20 +468,20 @@ void funMethod(id obj, SEL _cmd) {
 调用 `[receiver selector];` 后，进行的流程：
 
 1. 编译阶段：`[receiver selector];` 方法被编译器转换为: 
- 1. `objc_msgSend(receiver，selector)` （不带参数）
- 2. `objc_msgSend(recevier，selector，org1，org2，…)`（带参数）
+   1. `objc_msgSend(receiver，selector)` （不带参数）
+   2. `objc_msgSend(recevier，selector，org1，org2，…)`（带参数）
 2. 运行时阶段：消息接受者 `recever` 寻找对应的 `selector`。
- 1. 通过 `recevier` 的 `isa 指针` 找到 `recevier` 的 `class（类）`；
- 2. 在 `class（类）` 的 `method list（方法列表）` 中找对应的 `selector`；
- 3. 如果在 `class（类）` 中没有找到这个 `selector`，就继续在它的 `superclass（父类）`中寻找；
- 4. 一旦找到对应的 `selector`，直接执行 `recever` 对应 `selector` 方法实现的 `IMP（方法实现）`。
- 5. 若找不到对应的 `selector`，Runtime 系统进入消息转发机制。
+   1. 通过 `recevier` 的 `isa 指针` 找到 `recevier` 的 `class（类）`；
+   2. 在 `class（类）` 的 `method list（方法列表）` 中找对应的 `selector`；
+   3. 如果在 `class（类）` 中没有找到这个 `selector`，就继续在它的 `superclass（父类）`中寻找；
+   4. 一旦找到对应的 `selector`，直接执行 `recever` 对应 `selector` 方法实现的 `IMP（方法实现）`。
+   5. 若找不到对应的 `selector`，Runtime 系统进入消息转发机制。
 3. 运行时消息转发阶段：
- 1. 动态解析：通过重写 `+resolveInstanceMethod:` 或者 `+resolveClassMethod:`方法，利用 `class_addMethod `方法添加其他函数实现；
- 2. 消息接受者重定向：如果上一步添加其他函数实现，可在当前对象中利用 `-forwardingTargetForSelector:` 方法将消息的接受者转发给其他对象；
- 3. 消息重定向：如果上一步没有返回值为 `nil`，则利用 `-methodSignatureForSelector:`方法获取函数的参数和返回值类型。
- 1. 如果 `-methodSignatureForSelector:` 返回了一个 `NSMethodSignature` 对象（函数签名），Runtime 系统就会创建一个 `NSInvocation` 对象，并通过 `-forwardInvocation:` 消息通知当前对象，给予此次消息发送最后一次寻找 IMP 的机会。
- 2. 如果 `-methodSignatureForSelector:` 返回 `nil`。则 Runtime 系统会发出 `-doesNotRecognizeSelector:` 消息，程序也就崩溃了。
+   1. 动态解析：通过重写 `+resolveInstanceMethod:` 或者 `+resolveClassMethod:`方法，利用 `class_addMethod `方法添加其他函数实现；
+   2. 消息接受者重定向：如果上一步添加其他函数实现，可在当前对象中利用 `-forwardingTargetForSelector:` 方法将消息的接受者转发给其他对象；
+   3. 消息重定向：如果上一步没有返回值为 `nil`，则利用 `-methodSignatureForSelector:`方法获取函数的参数和返回值类型。
+   1. 如果 `-methodSignatureForSelector:` 返回了一个 `NSMethodSignature` 对象（函数签名），Runtime 系统就会创建一个 `NSInvocation` 对象，并通过 `-forwardInvocation:` 消息通知当前对象，给予此次消息发送最后一次寻找 IMP 的机会。
+   2. 如果 `-methodSignatureForSelector:` 返回 `nil`。则 Runtime 系统会发出 `-doesNotRecognizeSelector:` 消息，程序也就崩溃了。
 
 ---
 

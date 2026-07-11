@@ -14,7 +14,6 @@ comments: true
 
 <!-- more -->
 
-# 【网络请求】iOS 开发：「文件下载、断点下载」的实现（一）：NSURLConnection
 
 > 关于「文件下载、断点下载」所有实现的 Demo 地址：[Demo 地址](https://github.com/itcharge/YSC-DownloadDemo)
 
@@ -38,12 +37,12 @@ comments: true
 
 下面我们就根据文件大小，以及对应的实现方法来讲解下「文件下载、断点下载」的具体实现。本文主要讲解 NSData 和 NSURLConnection。
 
-# 2. 文件下载实现讲解
+### 1.1.3 文件下载实现讲解
 
-## 2.1 NSData（适用于小文件下载）
+## 1.2 NSData（适用于小文件下载）
 
 
-[NSData 小文件下载效果.gif](https://qcdn.itcharge.cn/images/iOS-Resume-Download-NSURLConnection-001.gif)
+![NSData 小文件下载效果.gif](https://qcdn.itcharge.cn/images/iOS-Resume-Download-NSURLConnection-001.gif)
 
 - 我们可以使用 NSData 的 `+ (id)dataWithContentsOfURL:(NSURL *)url;`进行小文件的下载
 - 这个方法实际上是发送一次 GET 请求，然后返回整个文件。
@@ -62,11 +61,11 @@ NSData *data = [NSData dataWithContentsOfURL:url];
 // 如果下载的是其他文件，然后可以将 data 转存为本地文件
 ```
 
-## 2.2 NSURLConnection
-### 2.2.1 NSURLConnection（小文件下载）
+## 1.3 NSURLConnection
+### 1.3.1 NSURLConnection（小文件下载）
 
 
-[NSURLConnection 小文件下载效果.gif](https://qcdn.itcharge.cn/images/iOS-Resume-Download-NSURLConnection-002.gif)
+![NSURLConnection 小文件下载效果.gif](https://qcdn.itcharge.cn/images/iOS-Resume-Download-NSURLConnection-002.gif)
 
 我们可以通过 NSURLConnection 发送异步 GET 请求来下载文件。
 
@@ -82,10 +81,10 @@ NSURL *url = [NSURL URLWithString:@"https://pics.sc.chinaz.com/files/pic/pic9/20
 }];
 ```
 
-### 2.2.2 NSURLConnection（大文件下载）
+### 1.3.2 NSURLConnection（大文件下载）
 
 
-[NSURLConnection 大文件下载效果.gif](https://qcdn.itcharge.cn/images/iOS-Resume-Download-NSURLConnection-003.gif)
+![NSURLConnection 大文件下载效果.gif](https://qcdn.itcharge.cn/images/iOS-Resume-Download-NSURLConnection-003.gif)
 
 对于大文件的下载，我们就不能使用上边的方法来下载了。因为你如果是几百兆以上的大文件，那么上边的方法返回的 data 就会一直在内存里，这样内存必然会爆掉，所以用上边的方法不合适。那么我们可以使用 NSURLConnection 的另一个方法`+ (NSURLConnection*)connectionWithRequest:(NSURLRequest *)request delegate:(id)delegate`通过发送异步请求，并实现相关代理方法来实现大文件的下载。
 
@@ -135,8 +134,8 @@ NSURL *url = [NSURL URLWithString:@"https://120.25.226.186:32812/resources/video
 我们需要做如下几步：
 1. 在接受到响应的时候，即在`didReceiveResponse`中创建一个空的沙盒文件，并且创建一个 NSFilehandle 类。
 2. 在接受到具体数据的时候，即在`didReceiveData`中向沙盒文件中写入数据。
- - 通过 NSFilehandle 的`- (void)seekToFileOffset:(unsigned long long)offset;`方法，制定文件的写入位置。或者通过 NSFilehandle 的`- (unsigned long long)seekToEndOfFile;`方法，直接制定文件的写入位置为文件末尾。
- - 然后通过 NSFilehandle 的`writeData`方法，我们可以想沙盒中的文件不断写入新数据。
+   - 通过 NSFilehandle 的`- (void)seekToFileOffset:(unsigned long long)offset;`方法，制定文件的写入位置。或者通过 NSFilehandle 的`- (unsigned long long)seekToEndOfFile;`方法，直接制定文件的写入位置为文件末尾。
+   - 然后通过 NSFilehandle 的`writeData`方法，我们可以想沙盒中的文件不断写入新数据。
 
 3. 在下载完成之后，关闭沙盒文件。
 
@@ -232,9 +231,9 @@ NSURL *url = [NSURL URLWithString:@"https://bmob-cdn-8782.b0.upaiyun.com/2017/01
 }
 ```
 
-### 2.2.3 NSURLConnection（断点下载 | 支持离线）
+### 1.3.3 NSURLConnection（断点下载 | 支持离线）
 
-[NSURLConnection 离线断点下载效果.gif](https://qcdn.itcharge.cn/images/iOS-Resume-Download-NSURLConnection-004.gif)
+![NSURLConnection 离线断点下载效果.gif](https://qcdn.itcharge.cn/images/iOS-Resume-Download-NSURLConnection-004.gif)
 
 NSURLConnection 并没有提供暂停下载的方法，只提供了取消下载任务的`cancel`方法。
 
