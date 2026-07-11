@@ -5,4 +5,4 @@
 .temp
 node_modules
 web
-/scripts/web_deploy.sh
+/scripts/

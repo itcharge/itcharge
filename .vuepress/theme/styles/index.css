@@ -14,6 +14,8 @@
   --itcharge-wave-2: color-mix(in srgb, var(--itcharge-bg-warm) 52%, transparent);
   --itcharge-wave-3: color-mix(in srgb, var(--itcharge-bg-warm) 32%, transparent);
   --itcharge-wave-4: var(--itcharge-bg-warm);
+  /* 全站底纹：叶片 SVG 平铺 */
+  --itcharge-bg-texture: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27200%27%20height%3D%27200%27%20viewBox%3D%270%200%20200%20200%27%3E%3Cg%20fill%3D%27none%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20stroke%3D%27%23b8956a%27%20stroke-opacity%3D%270.34%27%20stroke-width%3D%271.05%27%20d%3D%27M12%20175Q55%2095%2088%20155Q45%20168%2012%20175Z%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.22%27%20stroke-width%3D%270.62%27%20d%3D%27M30%20162Q58%20128%2076%20150%27%2F%3E%3Cpath%20stroke%3D%27%23b8956a%27%20stroke-opacity%3D%270.34%27%20stroke-width%3D%271.05%27%20d%3D%27M125%2018Q188%2055%20150%2092Q128%2048%20125%2018Z%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.22%27%20stroke-width%3D%270.62%27%20d%3D%27M142%2042Q162%2068%20148%2078%27%2F%3E%3Cpath%20stroke%3D%27%23b8956a%27%20stroke-opacity%3D%270.3%27%20stroke-width%3D%270.95%27%20d%3D%27M78%2095Q115%2048%20142%2088Q108%20108%2078%2095Z%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.2%27%20stroke-width%3D%270.58%27%20d%3D%27M92%2092Q112%2072%20126%2084%27%2F%3E%3Cpath%20stroke%3D%27%23b8956a%27%20stroke-opacity%3D%270.3%27%20stroke-width%3D%270.9%27%20d%3D%27M8%2058Q42%2022%2068%2052Q38%2062%208%2058Z%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.2%27%20stroke-width%3D%270.55%27%20d%3D%27M22%2052Q38%2038%2052%2048%27%2F%3E%3Cpath%20stroke%3D%27%23b8956a%27%20stroke-opacity%3D%270.3%27%20stroke-width%3D%270.9%27%20d%3D%27M168%2088Q198%20118%20172%20148Q152%20118%20168%2088Z%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.2%27%20stroke-width%3D%270.55%27%20d%3D%27M172%20108Q182%20128%20168%20132%27%2F%3E%3Cpath%20stroke%3D%27%23b8956a%27%20stroke-opacity%3D%270.27%27%20stroke-width%3D%270.85%27%20d%3D%27M48%20128Q72%20108%2088%20132Q62%20138%2048%20128Z%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.18%27%20stroke-width%3D%270.52%27%20d%3D%27M58%20128Q72%20118%2078%20126%27%2F%3E%3Cpath%20stroke%3D%27%23b8956a%27%20stroke-opacity%3D%270.27%27%20stroke-width%3D%270.85%27%20d%3D%27M108%20168Q138%20148%20152%20172Q124%20182%20108%20168Z%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.18%27%20stroke-width%3D%270.52%27%20d%3D%27M120%20168Q134%20158%20142%20168%27%2F%3E%3Cpath%20stroke%3D%27%23b8956a%27%20stroke-opacity%3D%270.25%27%20stroke-width%3D%270.75%27%20d%3D%27M22%2048Q38%2028%2052%2044Q36%2052%2022%2048Z%27%2F%3E%3Cpath%20stroke%3D%27%23b8956a%27%20stroke-opacity%3D%270.25%27%20stroke-width%3D%270.72%27%20d%3D%27M158%20142Q172%20128%20184%20140Q168%20148%20158%20142Z%27%2F%3E%3Cpath%20stroke%3D%27%23b8956a%27%20stroke-opacity%3D%270.22%27%20stroke-width%3D%270.7%27%20d%3D%27M92%208Q104%20-2%20116%2010Q100%2016%2092%208Z%27%2F%3E%3Cpath%20stroke%3D%27%23b8956a%27%20stroke-opacity%3D%270.22%27%20stroke-width%3D%270.68%27%20d%3D%27M175%2028Q186%2018%20196%2030Q182%2036%20175%2028Z%27%2F%3E%3Cpath%20stroke%3D%27%23b8956a%27%20stroke-opacity%3D%270.22%27%20stroke-width%3D%270.68%27%20d%3D%27M0%20145Q10%20132%2022%20142Q8%20150%200%20145Z%27%2F%3E%3Cpath%20stroke%3D%27%23b8956a%27%20stroke-opacity%3D%270.2%27%20stroke-width%3D%270.65%27%20d%3D%27M62%2042Q74%2034%2082%2046Q68%2050%2062%2042Z%27%2F%3E%3Cpath%20stroke%3D%27%23b8956a%27%20stroke-opacity%3D%270.2%27%20stroke-width%3D%270.65%27%20d%3D%27M138%2062Q150%2052%20160%2064Q146%2070%20138%2062Z%27%2F%3E%3Cpath%20stroke%3D%27%23b8956a%27%20stroke-opacity%3D%270.2%27%20stroke-width%3D%270.62%27%20d%3D%27M28%20108Q38%2098%2048%20108Q34%20114%2028%20108Z%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.2%27%20stroke-width%3D%270.6%27%20d%3D%27M0%2088C40%2072%2072%2096%20120%20110%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.18%27%20stroke-width%3D%270.52%27%20d%3D%27M165%20135C175%20155%20190%20165%20200%20175%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.18%27%20stroke-width%3D%270.5%27%20d%3D%27M36%2068C58%2082%2082%2074%20108%2088%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.17%27%20stroke-width%3D%270.48%27%20d%3D%27M132%20108C148%20122%20162%20118%20180%20128%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.17%27%20stroke-width%3D%270.46%27%20d%3D%27M52%20158C72%20148%2092%20162%20112%20152%27%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
 }
 
 html[data-theme="dark"] {
@@ -26,14 +28,41 @@ html[data-theme="dark"] {
   --itcharge-wave-2: color-mix(in srgb, var(--itcharge-bg-warm) 50%, transparent);
   --itcharge-wave-3: color-mix(in srgb, var(--itcharge-bg-warm) 30%, transparent);
   --itcharge-wave-4: var(--itcharge-bg-warm);
+  --itcharge-bg-texture: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27200%27%20height%3D%27200%27%20viewBox%3D%270%200%20200%20200%27%3E%3Cg%20fill%3D%27none%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.24%27%20stroke-width%3D%271.05%27%20d%3D%27M12%20175Q55%2095%2088%20155Q45%20168%2012%20175Z%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.15%27%20stroke-width%3D%270.62%27%20d%3D%27M30%20162Q58%20128%2076%20150%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.24%27%20stroke-width%3D%271.05%27%20d%3D%27M125%2018Q188%2055%20150%2092Q128%2048%20125%2018Z%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.15%27%20stroke-width%3D%270.62%27%20d%3D%27M142%2042Q162%2068%20148%2078%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.2%27%20stroke-width%3D%270.95%27%20d%3D%27M78%2095Q115%2048%20142%2088Q108%20108%2078%2095Z%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.14%27%20stroke-width%3D%270.58%27%20d%3D%27M92%2092Q112%2072%20126%2084%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.2%27%20stroke-width%3D%270.9%27%20d%3D%27M8%2058Q42%2022%2068%2052Q38%2062%208%2058Z%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.14%27%20stroke-width%3D%270.55%27%20d%3D%27M22%2052Q38%2038%2052%2048%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.2%27%20stroke-width%3D%270.9%27%20d%3D%27M168%2088Q198%20118%20172%20148Q152%20118%20168%2088Z%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.14%27%20stroke-width%3D%270.55%27%20d%3D%27M172%20108Q182%20128%20168%20132%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.17%27%20stroke-width%3D%270.85%27%20d%3D%27M48%20128Q72%20108%2088%20132Q62%20138%2048%20128Z%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.12%27%20stroke-width%3D%270.52%27%20d%3D%27M58%20128Q72%20118%2078%20126%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.17%27%20stroke-width%3D%270.85%27%20d%3D%27M108%20168Q138%20148%20152%20172Q124%20182%20108%20168Z%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.12%27%20stroke-width%3D%270.52%27%20d%3D%27M120%20168Q134%20158%20142%20168%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.16%27%20stroke-width%3D%270.75%27%20d%3D%27M22%2048Q38%2028%2052%2044Q36%2052%2022%2048Z%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.16%27%20stroke-width%3D%270.72%27%20d%3D%27M158%20142Q172%20128%20184%20140Q168%20148%20158%20142Z%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.15%27%20stroke-width%3D%270.7%27%20d%3D%27M92%208Q104%20-2%20116%2010Q100%2016%2092%208Z%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.15%27%20stroke-width%3D%270.68%27%20d%3D%27M175%2028Q186%2018%20196%2030Q182%2036%20175%2028Z%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.15%27%20stroke-width%3D%270.68%27%20d%3D%27M0%20145Q10%20132%2022%20142Q8%20150%200%20145Z%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.14%27%20stroke-width%3D%270.65%27%20d%3D%27M62%2042Q74%2034%2082%2046Q68%2050%2062%2042Z%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.14%27%20stroke-width%3D%270.65%27%20d%3D%27M138%2062Q150%2052%20160%2064Q146%2070%20138%2062Z%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.14%27%20stroke-width%3D%270.62%27%20d%3D%27M28%20108Q38%2098%2048%20108Q34%20114%2028%20108Z%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.15%27%20stroke-width%3D%270.6%27%20d%3D%27M0%2088C40%2072%2072%2096%20120%20110%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.14%27%20stroke-width%3D%270.52%27%20d%3D%27M165%20135C175%20155%20190%20165%20200%20175%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.14%27%20stroke-width%3D%270.5%27%20d%3D%27M36%2068C58%2082%2082%2074%20108%2088%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.13%27%20stroke-width%3D%270.48%27%20d%3D%27M132%20108C148%20122%20162%20118%20180%20128%27%2F%3E%3Cpath%20stroke%3D%27%23c9a978%27%20stroke-opacity%3D%270.13%27%20stroke-width%3D%270.46%27%20d%3D%27M52%20158C72%20148%2092%20162%20112%20152%27%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
 }
 
-/* 全站页面背景：淡金色（卡片/导航栏仍保持白色） */
+/* 全站底纹：淡金底色 + 内联 SVG 纹理，固定铺满视口 */
+html::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-color: var(--itcharge-bg-warm);
+  background-image: var(--itcharge-bg-texture);
+  background-repeat: repeat;
+}
+
+/* 边缘轻微晕影，让底纹更有层次 */
+html::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 35%,
+    color-mix(in srgb, var(--itcharge-bg-warm) 10%, transparent) 100%
+  );
+}
+
+/* 全站页面背景：透明以露出底纹层（卡片/导航栏仍保持白色） */
 body,
 html.bg-gray body,
 .vp-posts,
 .vp-content:not(.is-home) {
-  background-color: var(--itcharge-bg-warm);
+  background-color: transparent;
 }
 
 /* 文章页：正文与「此页内容」白底，外围保持淡金背景 */
@@ -186,12 +215,12 @@ html[data-theme="dark"] .itcharge-home {
   --itcharge-home-card-shadow-hover: 0 10px 28px rgb(0 0 0 / 28%);
 }
 
-/* 首页 banner 以下：探索内容 + 文章列表统一淡金背景 */
+/* 首页 banner 以下：探索内容 + 文章列表透出底纹 */
 .itcharge-home .vp-home,
 .itcharge-home .vp-home .layout,
 .itcharge-home .vp-home-features,
 .itcharge-home .vp-posts.home-posts {
-  background-color: var(--itcharge-bg-warm) !important;
+  background-color: transparent !important;
 }
 
 .itcharge-home .vp-home-features {
@@ -414,7 +443,7 @@ html[data-theme="dark"] .itcharge-about {
 }
 
 .itcharge-about .vp-home {
-  background-color: var(--vp-c-bg-soft, var(--vp-c-bg-alt));
+  background-color: transparent;
 }
 
 /* 个人简介：居中展示 */
